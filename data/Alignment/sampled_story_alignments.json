@@ -1,0 +1,4452 @@
+[
+  {
+    "PairID": "P131",
+    "EventsA": [
+      "I was in one of those graduate programs",
+      "I was almost nine years in the bank",
+      "We made our classes fun",
+      "The number of people in the class grew from 23 to about 200 after eight weeks"
+    ],
+    "EventsB": [
+      "I was applying for the flight attendant positions",
+      "A friend suggested I consider being a pilot and flying the plane"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P189",
+    "EventsA": [
+      "Tom Merit and the narrator decided to start a new show based on science fiction and fantasy."
+    ],
+    "EventsB": [
+      "I graduated with a degree in physiological sciences",
+      "I organized and did community service and protested",
+      "I did not get into medical school",
+      "I worked for United Technologies",
+      "I helped minority women, LGBT, and veteran owned businesses get opportunities to compete",
+      "I joined a woman\u2019s professional sports team"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P000",
+    "EventsA": [
+      "My guidance counselor told me I love to be in big cities",
+      "My guidance counselor told me I love to study human behavior and psychology",
+      "I chose to go to NYU",
+      "I got my first job in marketing analytics",
+      "I realized that I really like marketing analytics"
+    ],
+    "EventsB": [
+      "I tried out the research field for a little while",
+      "I took a teaching job in the middle school",
+      "I took a curriculum writing and editing job"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P196",
+    "EventsA": [
+      "I moved to New York after graduation",
+      "I auditioned to sing in New York",
+      "I decided that the environment in New York wasn't something I wanted to be in"
+    ],
+    "EventsB": [
+      "Julian Serrano went to culinary school when he was 16 years old."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P072",
+    "EventsA": [
+      "He said to go to school and get all the degrees you can get.",
+      "He said to get into business and make all the money you can get.",
+      "He said to start a band or a night-club.",
+      "He said not to do it the hard way like they did.",
+      "He said he probably would have went to school if he went back.",
+      "He said he had been in a lot of trouble in his life.",
+      "He said he had been to prison twice."
+    ],
+    "EventsB": [
+      "I went to school for welding, design, pouring metal, and working in the foundry",
+      "I thought it was everything",
+      "I remembered thinking this is not me",
+      "I had to drop everything and start over",
+      "I moved",
+      "I took some time off",
+      "I traveled to Colorado",
+      "I experimented with different processes",
+      "I ended up blowing glass for the first time",
+      "I fell in love with blowing glass"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  },
+  {
+    "PairID": "P212",
+    "EventsA": [
+      "I was going to school at Colorado State University",
+      "Someone said they were selling tunneling stuff to Napa Valley",
+      "We came out to Napa Valley",
+      "We talked to another contractor who was in trouble",
+      "We agreed to do the tunneling work",
+      "We built a cave",
+      "My wife and I started a company",
+      "We sat down and talked about starting the company"
+    ],
+    "EventsB": [
+      "went tree-planting",
+      "spent up to two months living as a tribe",
+      "went to some incredible natural places",
+      "planted trees all day long",
+      "changed whole value set",
+      "changed life direction"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P292",
+    "EventsA": [
+      "came down to Miami",
+      "went to law school",
+      "practiced law for about a year and a half",
+      "decided to open up a scuba shop"
+    ],
+    "EventsB": [
+      "I came out and had a film",
+      "I started looking for jobs",
+      "I went for job interviews",
+      "I shied away from certain things",
+      "I met people who were independent filmmakers",
+      "We decided to raise money",
+      "We tried to make a film"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            1
+          ]
+        },
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "a_indices": [
+            4
+          ],
+          "b_indices": [
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "unmatched_a": [
+        3
+      ],
+      "unmatched_b": []
+    }
+  },
+  {
+    "PairID": "P091",
+    "EventsA": [
+      "I got thrown out of my culinary degree program",
+      "I apprenticed for two-and-a-half years in Europe",
+      "I went from being a fine dining chef to running a beer bar",
+      "I learned how to tap kegs"
+    ],
+    "EventsB": [
+      "Majored in geology",
+      "Decided physics was not for me",
+      "Jumped from job to job",
+      "Discovered community education",
+      "Felt passion for community education"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            2
+          ]
+        },
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            3
+          ]
+        }
+      ],
+      "unmatched_a": [
+        2,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P126",
+    "EventsA": [
+      "I did an arts commerce degree at Melbourne Uni.",
+      "I managed to get the degree and I passed over five years.",
+      "I spent the entire time there just doing theater.",
+      "I made a very clear decision to leave Australia to go overseas and continue studying.",
+      "I chose to be an actor."
+    ],
+    "EventsB": [
+      "Julian Serrano went to culinary school when he was 16 years old."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P310",
+    "EventsA": [
+      "She traveled to Greenland in 2006 with her family for the first time"
+    ],
+    "EventsB": [
+      "I was born in Chicago when all that stuff was happening",
+      "I saw Chicago burn down",
+      "I saw the tanks roll through our neighborhood"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P053",
+    "EventsA": [
+      "I got out of college",
+      "I went into the Army Reserve through the Communications Officer",
+      "I got a job working for the Air Force Research Laboratory",
+      "I worked at an Engineer and Developing Technology to make weapons smarter",
+      "I tried to get the switch going on from government work to entrepreneurship"
+    ],
+    "EventsB": [
+      "Developed a kit called LilyPad Arduino that lets you sew electronics into your clothes",
+      "Started to play and build stuff with electronics and textiles",
+      "Felt a tremendous a-ha moment connecting crafty hobbies with electronics and computer science"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P228",
+    "EventsA": [
+      "left Brooklyn and went to Michigan",
+      "was scared and insecure",
+      "couldn't complete a sentence",
+      "donated blood in order to eat"
+    ],
+    "EventsB": [
+      "I decided to study architecture",
+      "I moved out to California",
+      "Eli and I met each other in California",
+      "I tried Switchel for the first time",
+      "We sold the first jar at the farmer's market in Vermont"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P038",
+    "EventsA": [
+      "I decided to become an architect with my guidance counselor",
+      "I realized I wasn't good at architecture and didn't like it",
+      "I graduated from college",
+      "I had a few nationally-released records"
+    ],
+    "EventsB": [
+      "became a corporate trainer",
+      "ended up with AT&T",
+      "came to Texas",
+      "went to a strong engineering school",
+      "decided not to do engineering",
+      "went back to school the next semester",
+      "studied to be a teacher"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            4,
+            5
+          ]
+        },
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            6
+          ]
+        }
+      ],
+      "unmatched_a": [
+        2,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P118",
+    "EventsA": [
+      "They got me into college",
+      "They managed to keep me in school",
+      "I found a little town in northern California",
+      "I ended up at a little zen Buddhist community",
+      "People told me I'd make a good psychotherapist",
+      "I knew what I wanted to do"
+    ],
+    "EventsB": [
+      "He was thrown over 50 feet from a car",
+      "People thought he died",
+      "People thought he would never walk again"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P237",
+    "EventsA": [
+      "We had record deals.",
+      "We toured across the country.",
+      "We had a deal with a network to do a television show based on The Aquabats.",
+      "We decided to do the show ourselves.",
+      "We put a trailer on the internet.",
+      "The trailer got two million hits in a week."
+    ],
+    "EventsB": [
+      "You were there for Toy Story.",
+      "I was hired to art direct Toy Story."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P311",
+    "EventsA": [
+      "Tom Merit and the narrator decided to start a new show based on science fiction and fantasy."
+    ],
+    "EventsB": [
+      "I broke my neck in a diving accident on July 20th, 1988.",
+      "The accident left me a quadriplegic at the cervical four, five level.",
+      "I started over again at that point.",
+      "I never told anybody about my learning disability.",
+      "I went all the way through college getting accommodations for being in a wheelchair without letting anybody know that I was dyslexic."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P336",
+    "EventsA": [
+      "I thought I had never seen the country",
+      "I thought I had never been anywhere",
+      "I realized I was not the only one that felt awkward",
+      "I learned that I was not a freak",
+      "I learned that I was not all of the words I had heard over the years",
+      "I learned that I was not terminally unique",
+      "I learned that I was just kind of like everybody else"
+    ],
+    "EventsB": [
+      "He worked for Cincinnati Gas and Electric Company",
+      "He sold shoes on weekends",
+      "He drove a cement truck for one day"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P044",
+    "EventsA": [
+      "I had $300",
+      "I got a plane ticket to Bali for graduation",
+      "I went off on my own",
+      "I started walking through the rice fields",
+      "I found a little house to rent",
+      "I shipped all my paints",
+      "My paints got lost",
+      "I became a sculpture because I had no paint",
+      "I began experimenting with fishing twine",
+      "I had a dream of bringing it back home",
+      "I applied to seven art schools",
+      "I was rejected by all seven art schools",
+      "I had to learn how to teach myself",
+      "I had to teach myself how to hear my own voice"
+    ],
+    "EventsB": [
+      "I decided to try the field of biomedical engineering",
+      "I was in college taking classes",
+      "I walked by a lab with a door that said artificial organs",
+      "I found the right interface for me that summer",
+      "We invented nano sensors that can be injected to detect disease",
+      "I experienced impostor syndrome"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            1,
+            2
+          ]
+        },
+        {
+          "a_indices": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "b_indices": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "a_indices": [
+            11,
+            12,
+            13,
+            14
+          ],
+          "b_indices": [
+            6
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2
+      ],
+      "unmatched_b": []
+    }
+  },
+  {
+    "PairID": "P233",
+    "EventsA": [
+      "went to a car show",
+      "washed and waxed my car",
+      "went to the car show with someone",
+      "a company called Go Rhino offered free brush cards",
+      "put the brush cards on my car",
+      "put the Go Rhino sticker on my car at the next show",
+      "got a bunch of sponsors who gave me stuff for free",
+      "put the sponsors' items on my car",
+      "appeared on a magazine cover"
+    ],
+    "EventsB": [
+      "I spent a lot of my life in print journalism",
+      "I was in the newsroom of the Washington Post all during Watergate",
+      "I was both an editor and a reporter",
+      "I was sent to Moscow for four years as Moscow Bureau Chief",
+      "I started working at NPR"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P318",
+    "EventsA": [
+      "He was thrown over 50 feet from a car",
+      "People thought he died",
+      "People thought he would never walk again"
+    ],
+    "EventsB": [
+      "came down to Miami",
+      "went to law school",
+      "practiced law for about a year and a half",
+      "decided to open up a scuba shop"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P279",
+    "EventsA": [
+      "lost my job",
+      "left my wife",
+      "was homeless",
+      "a headhunter told me Marvel Comics was looking for somebody with a business background who reads comic books",
+      "became president of Marvel Comics"
+    ],
+    "EventsB": [
+      "A colleague recommended me to a recruiter at eBay",
+      "They hired me",
+      "I tried to make loose-leaf tea at my desk",
+      "I tried to use tea bags instead",
+      "I thought about the idea for tea drops",
+      "I spent about a year and a half experimenting",
+      "I started sharing tea drops with colleagues, friends, and family",
+      "Tea drops became available in over 1,600 retail stores"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            4
+          ],
+          "b_indices": [
+            1
+          ]
+        },
+        {
+          "a_indices": [
+            5
+          ],
+          "b_indices": [
+            8
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P160",
+    "EventsA": [
+      "Started career in law as a paralegal",
+      "Went into film and TV",
+      "Convinced some investors to take a chance on something different",
+      "Created Gamer World News",
+      "Became a contributor on national news"
+    ],
+    "EventsB": [
+      "My friend asked me to work with her at Holy Redeemer Health System.",
+      "I said okay to the job offer."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P143",
+    "EventsA": [
+      "I spent 17 years at IBM",
+      "I got tired of it",
+      "I started taking control of my career",
+      "I got a job at Charles Schwab",
+      "I moved out here",
+      "I started a hobby, Craigslist",
+      "I sent friends notices about cool events",
+      "People made suggestions of new categories",
+      "I decided to make Craigslist a real company"
+    ],
+    "EventsB": [
+      "Roger Penske's father took him to Indianapolis to the race in 1951"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P297",
+    "EventsA": [
+      "I went to college",
+      "I found a passion for science",
+      "My passion shifted from doing research to understanding how to get my invention to the market",
+      "I did an internship with an investment firm",
+      "I met the CEO of Recovery Force",
+      "I was brought onto Recovery Force to help promote and support research through funding from the National Institute of Health"
+    ],
+    "EventsB": [
+      "went to a car show",
+      "washed and waxed my car",
+      "went to the car show with someone",
+      "a company called Go Rhino offered free brush cards",
+      "put the brush cards on my car",
+      "put the Go Rhino sticker on my car at the next show",
+      "got a bunch of sponsors who gave me stuff for free",
+      "put the sponsors' items on my car",
+      "appeared on a magazine cover"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "PairID": "P142",
+    "EventsA": [
+      "The directors sat the narrator down and told them they should be a director."
+    ],
+    "EventsB": [
+      "He was a captain in the Marine Corps in command of 950 marines and sailors",
+      "He went out to the Liberty Formation before launching the servicemen and women for the weekend",
+      "He took a job with a medical IT company",
+      "He looked through spreadsheets to see if there were duplicate hospitals",
+      "He figured out how to become a non profit leader and build a non profit",
+      "He fought on national TV to help pay his bills"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P097",
+    "EventsA": [
+      "My home life became chaotic",
+      "I started to waver in my self esteem and expectations for myself at school",
+      "I had AP English with Mister Shirts in 11th grade",
+      "Mister Shirts made the class joyful",
+      "Mister Shirts made me want to excel",
+      "A teacher held the door of opportunity open for me to walk through"
+    ],
+    "EventsB": [
+      "became a corporate trainer",
+      "ended up with AT&T",
+      "came to Texas",
+      "went to a strong engineering school",
+      "decided not to do engineering",
+      "went back to school the next semester",
+      "studied to be a teacher"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P004",
+    "EventsA": [
+      "I cried a lot",
+      "I meditated",
+      "I declared that I was going to walk away from all of it and become a potter"
+    ],
+    "EventsB": [
+      "I ended up getting pregnant really young",
+      "I got married right after that",
+      "I started writing on the web as a house wife",
+      "I started getting jobs",
+      "someone else online published a book",
+      "I gave myself a year to write a book and get it published"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P330",
+    "EventsA": [
+      "I turned 30",
+      "I felt depressed on my 30th birthday",
+      "I started Linda.com when I was 40",
+      "I didn't touch a computer until I was 28"
+    ],
+    "EventsB": [
+      "The median wealth of a white family was about $110,000",
+      "The median wealth of black and Latino families combined was around $15,000 to $20,000",
+      "The speaker felt that going to college involved taking family responsibilities along",
+      "The speaker's mom called because there was not enough food to eat",
+      "The speaker's sister called because they did not have supplies for school or new clothes",
+      "The speaker found advisors or counselors who could relate and understand their situation",
+      "The speaker felt validated by the advisors or counselors"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P235",
+    "EventsA": [
+      "I interned at Travelers for three years during college",
+      "I worked as an underwriter in the construction industry",
+      "I went into insurance agencies to introduce Travelers and what I could offer"
+    ],
+    "EventsB": [
+      "I came out and had a film",
+      "I started looking for jobs",
+      "I went for job interviews",
+      "I shied away from certain things",
+      "I met people who were independent filmmakers",
+      "We decided to raise money",
+      "We tried to make a film"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P362",
+    "EventsA": [
+      "The professor took a group of students to Cambodia to study human trafficking.",
+      "They met with different crisis centers in Cambodia that help people who are sex trafficked.",
+      "The narrator came back and decided something had to happen."
+    ],
+    "EventsB": [
+      "I started really getting into my entrepreneurial gear when I was seven"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P036",
+    "EventsA": [
+      "I was in Chile",
+      "I was about to finish college",
+      "I spoke English before I came here",
+      "I didn't get out of my apartment for about a year",
+      "I came across an ad",
+      "They were looking for a coordinator",
+      "I started teaching",
+      "I loved teaching"
+    ],
+    "EventsB": [
+      "I went to UC Berkeley",
+      "I started out as a philosophy major and an art major",
+      "I took anthropology",
+      "I decided I wanted to do theater",
+      "I got out of UC Berkeley",
+      "I applied to the Asian art museum",
+      "I applied for the program assistant position in performing arts"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            1
+          ]
+        },
+        {
+          "a_indices": [
+            7
+          ],
+          "b_indices": [
+            7
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "unmatched_b": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P261",
+    "EventsA": [
+      "I started working for SLUG Magazine",
+      "The previous owner of SLUG called me up and asked me to shoot a cover",
+      "I shot a cover",
+      "I became a managing editor",
+      "I had the opportunity to take over the magazine",
+      "I officially became editor and then publisher",
+      "I learned to appreciate Salt Lake City for what it is",
+      "Individuals came up to me and said they would not be where they are today if it wasn't for their experience with SLUG Magazine"
+    ],
+    "EventsB": [
+      "I got my commercial fishing license",
+      "I ended up living on Nantucket for four more years",
+      "I built this business",
+      "My parents questioned me about starting a juice company"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P086",
+    "EventsA": [
+      "enrolled back in college",
+      "partied the one year in college away",
+      "was not invited to go back to college",
+      "started doing radio",
+      "stumbled onto the idea for the first documentary",
+      "worked on the first documentary"
+    ],
+    "EventsB": [
+      "I was in one of those graduate programs",
+      "I was almost nine years in the bank",
+      "We made our classes fun",
+      "The number of people in the class grew from 23 to about 200 after eight weeks"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P354",
+    "EventsA": [
+      "I got shot in June 2007.",
+      "I took a bullet side-to-side through the knee on a house raid."
+    ],
+    "EventsB": [
+      "Tracy had tons of different jobs when she was in college",
+      "Tracy spun the wheel on the boardwalk",
+      "A light bulb went off for Tracy one day",
+      "Tracy went to see a film called The Commitment",
+      "Tracy saw the job called a music supervisor for the first time"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P103",
+    "EventsA": [
+      "I tried out the research field for a little while",
+      "I took a teaching job in the middle school",
+      "I took a curriculum writing and editing job"
+    ],
+    "EventsB": [
+      "I wrote some compositions.",
+      "My mother put the compositions in for an arts festival.",
+      "The time came for giving out the awards and prizes.",
+      "He held my compositions above his head.",
+      "He said the compositions were so bad that he could not consider them for the competition.",
+      "He said I should be discouraged from ever composing again."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P368",
+    "EventsA": [
+      "Michael Stipe saw some of the stuff that the narrator had done",
+      "The narrator went down to Athens, Georgia",
+      "People responded to the narrator's personal, experimental films",
+      "People asked the narrator to do other things with them or for them",
+      "The narrator left New Jersey",
+      "The narrator went to Athens, Georgia"
+    ],
+    "EventsB": [
+      "I started as a Hispanic woman in sports reporting",
+      "I had someone sit down and say to me that I got the job because I was a Hispanic woman",
+      "I said I got the job because I am amazing",
+      "I learned that people would say I only got the job because of my background",
+      "I had people ask me if I liked tech",
+      "I told myself to ignore negative people and use them as motivation"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P156",
+    "EventsA": [
+      "Her mother died when she was six",
+      "She decided she would be a stockbroker",
+      "She was sent off with million dollars in checks to deliver somewhere",
+      "She realized being a stockbroker was not the avenue she wanted to go down",
+      "She made the same mistake over and over again until she learned the lesson"
+    ],
+    "EventsB": [
+      "They were having the best time, laughing and listening to music.",
+      "I asked if I could do that with them next week.",
+      "He said okay.",
+      "I came to a reckoning in my life at a very early age.",
+      "I worked at a fast-food restaurant for the last time.",
+      "I said that was the last time I was going to ask anybody if they wanted fries with that Coke."
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            4
+          ],
+          "b_indices": [
+            4
+          ]
+        },
+        {
+          "a_indices": [
+            5
+          ],
+          "b_indices": [
+            5,
+            6
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P102",
+    "EventsA": [
+      "I entered foster care when I was about three and a half years old",
+      "I had 14 different foster homes",
+      "I decided I had to do something and say something about my situation",
+      "I resolved not to turn to drugs, run away, or become part of the negative statistics",
+      "I decided not to just complain about foster care but to be part of the solution",
+      "I decided to be directly involved in the system that failed me",
+      "I opened a non-profit organization that provides direct services to children and families"
+    ],
+    "EventsB": [
+      "They entertained a lot of their friends.",
+      "They started home brewing."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P364",
+    "EventsA": [
+      "Tom Arviso, Jr. started as a college intern at the Navajo Times.",
+      "Tom Arviso, Jr. rose through the ranks at the Navajo Times.",
+      "Tom Arviso, Jr. became the CEO of the Navajo Time Publishing Company, Incorporated."
+    ],
+    "EventsB": [
+      "I played electric guitar and sang",
+      "I went to work for a law firm",
+      "I decided to try to become a recording engineer",
+      "I became an audio person for Microsoft"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P048",
+    "EventsA": [
+      "I got my Ph.D."
+    ],
+    "EventsB": [
+      "Majored in geology",
+      "Decided physics was not for me",
+      "Jumped from job to job",
+      "Discovered community education",
+      "Felt passion for community education"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P184",
+    "EventsA": [
+      "He was a captain in the Marine Corps in command of 950 marines and sailors",
+      "He went out to the Liberty Formation before launching the servicemen and women for the weekend",
+      "He took a job with a medical IT company",
+      "He looked through spreadsheets to see if there were duplicate hospitals",
+      "He figured out how to become a non profit leader and build a non profit",
+      "He fought on national TV to help pay his bills"
+    ],
+    "EventsB": [
+      "Did not like practicing law",
+      "Did not like where I was doing it",
+      "Decided to make the jump",
+      "Went to another firm"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P012",
+    "EventsA": [
+      "got a job driving trucks",
+      "went to university for a year and studied philosophy and phenomenology of religion",
+      "realized it wasn't really what I wanted to do",
+      "finished the year",
+      "went back to driving trucks",
+      "started speed-skiing",
+      "went to Europe",
+      "met AJ Hackett",
+      "assembled bungee as a personal challenge"
+    ],
+    "EventsB": [
+      "I found the thing that I loved accidentally"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "b_indices": [
+            1
+          ]
+        }
+      ],
+      "unmatched_a": [],
+      "unmatched_b": []
+    }
+  },
+  {
+    "PairID": "P280",
+    "EventsA": [
+      "She took a year off",
+      "She moved up to Northern California",
+      "She went to the Krenov School",
+      "She completed a year-long certificate program on furniture making"
+    ],
+    "EventsB": [
+      "graduated from high school in 2007",
+      "took a trip to Tanzania",
+      "met a young man named John",
+      "learned that John couldn't afford to go to high school",
+      "was inspired to create the School Fund"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            2
+          ]
+        }
+      ],
+      "unmatched_a": [
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P034",
+    "EventsA": [
+      "I went to New York",
+      "I had a complete fall-apart after Cornell",
+      "I started working on the weekends at a cheese stand",
+      "I sold cheese in a farmer's market for two years",
+      "I went back to graduate school",
+      "I got a Master's in Communication, Culture, and Technology"
+    ],
+    "EventsB": [
+      "My parents divorced when I was nine",
+      "I went on a big sailing trip",
+      "I finished the trip",
+      "I wound up back in Seattle",
+      "I started thinking about the Vend\u00e9e Globe race",
+      "I stuck it out and made it to the finish",
+      "I had a great welcome in France"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P380",
+    "EventsA": [
+      "My mother cooked enough food for 30 people every night"
+    ],
+    "EventsB": [
+      "Grandpa started an insurance agency in Ontonagon, Michigan",
+      "I chose to specialize in transportation insurance"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P278",
+    "EventsA": [
+      "I picked a ballpark major that seemed approximately where I wanted to go",
+      "I got a great job where I earned a salary",
+      "I taught coding to women to help them enter the tech world"
+    ],
+    "EventsB": [
+      "I enlisted for three years",
+      "I spent two years in France",
+      "I spent one year in the southwest of France",
+      "I spent one year in Paris",
+      "I returned from France",
+      "I went to work as a general assignment reporter at the newspaper",
+      "I told my editor I didn't want to do the job anymore",
+      "My editor said they needed a restaurant reviewer",
+      "I decided to become a restaurant reviewer"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "PairID": "P029",
+    "EventsA": [
+      "I thought I would give journalism a shot"
+    ],
+    "EventsB": [
+      "I took a class in junior high",
+      "I learned to start developing black and white film and printing",
+      "I got a job offer in Toledo, Ohio to work for a portrait studio",
+      "I worked at the portrait studio for two weeks",
+      "I overheard my roommate saying she needed some help in the office",
+      "I helped in the office",
+      "I decided to shoot full time and open up a studio",
+      "I moved to Dallas"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            7
+          ]
+        }
+      ],
+      "unmatched_a": [],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ]
+    }
+  },
+  {
+    "PairID": "P302",
+    "EventsA": [
+      "Father took me to see the Florida A&M marching band",
+      "I thought I wanted to play like that",
+      "I wanted the suit the drum major had on"
+    ],
+    "EventsB": [
+      "Worked at Boston Consulting Group for almost seven years",
+      "Started asking himself if this was what he wanted to do for the rest of his life",
+      "Decided not to continue just to get rich",
+      "Decided to start his own company to pursue happiness"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            2
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P204",
+    "EventsA": [
+      "I married at 28 years of age",
+      "I realized that I needed an education",
+      "I turned my life around",
+      "I went to a community college",
+      "I transferred to UCLA",
+      "I became a writer",
+      "I became an advocate",
+      "We formed the National Hispanic Media Coalition"
+    ],
+    "EventsB": [
+      "I got thrown out of my culinary degree program",
+      "I apprenticed for two-and-a-half years in Europe",
+      "I went from being a fine dining chef to running a beer bar",
+      "I learned how to tap kegs"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P148",
+    "EventsA": [
+      "Her second son was born with a lung disease",
+      "He got jaundice",
+      "She brought him home",
+      "He lost the ability to wake to feed",
+      "She watched him struggle to breathe"
+    ],
+    "EventsB": [
+      "I took lots of maths and sciences all through high school",
+      "I heard about a school that taught film production",
+      "I got accepted at the film production school",
+      "I went from film production to animation to computer animation"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P133",
+    "EventsA": [
+      "The narrator washed dishes at a hospital in Philadelphia.",
+      "The narrator wore heavy gloves to handle communicable diseases.",
+      "The narrator started working their way up the ladder.",
+      "The narrator remembered that they could be doing the dishwashing job.",
+      "The narrator recalled their father training to run marathons."
+    ],
+    "EventsB": [
+      "I went out with my husband",
+      "We went to dinner",
+      "We were meeting people",
+      "I said I make things",
+      "We got in the car",
+      "He asked why I didn't say I was an artist"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P180",
+    "EventsA": [
+      "Her second son was born with a lung disease",
+      "He got jaundice",
+      "She brought him home",
+      "He lost the ability to wake to feed",
+      "She watched him struggle to breathe"
+    ],
+    "EventsB": [
+      "I started volunteering and working in zoos"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P020",
+    "EventsA": [
+      "My mom left me with my grandma and my sister",
+      "My grandma raised me until I was eight",
+      "My mom said one of us could go with her",
+      "My mom saved enough money to pay a coyotaje",
+      "My mom trusted a coyotaje to bring me to the United States",
+      "I traveled with a group of people to the United States",
+      "I completed my four year degree",
+      "I came back from college",
+      "I started supporting my family financially",
+      "I provided rent money for my mom, sister, and niece"
+    ],
+    "EventsB": [
+      "I lost everything to Hurricane Katrina",
+      "I received my cancer diagnosis"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P210",
+    "EventsA": [
+      "decided not to do advertising anymore",
+      "wrote a short story",
+      "sent the short story to the literary journal ZYZZYVA",
+      "ZYZZYVA printed the short story",
+      "agent sent the short story to Alan Ball",
+      "Alan Ball loved the short story",
+      "got hired on the show Six Feet Under"
+    ],
+    "EventsB": [
+      "A colleague recommended me to a recruiter at eBay",
+      "They hired me",
+      "I tried to make loose-leaf tea at my desk",
+      "I tried to use tea bags instead",
+      "I thought about the idea for tea drops",
+      "I spent about a year and a half experimenting",
+      "I started sharing tea drops with colleagues, friends, and family",
+      "Tea drops became available in over 1,600 retail stores"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            1
+          ]
+        },
+        {
+          "a_indices": [
+            2,
+            3,
+            4
+          ],
+          "b_indices": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "a_indices": [
+            5
+          ],
+          "b_indices": [
+            1
+          ]
+        },
+        {
+          "a_indices": [
+            6,
+            7
+          ],
+          "b_indices": [
+            2,
+            8
+          ]
+        }
+      ],
+      "unmatched_a": [],
+      "unmatched_b": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P197",
+    "EventsA": [
+      "I had a childhood with a certain degree of violence and an overlay of alcoholism",
+      "I slipped into disordered eating, drug use and abuse, and promiscuity as a teenager",
+      "I was really angry",
+      "I was hungry when I could get around good teachers",
+      "I began dancing"
+    ],
+    "EventsB": [
+      "He flew airplanes.",
+      "He built airplanes.",
+      "He studied airplanes.",
+      "He was in Key West in A7s.",
+      "He tried to qualify at the ship for the second time.",
+      "He faced a moment where he would either get a thumbs up or fail."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P395",
+    "EventsA": [
+      "I broke my neck in a diving accident on July 20th, 1988.",
+      "The accident left me a quadriplegic at the cervical four, five level.",
+      "I started over again at that point.",
+      "I never told anybody about my learning disability.",
+      "I went all the way through college getting accommodations for being in a wheelchair without letting anybody know that I was dyslexic."
+    ],
+    "EventsB": [
+      "They arrived in a completely foreign country.",
+      "Their parents decided to come to the new country for better opportunities.",
+      "They ended up becoming seamstresses despite their parents' wishes.",
+      "They had a lot of fighting and crying with their parents about their life choices."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P073",
+    "EventsA": [
+      "joined Google when it had about 1,200 people",
+      "left Google when it had over 50,000 people",
+      "went to Africa for work with entrepreneurs in Uganda and Kenya",
+      "received an email from the US CTO",
+      "President Obama called and offered the job 33 days later"
+    ],
+    "EventsB": [
+      "Talking Point took off",
+      "I decided to be an entrepreneur"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P194",
+    "EventsA": [
+      "Postcards came into the family from deceased relatives in concentration camps",
+      "The narrator became convinced that they did not want to be like those people",
+      "The narrator decided to become a person who helped others",
+      "The narrator decided to become a doctor to alleviate human suffering"
+    ],
+    "EventsB": [
+      "He was thrown over 50 feet from a car",
+      "People thought he died",
+      "People thought he would never walk again"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P259",
+    "EventsA": [
+      "I decided to study architecture",
+      "I moved out to California",
+      "Eli and I met each other in California",
+      "I tried Switchel for the first time",
+      "We sold the first jar at the farmer's market in Vermont"
+    ],
+    "EventsB": [
+      "I won an award at age 15",
+      "I was sent around the world",
+      "I had a great breakthrough",
+      "I stumbled",
+      "I didn't join the UN"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P219",
+    "EventsA": [
+      "I joined the military",
+      "My recruiter came and rescued me",
+      "I went to boot camp",
+      "I signed up as a gunner's mate",
+      "I got out",
+      "I moved out here for a job"
+    ],
+    "EventsB": [
+      "came down to Miami",
+      "went to law school",
+      "practiced law for about a year and a half",
+      "decided to open up a scuba shop"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            6
+          ],
+          "b_indices": [
+            1
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P230",
+    "EventsA": [
+      "I studied the dynamic universe",
+      "I used robotic telescopes at Palomar Observatory to make a movie of the night sky",
+      "I imaged the sky repeatedly to look for changes",
+      "I grew up on a farm in India",
+      "I left home when I was 15",
+      "The community tried to talk my parents out of sending me away",
+      "I decided to focus on my motivation and joy and ignore the community's opposition"
+    ],
+    "EventsB": [
+      "My dad turned into an alcoholic and became abusive",
+      "I got kicked out",
+      "I was put out of the house, butt naked, out of a bathtub, on Christmas Day in Milwaukee, Wisconsin, at the point of a shotgun by my stepfather",
+      "I went into the military",
+      "I made a decision not to live like that",
+      "I made the commitment that this will never happen again to another child"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            4,
+            5,
+            6
+          ],
+          "b_indices": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "a_indices": [
+            7
+          ],
+          "b_indices": [
+            5,
+            6
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P077",
+    "EventsA": [
+      "lost my job",
+      "left my wife",
+      "was homeless",
+      "a headhunter told me Marvel Comics was looking for somebody with a business background who reads comic books",
+      "became president of Marvel Comics"
+    ],
+    "EventsB": [
+      "I went to school for welding, design, pouring metal, and working in the foundry",
+      "I thought it was everything",
+      "I remembered thinking this is not me",
+      "I had to drop everything and start over",
+      "I moved",
+      "I took some time off",
+      "I traveled to Colorado",
+      "I experimented with different processes",
+      "I ended up blowing glass for the first time",
+      "I fell in love with blowing glass"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1,
+            2,
+            3
+          ],
+          "b_indices": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "unmatched_a": [
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  },
+  {
+    "PairID": "P071",
+    "EventsA": [
+      "Developed a kit called LilyPad Arduino that lets you sew electronics into your clothes",
+      "Started to play and build stuff with electronics and textiles",
+      "Felt a tremendous a-ha moment connecting crafty hobbies with electronics and computer science"
+    ],
+    "EventsB": [
+      "I was writing for my school paper in fifth grade",
+      "I graduated",
+      "I ended up doing TV"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P398",
+    "EventsA": [
+      "The narrator had moments of uncertainty in the classroom",
+      "The narrator's test scores and AP scores came back better than others"
+    ],
+    "EventsB": [
+      "did the ceremonies for the Commonwealth Games",
+      "received the ceremonies well",
+      "received an invitation to come to Los Angeles",
+      "became director of production for the LA games' ceremonies in 1984",
+      "did the Singapore Independence celebrations in 1990",
+      "was executive producer for the Barcelona Olympics ceremonies in 1992",
+      "was executive producer for the Sydney Olympics ceremonies",
+      "did New Year's Eve ceremonies for Sydney's millennium buildup",
+      "returned to America to live"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "PairID": "P384",
+    "EventsA": [
+      "Started the physical space in Los Angeles in 2002",
+      "Walked into a storefront in Echo Park on the opening day",
+      "Met a man with a beard who said they were opening a film center",
+      "Lisa Marr walked down the street and entered the film center",
+      "Lisa Marr started volunteering at the film center",
+      "Their platonic relationship evolved into a romantic relationship",
+      "Decided to take everything they do on the road for the ten year anniversary"
+    ],
+    "EventsB": [
+      "He was exploring the deep sea in a deep sea submersible.",
+      "He asked his dad what the man did.",
+      "His dad said the man was a marine biologist.",
+      "He decided he was going to be a marine biologist.",
+      "He had the epiphany that having a degree was not a job."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P010",
+    "EventsA": [
+      "My dad died when I was six",
+      "I saw my mom struggle working in a sewing factory",
+      "I went to school for nursing",
+      "I started at the Miami Herald as a staff photographer",
+      "I moved on to do international stories",
+      "I traveled a whole lot"
+    ],
+    "EventsB": [
+      "I realized I had to pick one thing in science",
+      "I went to Boston University with a vague idea of something communications",
+      "I took the first journalism class in my sophomore year",
+      "Professor Brand asked me what I was majoring in",
+      "I said I didn't know and suggested PR",
+      "Professor Brand encouraged me to pursue journalism"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P068",
+    "EventsA": [
+      "I quit my job",
+      "I went back to school",
+      "I decided I wanted to be an engineer",
+      "I started with pre-algebra, algebra, calculus, and pre-calculus"
+    ],
+    "EventsB": [
+      "tried accounting",
+      "tried economics",
+      "went to college",
+      "learned how to work on computers",
+      "got a job",
+      "did the 9 to 5 job",
+      "went back to lobstering",
+      "measured lobsters for five years"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            5,
+            6
+          ]
+        },
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            3
+          ]
+        }
+      ],
+      "unmatched_a": [
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        4,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "PairID": "P209",
+    "EventsA": [
+      "bought a consumer grade camera in 1989",
+      "a friend of a friend asked to get a drink to talk",
+      "he said he was investigating the trade in Siberian tiger pelts in the Russian far East",
+      "he said they offered to sell him women",
+      "started researching women's issues in 1995",
+      "quit job two weeks later",
+      "pitched up at his office and said he could wait tables to make it happen",
+      "created a phony company called International Liaison Specializing in Foreign Models, Escorts, and Entertainers",
+      "posed as foreign buyers interested in purchasing women"
+    ],
+    "EventsB": [
+      "I started practicing law",
+      "I started baking in 1999",
+      "People started liking my baking"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P080",
+    "EventsA": [
+      "David Shotts played in a band",
+      "David Shotts toured the country with his band",
+      "David Shotts' broker invited him to work for him",
+      "David Shotts started working in the insurance industry"
+    ],
+    "EventsB": [
+      "Laura Woop started working at Tiffany & Co.",
+      "Laura Woop realized there were no insurance programs when she was in school",
+      "Laura Woop became responsible for insuring the assets of the company",
+      "Jewelry was taken out on photo shoots",
+      "Laura Woop graduated",
+      "Laura Woop decided she did not want to do debits and credits every day",
+      "Laura Woop found her career path in risk management"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            4
+          ],
+          "b_indices": [
+            7
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P031",
+    "EventsA": [
+      "went on a basketball scholarship",
+      "played ball for Mary College",
+      "flunked out",
+      "started looking at the parks for a career",
+      "realized after the first summer that parks was what I wanted to do for a career",
+      "was told by a nun two days before graduation to get a job pumping gas and stay with it",
+      "went back to the same school and was the last graduation speaker",
+      "told the audience that I was a park superintendent and not working at a gas station"
+    ],
+    "EventsB": [
+      "chemistry teacher got excited about chemistry",
+      "somebody explained how science works",
+      "I went to college",
+      "I majored in chemistry",
+      "I couldn't see going on the way I'd been",
+      "I had to figure out what to do next",
+      "I thought about going to medical school"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1,
+            2
+          ],
+          "b_indices": [
+            3,
+            4
+          ]
+        },
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            5
+          ]
+        },
+        {
+          "a_indices": [
+            4,
+            5
+          ],
+          "b_indices": [
+            6,
+            7
+          ]
+        }
+      ],
+      "unmatched_a": [
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P175",
+    "EventsA": [
+      "She practiced law.",
+      "She was a former prosecutor.",
+      "She was a former attorney general.",
+      "She thought that being a judge was the ultimate goal.",
+      "She realized that being a judge was not the ultimate goal.",
+      "She became a television personality.",
+      "She became a minister."
+    ],
+    "EventsB": [
+      "Told a teacher that I was going to play drums at a gig",
+      "The teacher discouraged me by saying 'Oh, nice use of your education'"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P350",
+    "EventsA": [
+      "I got involved in an atmospheric chemistry lab",
+      "I went on to graduate school",
+      "I worked as a teaching assistant at CSU Long Beach",
+      "I started teaching marine science classes and ecology classes",
+      "One student emailed me thanking me and said he changed his major to environmental science or marine science"
+    ],
+    "EventsB": [
+      "I cried and ironed in the shop the night before the opening",
+      "I went home at 4 o'clock",
+      "I opened the shop at 9am",
+      "I had lines outside my shop",
+      "I did the turnover I hoped to do in a week in that day",
+      "I did the turnover I hoped to do in a month in a week"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P042",
+    "EventsA": [
+      "My mom left me with my grandma and my sister",
+      "My grandma raised me until I was eight",
+      "My mom said one of us could go with her",
+      "My mom saved enough money to pay a coyotaje",
+      "My mom trusted a coyotaje to bring me to the United States",
+      "I traveled with a group of people to the United States",
+      "I completed my four year degree",
+      "I came back from college",
+      "I started supporting my family financially",
+      "I provided rent money for my mom, sister, and niece"
+    ],
+    "EventsB": [
+      "The sophomore year came to a close",
+      "I started to get my act together",
+      "I found that direction"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P291",
+    "EventsA": [
+      "I got thrown out of my culinary degree program",
+      "I apprenticed for two-and-a-half years in Europe",
+      "I went from being a fine dining chef to running a beer bar",
+      "I learned how to tap kegs"
+    ],
+    "EventsB": [
+      "I decided to try the field of biomedical engineering",
+      "I was in college taking classes",
+      "I walked by a lab with a door that said artificial organs",
+      "I found the right interface for me that summer",
+      "We invented nano sensors that can be injected to detect disease",
+      "I experienced impostor syndrome"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            1,
+            2
+          ]
+        },
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            3,
+            4
+          ]
+        }
+      ],
+      "unmatched_a": [
+        3,
+        4
+      ],
+      "unmatched_b": [
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P386",
+    "EventsA": [
+      "Students got in fights.",
+      "Students threw something to get suspended.",
+      "Students did something to avoid being at school.",
+      "The number of suspensions and fights decreased by the end of the year."
+    ],
+    "EventsB": [
+      "I started a YouTube channel about three years ago",
+      "I made my friend laugh",
+      "We started getting likes and viewership and a following",
+      "I spent 40 hours a week on YouTube searching what I wanted"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P365",
+    "EventsA": [
+      "I turned 30",
+      "I felt depressed on my 30th birthday",
+      "I started Linda.com when I was 40",
+      "I didn't touch a computer until I was 28"
+    ],
+    "EventsB": [
+      "a double truck suicide bomb happened",
+      "the base blew up",
+      "multiple mass casualties occurred"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P198",
+    "EventsA": [
+      "Tom Merit and the narrator decided to start a new show based on science fiction and fantasy."
+    ],
+    "EventsB": [
+      "I got my masters in biomedical engineering",
+      "I started a construction company",
+      "I bought a house I could afford in my 20s",
+      "I worked on the house",
+      "I got married",
+      "I had a baby three months early with cerebral palsy",
+      "I went to physical therapy with my son",
+      "We pulled together a team and created a device",
+      "I created a little wearable sensor",
+      "I started the company Dynofit"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  },
+  {
+    "PairID": "P101",
+    "EventsA": [
+      "I struck out on my own",
+      "I built an engineering company",
+      "9/11 happened",
+      "major corporations and people I was dealing with stopped giving work",
+      "I became a screener at the airport",
+      "I created interoperability at the 2004 Super Bowl"
+    ],
+    "EventsB": [
+      "They started Cranium about eight years ago"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P211",
+    "EventsA": [
+      "I graduated school",
+      "I decided to come home",
+      "I decided I wanted to live in my neighborhood",
+      "I became an alderman",
+      "We created a nonprofit",
+      "We formed an organization to provide stability and direction to young people",
+      "We opened kids' eyes to what is available in their city"
+    ],
+    "EventsB": [
+      "I stumbled across a book about earthships",
+      "I decided to go out and get my own contractor's license",
+      "I built a small company"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            5
+          ],
+          "b_indices": [
+            3
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P100",
+    "EventsA": [
+      "They were having the best time, laughing and listening to music.",
+      "I asked if I could do that with them next week.",
+      "He said okay.",
+      "I came to a reckoning in my life at a very early age.",
+      "I worked at a fast-food restaurant for the last time.",
+      "I said that was the last time I was going to ask anybody if they wanted fries with that Coke."
+    ],
+    "EventsB": [
+      "got a job serving coffee in a computer company",
+      "came up with an idea for a product",
+      "started a company around that product",
+      "started Netflix"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P232",
+    "EventsA": [
+      "I joined the military",
+      "My recruiter came and rescued me",
+      "I went to boot camp",
+      "I signed up as a gunner's mate",
+      "I got out",
+      "I moved out here for a job"
+    ],
+    "EventsB": [
+      "I decided to study architecture",
+      "I moved out to California",
+      "Eli and I met each other in California",
+      "I tried Switchel for the first time",
+      "We sold the first jar at the farmer's market in Vermont"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P200",
+    "EventsA": [
+      "I had an encounter with a dolphin",
+      "I looked the dolphin in the eye",
+      "I wanted to dedicate my life to working with animals",
+      "I left college",
+      "I found that the animals were the best teachers",
+      "The animals taught me humility",
+      "The animals taught me compassion",
+      "I started learning the real world stuff",
+      "I talked to people",
+      "I heard their stories",
+      "I kept an open mind"
+    ],
+    "EventsB": [
+      "Dad sent an LA Times ad",
+      "I checked out the ad",
+      "I realized I was out of my league for photography positions",
+      "I took the editor job",
+      "I took photos in my spare time",
+      "Working for the company allowed me access to take photos at sporting events",
+      "I captured a moment with my camera",
+      "I walked through the doors that were opened for me"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1,
+            2
+          ],
+          "b_indices": [
+            7
+          ]
+        },
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            3
+          ]
+        },
+        {
+          "a_indices": [
+            4
+          ],
+          "b_indices": [
+            4
+          ]
+        },
+        {
+          "a_indices": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "b_indices": [
+            5,
+            6
+          ]
+        },
+        {
+          "a_indices": [
+            9,
+            10,
+            11
+          ],
+          "b_indices": [
+            8
+          ]
+        }
+      ],
+      "unmatched_a": [],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P331",
+    "EventsA": [
+      "They asked me what I wanted to do in first grade",
+      "I said I wanted to study the stars",
+      "It worked out for me",
+      "I doubted myself a lot before college"
+    ],
+    "EventsB": [
+      "I was born in Chicago when all that stuff was happening",
+      "I saw Chicago burn down",
+      "I saw the tanks roll through our neighborhood"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P285",
+    "EventsA": [
+      "I took a leap of faith",
+      "I started a company called BTV Corporation in 2000",
+      "I did consulting work for about eight years"
+    ],
+    "EventsB": [
+      "I had a few teachers in kindergarten and first grade that I adored",
+      "I came home and practiced being a teacher",
+      "I started my college career",
+      "I did a part-time internship in a first grade room",
+      "I learned about dyslexia with the teacher",
+      "I realized that I was dyslexic as a kid",
+      "I taught students with dyslexia"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P326",
+    "EventsA": [
+      "Elizabeth was born",
+      "Elizabeth learned to ride a bike last summer"
+    ],
+    "EventsB": [
+      "I thought from my perspective that everybody would want to take a machete and wade through the swamps"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P145",
+    "EventsA": [
+      "He had an accident in his first year in college.",
+      "He broke his neck right before he was going to go on the pro tour."
+    ],
+    "EventsB": [
+      "The narrator worked nine to five.",
+      "The narrator went to the studio and took pictures after work.",
+      "The narrator decided they did not need their job.",
+      "The narrator started to make it on their own.",
+      "The narrator enjoyed their life more than when working for somebody."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P172",
+    "EventsA": [
+      "My grandparents came to Hawaii to work on a sugar plantation in the late 1800s"
+    ],
+    "EventsB": [
+      "Andre decided to change his life.",
+      "Andre decided that not being in Little Rock needed to be a part of his change.",
+      "Andre chose to move to a mid-size city with a low crime rate and an upward trend in technology.",
+      "Andre identified Seattle as the place that met his criteria."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P114",
+    "EventsA": [
+      "enrolled back in college",
+      "partied the one year in college away",
+      "was not invited to go back to college",
+      "started doing radio",
+      "stumbled onto the idea for the first documentary",
+      "worked on the first documentary"
+    ],
+    "EventsB": [
+      "I took one shot with his camera",
+      "he tried to sell his photography",
+      "one company bought one photo",
+      "they paid $500 for the photo"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P306",
+    "EventsA": [
+      "She decided not to go to college to be a doctor",
+      "She became a prosecutor",
+      "She went to different schools for career day as a prosecutor",
+      "She became a judge",
+      "She went to a school as a judge",
+      "The kids at the school stood up and said all rise",
+      "Four black kids at the school expressed surprise that she was black"
+    ],
+    "EventsB": [
+      "I went to school",
+      "I reached out to a band that I liked and asked if I could make them a website",
+      "They emailed back ten minutes later",
+      "They agreed to have me make them a website in exchange for two t-shirts and a CD",
+      "I made them a website"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P195",
+    "EventsA": [
+      "I started to make plans for my future.",
+      "I ran into students or young designers who said they wanted to study art but their parents discouraged them.",
+      "I studied graphic design instead."
+    ],
+    "EventsB": [
+      "Her second son was born with a lung disease",
+      "He got jaundice",
+      "She brought him home",
+      "He lost the ability to wake to feed",
+      "She watched him struggle to breathe"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P274",
+    "EventsA": [
+      "I started a YouTube channel about three years ago",
+      "I made my friend laugh",
+      "We started getting likes and viewership and a following",
+      "I spent 40 hours a week on YouTube searching what I wanted"
+    ],
+    "EventsB": [
+      "I practiced juggling three balls at night.",
+      "I dropped my balls while juggling in the dark.",
+      "I decided to find a product that could light up.",
+      "I made a whole heap of little prototypes.",
+      "We got the product made."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P108",
+    "EventsA": [
+      "I thought I wanted to be an intellectual property lawyer",
+      "I took a step back as I was studying to go to law school",
+      "I evaluated what I was passionate about and my natural skill sets",
+      "I met my co-founder who was my roommate at the time",
+      "My co-founder suggested disrupting the e-waste industry by getting companies to donate their technology",
+      "I decided that disrupting the e-waste industry was what I needed to be doing"
+    ],
+    "EventsB": [
+      "They started Cranium about eight years ago"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P369",
+    "EventsA": [
+      "bought a Mitsubishi 3000GT VR4 in 1991",
+      "got the rulebook for Pike's Peak race",
+      "put a roll cage in the car",
+      "read about the Silver State Classic race in Nevada",
+      "raced 90 miles in the Silver State Classic",
+      "averaged 164 miles an hour for 90 miles",
+      "finished fourth place in the Silver State Classic race"
+    ],
+    "EventsB": [
+      "I said, 'Mommy, what is it those guys that make people laugh, what do you call that?'",
+      "She said, 'A comic, a comedian.'",
+      "I said, 'That's what I wanna be.'"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P185",
+    "EventsA": [
+      "I went to Harvard Business School"
+    ],
+    "EventsB": [
+      "I said, 'Mommy, what is it those guys that make people laugh, what do you call that?'",
+      "She said, 'A comic, a comedian.'",
+      "I said, 'That's what I wanna be.'"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P224",
+    "EventsA": [
+      "I studied the dynamic universe",
+      "I used robotic telescopes at Palomar Observatory to make a movie of the night sky",
+      "I imaged the sky repeatedly to look for changes",
+      "I grew up on a farm in India",
+      "I left home when I was 15",
+      "The community tried to talk my parents out of sending me away",
+      "I decided to focus on my motivation and joy and ignore the community's opposition"
+    ],
+    "EventsB": [
+      "I told myself I was not going to let the opportunity pass",
+      "I decided to go with it",
+      "I went up to talk to somebody despite feeling shy",
+      "I pushed through my fear",
+      "I experienced failure",
+      "I got right back up and did it again"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            7
+          ],
+          "b_indices": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "a_indices": [
+            5,
+            6
+          ],
+          "b_indices": [
+            3
+          ]
+        },
+        {
+          "a_indices": [
+            5,
+            7
+          ],
+          "b_indices": [
+            5,
+            6
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": []
+    }
+  },
+  {
+    "PairID": "P332",
+    "EventsA": [
+      "I went away to college",
+      "I decided I would never tell a lie again",
+      "I walked right in to my college roommate",
+      "I blurted out my personal story to my roommate",
+      "My roommate did not speak to me for the rest of the semester",
+      "I became a lesbian",
+      "I told everyone about being a lesbian in a homophobic culture"
+    ],
+    "EventsB": [
+      "David Shotts played in a band",
+      "David Shotts toured the country with his band",
+      "David Shotts' broker invited him to work for him",
+      "David Shotts started working in the insurance industry"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P181",
+    "EventsA": [
+      "worked in an office",
+      "computerized every place that I worked at",
+      "started a company in manufacturing",
+      "was in Niger",
+      "a little girl with flies on her face came up to me"
+    ],
+    "EventsB": [
+      "I said I can't do this anymore.",
+      "I decided I'm outta here.",
+      "I was drinking a tea.",
+      "Everyone I went to said it was a horrible idea."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P085",
+    "EventsA": [
+      "went for a semester in Boston",
+      "realized I wasn't going to be able to go back because of financial hardship",
+      "took two years off from school",
+      "worked at a supermarket at night for two years",
+      "worked at a bookstore for a little while",
+      "booked all the bands that played at the bookstore cafe",
+      "worked in the cafe making coffee",
+      "realized after a year to a year and a half that I missed writing and sports"
+    ],
+    "EventsB": [
+      "worked at a comic shop part-time",
+      "did samples and sent them off to comic book companies",
+      "received 300 rejections",
+      "got a job offer from a comic book company",
+      "started doing comic books",
+      "completed ten pages of comic book work"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P321",
+    "EventsA": [
+      "became the radio station's band",
+      "played 80-100 commercials a week",
+      "started booking other bands",
+      "booked 1100 bands",
+      "became the largest band-booking agency in the country",
+      "did the first show in 1969 with the Grateful Dead"
+    ],
+    "EventsB": [
+      "I woke up at two o'clock in the morning",
+      "I painted that shoe",
+      "I went to the mall and took a picture",
+      "I put the picture on MySpace",
+      "The Smithsonian emailed me",
+      "I cried"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P024",
+    "EventsA": [
+      "I was recruited to play football at Pittsburgh college",
+      "I didn't go to the first day of class at Pittsburgh college",
+      "I turned down the opportunity to attend Pittsburgh college",
+      "I walked into the doors of a community college",
+      "The community college pulled me in",
+      "I served as the chancellor for the California Community Colleges"
+    ],
+    "EventsB": [
+      "I got to college and lost my support and scaffolding system",
+      "I completely fell apart",
+      "I started working in the classroom",
+      "I fell in love with working in the classroom",
+      "I discovered that preschoolers have ADHD",
+      "I got along fine with preschoolers",
+      "I realized the job was perfect for me",
+      "I got my act together in my late 20s or early 30s",
+      "I accepted that I have challenges",
+      "I learned to laugh at stuff and forgive myself and others"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1,
+            2,
+            3
+          ],
+          "b_indices": [
+            1,
+            2
+          ]
+        },
+        {
+          "a_indices": [
+            4,
+            5
+          ],
+          "b_indices": [
+            3,
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "a_indices": [
+            6
+          ],
+          "b_indices": [
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "unmatched_a": [],
+      "unmatched_b": [
+        5
+      ]
+    }
+  },
+  {
+    "PairID": "P164",
+    "EventsA": [
+      "He had an accident in his first year in college.",
+      "He broke his neck right before he was going to go on the pro tour."
+    ],
+    "EventsB": [
+      "I spent 17 years at IBM",
+      "I got tired of it",
+      "I started taking control of my career",
+      "I got a job at Charles Schwab",
+      "I moved out here",
+      "I started a hobby, Craigslist",
+      "I sent friends notices about cool events",
+      "People made suggestions of new categories",
+      "I decided to make Craigslist a real company"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "PairID": "P075",
+    "EventsA": [
+      "I got a DUI",
+      "I disassociated from my situation for the first time",
+      "I decided I wasn't going to live my life for somebody else any more"
+    ],
+    "EventsB": [
+      "I ended up coming back",
+      "I got jumped into a gang",
+      "My sister begged me to come to a photography class",
+      "I started the photography class"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P061",
+    "EventsA": [
+      "I decided to become an architect with my guidance counselor",
+      "I realized I wasn't good at architecture and didn't like it",
+      "I graduated from college",
+      "I had a few nationally-released records"
+    ],
+    "EventsB": [
+      "My uncle gave me a copy of Doom on a floppy disk.",
+      "I learned a lot about computers through the games.",
+      "I worked with a robot named Nexi designed for personal interaction between humans and robots.",
+      "I expressed emotions by moving my face."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P033",
+    "EventsA": [
+      "I took lots of maths and sciences all through high school",
+      "I heard about a school that taught film production",
+      "I got accepted at the film production school",
+      "I went from film production to animation to computer animation"
+    ],
+    "EventsB": [
+      "My voice broke",
+      "I got tall",
+      "I came down to Los Angeles",
+      "I did a couple auditions",
+      "I got one job",
+      "The financing fell apart in the movie",
+      "I was ready to call it a day",
+      "I decided to go to college"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            3
+          ]
+        },
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            5
+          ]
+        },
+        {
+          "a_indices": [
+            4
+          ],
+          "b_indices": [
+            8
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        4,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P353",
+    "EventsA": [
+      "I kicked off my campaign for the state senate in 1972.",
+      "I was elected to the New Mexico state senate.",
+      "I became the youngest person ever elected to the New Mexico state senate."
+    ],
+    "EventsB": [
+      "They educated me towards academic drawings",
+      "I wanted to be rebellious",
+      "I asked my parents to leave me alone",
+      "I went away in search of ultimate fusion in life"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P324",
+    "EventsA": [
+      "cold called reporters until one of them did a story about the site",
+      "one of the reporters called back and made an angel grant to the organization"
+    ],
+    "EventsB": [
+      "I took a massive pay cut to deliver mail"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2
+      ],
+      "unmatched_b": [
+        1
+      ]
+    }
+  },
+  {
+    "PairID": "P241",
+    "EventsA": [
+      "I learned a bit of English",
+      "I became my grandmother's, my grandfather's, everybody's interpreter",
+      "I started seeing how the disenfranchised were being treated",
+      "I and Victor Arellano were at the Department of Homeland Security in Chicago",
+      "I did an interpretation for a gentleman who was taking a citizenship test",
+      "A federal agent asked the Polish couple where their interpreter was",
+      "A woman in the waiting room said she spoke Polish",
+      "Interpreter Tap was born"
+    ],
+    "EventsB": [
+      "left school",
+      "went to Israel",
+      "worked on a kabutz for six months",
+      "met an Israeli guy",
+      "started cooking in the kitchens there",
+      "cooked with a couple of women who praised my talent",
+      "came home",
+      "decided to pursue cooking",
+      "started university"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "PairID": "P372",
+    "EventsA": [
+      "I got my Ph.D."
+    ],
+    "EventsB": [
+      "He was a messenger boy delivering messages around London on a bike.",
+      "He took the bike and went to all the auditions."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P296",
+    "EventsA": [
+      "I got a scholarship to a college",
+      "I got my Bachelor's degree in communication",
+      "I did sales for a number of years",
+      "My wife was a student at Wayne Community College",
+      "I answered phones for the college",
+      "The chancellor of the college wanted to meet me",
+      "I had opportunities to advance from there",
+      "I became the associate vice chancellor for student services"
+    ],
+    "EventsB": [
+      "You were there for Toy Story.",
+      "I was hired to art direct Toy Story."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P205",
+    "EventsA": [
+      "decided to be an engineer",
+      "chose to go to GMI engineering management institute",
+      "hired on with Ford Motor Company",
+      "managed the shop floor",
+      "went into manufacturing engineering",
+      "came to Cummins",
+      "got into quality",
+      "worked in manufacturing engineering on assembly and machining",
+      "became the plant manager of the facility"
+    ],
+    "EventsB": [
+      "BBC News broke that they found life on Mars",
+      "I looked him up",
+      "I phoned international directory inquiries",
+      "I phoned Johnson Space Center",
+      "I gave him a bell and said I can get better images",
+      "He sent me a bit of meteorite",
+      "Me and a couple of mates sat in a pub figuring out what to do with the piece of Mars",
+      "We planned it out",
+      "We got some good research done",
+      "They offered me a job",
+      "I did my Ph.D. in how microbes eat metals to decontaminate nuclear structures"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  },
+  {
+    "PairID": "P242",
+    "EventsA": [
+      "I was in Chile",
+      "I was about to finish college",
+      "I spoke English before I came here",
+      "I didn't get out of my apartment for about a year",
+      "I came across an ad",
+      "They were looking for a coordinator",
+      "I started teaching",
+      "I loved teaching"
+    ],
+    "EventsB": [
+      "A friend graduated and taught himself how to code",
+      "I watched him type at his computer",
+      "I remembered writing code when I was eight years old",
+      "I decided to learn to code seriously",
+      "I became a professional software engineer"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            1
+          ]
+        },
+        {
+          "a_indices": [
+            3
+          ],
+          "b_indices": [
+            3
+          ]
+        },
+        {
+          "a_indices": [
+            5,
+            6
+          ],
+          "b_indices": [
+            4
+          ]
+        },
+        {
+          "a_indices": [
+            7
+          ],
+          "b_indices": [
+            5
+          ]
+        }
+      ],
+      "unmatched_a": [
+        1,
+        4,
+        8
+      ],
+      "unmatched_b": [
+        2
+      ]
+    }
+  },
+  {
+    "PairID": "P397",
+    "EventsA": [
+      "My appendix ruptured on tour",
+      "I came close to dying",
+      "My first song went into the top 20",
+      "I was on a gurney being wheeled down",
+      "I got a text saying my song was in the top 20"
+    ],
+    "EventsB": [
+      "Grandfather asked if they wanted to plant a garden",
+      "They planted some radishes in a small spot",
+      "They debated between agriculture and ornamental horticulture",
+      "They decided to spend their life helping to feed the world",
+      "They developed a hybrid seed to help farmers",
+      "They crossed two inbred plants to create a hybrid"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P017",
+    "EventsA": [
+      "I got out of college",
+      "I went into the Army Reserve through the Communications Officer",
+      "I got a job working for the Air Force Research Laboratory",
+      "I worked at an Engineer and Developing Technology to make weapons smarter",
+      "I tried to get the switch going on from government work to entrepreneurship"
+    ],
+    "EventsB": [
+      "I went to Community College",
+      "I transferred to Black Hills State College",
+      "I graduated from Black Hills State College in 1985",
+      "I finished law school",
+      "I came home to the reservation",
+      "The college hired me as a director in institutional development",
+      "The college hired me as the acting president in 1991"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            3
+          ]
+        }
+      ],
+      "unmatched_a": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "PairID": "P288",
+    "EventsA": [
+      "I learned how to build a specific set of maps for the Navy",
+      "My students started using the maps to figure out when to go surfing",
+      "I made the decision to leave academia",
+      "People were shocked by my decision to leave",
+      "People thought it was a waste of a Ph.D",
+      "I ended up not feeling comfortable with the research I was doing"
+    ],
+    "EventsB": [
+      "I married at 28 years of age",
+      "I realized that I needed an education",
+      "I turned my life around",
+      "I went to a community college",
+      "I transferred to UCLA",
+      "I became a writer",
+      "I became an advocate",
+      "We formed the National Hispanic Media Coalition"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "PairID": "P277",
+    "EventsA": [
+      "I got caught in shootouts"
+    ],
+    "EventsB": [
+      "My dad turned into an alcoholic and became abusive",
+      "I got kicked out",
+      "I was put out of the house, butt naked, out of a bathtub, on Christmas Day in Milwaukee, Wisconsin, at the point of a shotgun by my stepfather",
+      "I went into the military",
+      "I made a decision not to live like that",
+      "I made the commitment that this will never happen again to another child"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P315",
+    "EventsA": [
+      "Grandfather asked if they wanted to plant a garden",
+      "They planted some radishes in a small spot",
+      "They debated between agriculture and ornamental horticulture",
+      "They decided to spend their life helping to feed the world",
+      "They developed a hybrid seed to help farmers",
+      "They crossed two inbred plants to create a hybrid"
+    ],
+    "EventsB": [
+      "I went on the Sunday morning bike ride",
+      "The owner of the store said he could make me an Olympic cycling team",
+      "I stopped playing football",
+      "I stopped running track",
+      "I rode a bike"
+    ],
+    "alignment": {
+      "matches": [
+        {
+          "a_indices": [
+            1
+          ],
+          "b_indices": [
+            1
+          ]
+        },
+        {
+          "a_indices": [
+            2
+          ],
+          "b_indices": [
+            5
+          ]
+        },
+        {
+          "a_indices": [
+            4
+          ],
+          "b_indices": [
+            2
+          ]
+        }
+      ],
+      "unmatched_a": [
+        3,
+        5,
+        6
+      ],
+      "unmatched_b": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P013",
+    "EventsA": [
+      "My guidance counselor told me I love to be in big cities",
+      "My guidance counselor told me I love to study human behavior and psychology",
+      "I chose to go to NYU",
+      "I got my first job in marketing analytics",
+      "I realized that I really like marketing analytics"
+    ],
+    "EventsB": [
+      "I struck out on my own",
+      "I built an engineering company",
+      "9/11 happened",
+      "major corporations and people I was dealing with stopped giving work",
+      "I became a screener at the airport",
+      "I created interoperability at the 2004 Super Bowl"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "PairID": "P361",
+    "EventsA": [
+      "went and worked at Detroit Country Day School in 1994",
+      "started my job at Detroit Country Day School",
+      "raised my children",
+      "my children went through the school",
+      "my children went to U of M",
+      "started to look for new things",
+      "began Alchemy"
+    ],
+    "EventsB": [
+      "worked up the courage to read a poem at an open poetry reading",
+      "saw one person yawning",
+      "did something else by climbing on the chair or going in their face",
+      "one person got up and applauded"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "PairID": "P182",
+    "EventsA": [
+      "I spent 12 years in state corrections",
+      "I came out",
+      "I owned what got me incarcerated",
+      "I thought deeply about how I got incarcerated"
+    ],
+    "EventsB": [
+      "Tom Arviso, Jr. started as a college intern at the Navajo Times.",
+      "Tom Arviso, Jr. rose through the ranks at the Navajo Times.",
+      "Tom Arviso, Jr. became the CEO of the Navajo Time Publishing Company, Incorporated."
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unmatched_b": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "PairID": "P378",
+    "EventsA": [
+      "I started working for SLUG Magazine",
+      "The previous owner of SLUG called me up and asked me to shoot a cover",
+      "I shot a cover",
+      "I became a managing editor",
+      "I had the opportunity to take over the magazine",
+      "I officially became editor and then publisher",
+      "I learned to appreciate Salt Lake City for what it is",
+      "Individuals came up to me and said they would not be where they are today if it wasn't for their experience with SLUG Magazine"
+    ],
+    "EventsB": [
+      "The narrator had moments of uncertainty in the classroom",
+      "The narrator's test scores and AP scores came back better than others"
+    ],
+    "alignment": {
+      "matches": [],
+      "unmatched_a": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unmatched_b": [
+        1,
+        2
+      ]
+    }
+  }
+]
