@@ -1,0 +1,26 @@
+[
+  {
+    "id": "9tfn8g",
+    "label": 0,
+    "qn1": "Is it rude to sneak out and ask a nurse if they have any advice?",
+    "qn2": "How to deal with loud roommate?",
+    "narrative": "This might sound dumb but I've been in hospital 4 nights already and am meant to be going home tomorrow (I hope!). My roommate from the statt is lovely and I'm not sure if it was because I was so out of it or because she didn't snore but I haven't heard her snore before. Tonight she snores like a chainsaw and I CANNOT sleep at all. She's also developed a hacking cough that I think is related. It's my last night but if I don't sleep and am not well enough they might decide to keep me longer which I don't want. I also really need my sleep because I need to her better. The nurses are kinda bitchty and rude and I feel like they might say something loudly to or in front of my roommate if I complain. I can put up with a sleepless night normally but not when I'm this sick.",
+    "events": [
+      "My roommate snores like a chainsaw tonight.",
+      "My roommate developed a hacking cough."
+    ]
+  },
+  {
+    "id": "32m1sw",
+    "label": 1,
+    "qn1": "Should I stay in computer science or do Management information System?",
+    "qn2": "What to do after graduating college with a Bachelor of Technology in Computer Systems?",
+    "narrative": "Hello /r/Advice  I'm currently pursuing a Bachelor of Technology in Computer Systems (Software Development Track). This summer will be the start of my last year in college. So I was thinking what I should do afterwards. Clearly looking for a job is top priority but I wish to continue my studies. Currently my college does not provide a Computer Science B.S degree. So transferring to another college would seem logical. I love computer science and I would most certainly like having a degree on it. or do I have to enroll in a regular undergraduate level to complete a Bachelor of Science in Computer Science from the start and then move on to a Masters in Computer Science. I don't know if I'm making much sense. Thought maybe the Internet can help me. =/",
+    "events": [
+      "I am currently pursuing a Bachelor of Technology in Computer Systems (Software Development Track).",
+      "This summer will be the start of my last year in college.",
+      "I was thinking what I should do afterwards.",
+      "I thought maybe the Internet can help me."
+    ]
+  }
+]
