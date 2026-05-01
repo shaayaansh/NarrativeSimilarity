@@ -1,0 +1,6 @@
+checkpoint,epoch,num_queries,num_correct,retrieval_accuracy
+epoch_02,2,200,189,0.945
+epoch_04,4,200,190,0.95
+epoch_06,6,200,189,0.945
+epoch_08,8,200,190,0.95
+epoch_10,10,200,190,0.95
