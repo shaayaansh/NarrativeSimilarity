@@ -1,0 +1,17 @@
+{
+  "checkpoint_path": "/scratch/shayan/Projects/NarrativeSimilarity/artifacts/e5_mistral_structural_finetune/checkpoints/epoch_02",
+  "model_name": "intfloat/e5-mistral-7b-instruct",
+  "loss_type": "infonce",
+  "num_pairs": 200,
+  "num_positive": 100,
+  "num_negative": 100,
+  "roc_auc": 0.6351,
+  "average_precision": 0.7880577848914472,
+  "best_threshold": {
+    "threshold": 0.6620538234710693,
+    "f1": 0.7295597484276729,
+    "accuracy": 0.785,
+    "precision": 0.9830508474576272,
+    "recall": 0.58
+  }
+}
