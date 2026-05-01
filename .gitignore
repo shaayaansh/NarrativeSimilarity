@@ -1,6 +1,7 @@
-venv/
+
+.DS_Store
 .ipynb_checkpoints/
 __pycache__/
-.DS_Store
-
+openai_key.txt
 sambanova_key.txt
+venv/
