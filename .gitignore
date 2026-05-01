@@ -4,4 +4,6 @@
 __pycache__/
 openai_key.txt
 sambanova_key.txt
+artifacts/
 venv/
+
