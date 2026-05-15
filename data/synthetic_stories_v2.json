@@ -1,0 +1,66 @@
+[
+  {
+    "theme": "Starting a new job",
+    "core_events": ["interview", "relocate", "struggle", "adapt", "succeed"],
+    "story_1": "Daniel completed an interview for a software engineering position. He relocated to Seattle after accepting the offer. During his first month, he struggled with the workload and unfamiliar systems. Over time, he adapted to the company culture and daily routine. By the end of the year, he succeeded on a major project.",
+    "story_2": "Daniel interviewed for a software engineering role at a startup company. A few weeks later, he relocated to Seattle for the new job. He struggled at first because the expectations were much higher than he anticipated. After several months, he adapted to the pace of the team. Eventually, he succeeded in earning positive feedback from his manager.",
+    "story_3": "Daniel succeeded in building a strong reputation at his new company by the end of his first year. Earlier that year, he had relocated to Seattle after a long interview process. During the transition, he struggled with isolation and pressure at work. He slowly adapted to his new environment and became more confident over time.",
+    "most_similar_to_story_1": "story_2"
+  },
+  {
+    "theme": "Recovering after a breakup",
+    "core_events": ["separate", "isolate", "reflect", "reconnect", "recover"],
+    "story_1": "Nina separated from her partner after several difficult arguments. She isolated herself from friends for many weeks. During that time, she reflected on the relationship and her future. She later reconnected with close friends and family. Eventually, she recovered emotionally and regained confidence.",
+    "story_2": "Nina decided to separate from her boyfriend after realizing the relationship was unhealthy. She isolated herself in her apartment and avoided social events. Over time, she reflected on her habits and emotional needs. She slowly reconnected with the people around her. By the end of the summer, she had recovered from the breakup.",
+    "story_3": "Nina recovered emotionally after a painful breakup that changed her daily life. Earlier that year, she had separated from her partner and isolated herself from others. Long periods alone gave her time to reflect on the relationship. Months later, she reconnected with old friends and became more hopeful.",
+    "most_similar_to_story_1": "story_2"
+  },
+  {
+    "theme": "Training for a marathon",
+    "core_events": ["train", "injure", "persist", "compete", "finish"],
+    "story_1": "Carlos began training for his first marathon during the spring. He injured his knee during a long practice run. Despite the setback, he decided to persist with physical therapy and shorter workouts. He later competed in the marathon with careful pacing. In the end, he finished the race successfully.",
+    "story_2": "Carlos trained every morning before work to prepare for a marathon. During one session, he injured his leg and worried about quitting. He chose to persist with recovery exercises and modified training plans. A few months later, he competed in the race. He proudly finished the marathon before sunset.",
+    "story_3": "Carlos finished his first marathon after months of difficult preparation. Earlier in the year, he had trained intensely for the event. He injured his knee during one of the longest practice runs. Instead of giving up, he persisted through recovery and eventually competed on race day.",
+    "most_similar_to_story_1": "story_2"
+  },
+  {
+    "theme": "Immigrating to a new country",
+    "core_events": ["travel", "adjust", "work", "struggle", "belong"],
+    "story_1": "Amir traveled to Canada with his family after receiving a work opportunity. He struggled with the language and unfamiliar customs during his first year. He worked long hours while trying to build a stable life. Gradually, he adjusted to the culture and daily routine. Eventually, he felt that he truly belonged in the new country.",
+    "story_2": "Amir traveled overseas to begin a new chapter of his life. After arriving, he worked at a restaurant while learning English. He struggled with loneliness and homesickness during the transition. Over time, he adjusted to the pace of life in the city. By the end of the year, he finally felt a sense of belonging.",
+    "story_3": "Amir eventually felt that he belonged in Canada after many difficult experiences. Earlier, he had traveled there with hopes of finding better opportunities. He struggled financially while balancing work and language classes. Slowly, he adjusted to his surroundings and became more comfortable with daily life.",
+    "most_similar_to_story_1": "story_2"
+  },
+  {
+    "theme": "Launching a small business",
+    "core_events": ["plan", "invest", "fail", "pivot", "grow"],
+    "story_1": "Lena planned a small online bakery while working at her office job. She invested her savings into baking equipment and advertising. Her first business idea failed to attract enough customers. She decided to pivot toward catering local events instead. Over time, the business began to grow steadily.",
+    "story_2": "Lena spent several months planning her bakery business before leaving her job. She invested money into supplies and social media marketing. At first, the business failed because very few people placed orders. She later pivoted to custom cakes for parties and weddings. Eventually, her customer base grew significantly.",
+    "story_3": "Lena grew her bakery business after making several difficult changes. Earlier, she had invested most of her savings into the original idea. The first version of the business failed within a few months. She pivoted toward event catering after reevaluating her plans.",
+    "most_similar_to_story_1": "story_2"
+  },
+  {
+    "theme": "Caring for an aging parent",
+    "core_events": ["visit", "support", "sacrifice", "worry", "accept"],
+    "story_1": "Daniel began visiting his mother every weekend after her health declined. He supported her by helping with appointments and groceries. He sacrificed much of his free time to care for her properly. He constantly worried about her condition and future needs. Eventually, he accepted his role as her primary caregiver.",
+    "story_2": "Daniel visited his mother frequently after she started having health problems. He supported her daily routine and helped manage medical paperwork. He sacrificed personal plans in order to spend more time with her. During this period, he worried about how quickly her condition was changing. Over time, he accepted the emotional responsibility of caregiving.",
+    "story_3": "Daniel accepted that his mother's health would not improve quickly. Earlier, he had visited her regularly to provide support and companionship. Caring for her forced him to sacrifice many social and career opportunities. Throughout the process, he worried constantly about her well-being.",
+    "most_similar_to_story_1": "story_2"
+  },
+  {
+    "theme": "Navigating high school friendships",
+    "core_events": ["meet", "bond", "exclude", "confront", "reconcile"],
+    "story_1": "Emma met a group of classmates during her first semester of high school. She bonded with them through sports and shared hobbies. After several months, she felt excluded from important social plans. She eventually confronted the group about her feelings. Later, they reconciled after discussing the misunderstandings openly.",
+    "story_2": "Emma met new friends through an after-school club. She quickly bonded with the group during the school year. Over time, she began to feel excluded from conversations and events. She confronted her friends directly about the situation. In the end, the group reconciled and rebuilt trust.",
+    "story_3": "Emma reconciled with her friends near the end of the year after a difficult conflict. Earlier, she had met the group and bonded with them quickly. Tension grew when she felt excluded from several social activities. Eventually, she confronted them about the issue and explained her frustration.",
+    "most_similar_to_story_1": "story_2"
+  },
+  {
+    "theme": "Surviving financial hardship",
+    "core_events": ["lose", "borrow", "work", "struggle", "stabilize"],
+    "story_1": "Marcus lost his job during a company downsizing. He borrowed money from relatives to pay his rent. He worked temporary jobs while searching for stable employment. During this period, he struggled with stress and uncertainty. Eventually, his finances stabilized after finding a permanent position.",
+    "story_2": "Marcus lost most of his income after being laid off unexpectedly. He borrowed money from close friends to manage monthly expenses. He worked several short-term jobs to stay afloat financially. He struggled emotionally during the difficult transition. Over time, his financial situation became more stable.",
+    "story_3": "Marcus stabilized his financial situation after many stressful months. Earlier, he had lost his job and struggled to cover basic expenses. He borrowed money from family members while continuing to work wherever possible. The experience changed how he viewed financial security.",
+    "most_similar_to_story_1": "story_2"
+  }
+]
