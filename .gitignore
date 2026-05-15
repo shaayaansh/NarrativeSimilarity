@@ -6,6 +6,7 @@ openai_key.txt
 sambanova_key.txt
 artifacts/
 venv/
+overleaf.md
 
 data/MovieRemakeDataset_NAACL2018/
 data/tell_me_again_v1/
