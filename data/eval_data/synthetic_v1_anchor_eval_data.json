@@ -11,7 +11,8 @@
     "struct_score_12": 2.4136905065885434,
     "struct_score_13": 2.430808620978561,
     "struct_score_23": 2.468156374798384,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 1,
@@ -25,7 +26,8 @@
     "struct_score_12": 2.500863653378437,
     "struct_score_13": 2.485530339985755,
     "struct_score_23": 2.4362104802572064,
-    "gt_higher_vs_story_1": "story_2"
+    "gt_higher_vs_story_1": "story_2",
+    "LLM_label": NaN
   },
   {
     "theme_index": 2,
@@ -39,7 +41,8 @@
     "struct_score_12": 2.480467837545648,
     "struct_score_13": 2.488248107817438,
     "struct_score_23": 2.4295953837522615,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 3,
@@ -53,7 +56,8 @@
     "struct_score_12": 2.3992121987866857,
     "struct_score_13": 2.490237004882097,
     "struct_score_23": 2.4036802852513888,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 4,
@@ -67,7 +71,8 @@
     "struct_score_12": 2.3585876248287656,
     "struct_score_13": 2.4671243755011263,
     "struct_score_23": 2.3907497621571023,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 5,
@@ -81,7 +86,8 @@
     "struct_score_12": 2.4113139082287747,
     "struct_score_13": 2.5467676065072418,
     "struct_score_23": 2.503383814679086,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 6,
@@ -95,7 +101,8 @@
     "struct_score_12": 2.4640383602880767,
     "struct_score_13": 2.464799411046008,
     "struct_score_23": 2.4079684690018492,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 7,
@@ -109,7 +116,8 @@
     "struct_score_12": 2.507806877616048,
     "struct_score_13": 2.5040267440218478,
     "struct_score_23": 2.508251578886807,
-    "gt_higher_vs_story_1": "story_2"
+    "gt_higher_vs_story_1": "story_2",
+    "LLM_label": NaN
   },
   {
     "theme_index": 8,
@@ -123,7 +131,8 @@
     "struct_score_12": 2.511330240833428,
     "struct_score_13": 2.5783814104288814,
     "struct_score_23": 2.4463333373066454,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 9,
@@ -137,7 +146,8 @@
     "struct_score_12": 2.518242349669006,
     "struct_score_13": 2.526967153353989,
     "struct_score_23": 2.511499271569815,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 10,
@@ -151,7 +161,8 @@
     "struct_score_12": 2.435618666256302,
     "struct_score_13": 2.4285855042782094,
     "struct_score_23": 2.3933999158387382,
-    "gt_higher_vs_story_1": "story_2"
+    "gt_higher_vs_story_1": "story_2",
+    "LLM_label": NaN
   },
   {
     "theme_index": 11,
@@ -165,7 +176,8 @@
     "struct_score_12": 2.523070916595724,
     "struct_score_13": 2.568076820990443,
     "struct_score_23": 2.5168915325072074,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 12,
@@ -179,7 +191,8 @@
     "struct_score_12": 2.3882959502987564,
     "struct_score_13": 2.501513608030975,
     "struct_score_23": 2.402857343024512,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 13,
@@ -193,7 +206,8 @@
     "struct_score_12": 2.368830828169485,
     "struct_score_13": 2.5051626197621224,
     "struct_score_23": 2.4430620250087642,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 14,
@@ -207,7 +221,8 @@
     "struct_score_12": 2.5285267505422233,
     "struct_score_13": 2.531266621929407,
     "struct_score_23": 2.515671031228867,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 15,
@@ -221,7 +236,8 @@
     "struct_score_12": 2.4645443904291837,
     "struct_score_13": 2.536563125532865,
     "struct_score_23": 2.4410873502948216,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 16,
@@ -235,7 +251,8 @@
     "struct_score_12": 2.4666111028187805,
     "struct_score_13": 2.546006246870756,
     "struct_score_23": 2.4055071302463613,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 17,
@@ -249,7 +266,8 @@
     "struct_score_12": 2.492889552198226,
     "struct_score_13": 2.4461771075526872,
     "struct_score_23": 2.4298824859340984,
-    "gt_higher_vs_story_1": "story_2"
+    "gt_higher_vs_story_1": "story_2",
+    "LLM_label": NaN
   },
   {
     "theme_index": 18,
@@ -263,7 +281,8 @@
     "struct_score_12": 2.423288583188918,
     "struct_score_13": 2.4363967052085944,
     "struct_score_23": 2.3866534561042982,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   },
   {
     "theme_index": 19,
@@ -277,6 +296,7 @@
     "struct_score_12": 2.462695571964648,
     "struct_score_13": 2.51045266161263,
     "struct_score_23": 2.473786115947738,
-    "gt_higher_vs_story_1": "story_3"
+    "gt_higher_vs_story_1": "story_3",
+    "LLM_label": NaN
   }
 ]
