@@ -1,0 +1,143 @@
+[
+  {
+    "theme": "Starting a new job",
+    "core_events": ["interview", "relocate", "struggle", "adapt", "succeed"],
+    "story_1": "After relocating to Chicago for a new position, Maya struggled to adjust to the fast pace of the company. She often thought back to her nervous interview weeks earlier. Over time, she adapted to the environment and eventually led a successful project.",
+    "story_2": "Maya first succeeded on a small assignment after weeks of struggling in her new city. The relocation had been overwhelming, even though the interview process made the opportunity sound exciting. As she adapted to her coworkers and routine, the job began to feel rewarding.",
+    "story_3": "The interview convinced Maya to relocate across the country for a promising career opportunity. Although she adapted quickly socially, she initially struggled with the workload. Months later, her persistence paid off and she succeeded in earning a promotion."
+  },
+  {
+    "theme": "Recovering after a breakup",
+    "core_events": ["separate", "isolate", "reflect", "reconnect", "recover"],
+    "story_1": "After separating from her partner, Nina isolated herself from friends for several weeks. During long walks alone, she reflected on the relationship and what she wanted moving forward. Eventually, she reconnected with old friends and slowly recovered emotionally.",
+    "story_2": "Nina began recovering only after reconnecting with people she had ignored during her breakup. At first, she spent most nights isolated in her apartment, reflecting on the painful separation. Over time, the loneliness faded and she regained confidence.",
+    "story_3": "The separation forced Nina to reflect on patterns in her past relationships. Although she initially recovered by staying busy, she later realized how isolated she had become. Reconnecting with her support system helped her feel hopeful again."
+  },
+  {
+    "theme": "Training for a marathon",
+    "core_events": ["train", "injure", "persist", "compete", "finish"],
+    "story_1": "Carlos spent months training for his first marathon before injuring his knee during a long run. Despite setbacks, he persisted with physical therapy and lighter workouts. On race day, he competed carefully and proudly finished the marathon.",
+    "story_2": "After nearly giving up because of an injury, Carlos decided to persist with his marathon preparation. Training became slower and more disciplined, but it eventually allowed him to compete safely. Crossing the finish line felt more meaningful than he expected.",
+    "story_3": "Carlos dreamed of finishing a marathon ever since he watched one as a teenager. During training, he injured his knee and worried he would never compete. Instead of quitting, he persisted through recovery and eventually completed the race."
+  },
+  {
+    "theme": "Immigrating to a new country",
+    "core_events": ["travel", "adjust", "work", "struggle", "belong"],
+    "story_1": "After traveling to Canada with his family, Amir struggled to adjust to the unfamiliar culture and language. He worked long hours while trying to build a new social life. Over time, the city began to feel like a place where he truly belonged.",
+    "story_2": "Amir first felt a sense of belonging after months of working in a crowded restaurant and meeting people from different backgrounds. The move overseas had been difficult, and adjusting to daily life often felt exhausting. Still, the experience slowly became rewarding.",
+    "story_3": "Traveling abroad gave Amir opportunities he never had before, but the transition was harder than he expected. While he adjusted academically, he struggled socially during his first year. A stable job and close friendships eventually helped him feel at home."
+  },
+  {
+    "theme": "Launching a small business",
+    "core_events": ["plan", "invest", "fail", "pivot", "grow"],
+    "story_1": "Lena carefully planned her online bakery before investing her savings into equipment and advertising. When early sales failed to meet expectations, she pivoted toward catering local events instead. The business eventually grew into a steady source of income.",
+    "story_2": "The business only began to grow after Lena changed her strategy and started focusing on custom orders. At first, her investment seemed wasted because several ideas failed quickly. Looking back, she realized that better planning alone would not have guaranteed success.",
+    "story_3": "After months of planning, Lena invested everything she had into opening a small bakery. The first year was discouraging, and several products failed to attract customers. By pivoting toward community events and social media marketing, she slowly built a loyal customer base."
+  },
+  {
+    "theme": "Caring for an aging parent",
+    "core_events": ["visit", "support", "sacrifice", "worry", "accept"],
+    "story_1": "Daniel began visiting his mother every weekend after her health started declining. Supporting her required major sacrifices in his personal life, and he constantly worried about her condition. Eventually, he accepted that caring for her had become part of his daily responsibility.",
+    "story_2": "The hardest part for Daniel was accepting how much his mother's condition had changed. He worried constantly and sacrificed many social activities in order to support her appointments and routines. Frequent visits helped them grow emotionally closer.",
+    "story_3": "Although Daniel initially believed occasional visits would be enough, he soon realized his mother needed far more support. The responsibility forced him to sacrifice time and career opportunities. Over time, he accepted the emotional weight of becoming her caregiver."
+  },
+  {
+    "theme": "Navigating high school friendships",
+    "core_events": ["meet", "bond", "exclude", "confront", "reconcile"],
+    "story_1": "Emma met a group of classmates during her first semester and quickly bonded with them over music and sports. Tension grew after she felt excluded from several weekend plans. Eventually, she confronted the group directly, and they later reconciled after clearing up misunderstandings.",
+    "story_2": "After confronting her friends about being excluded, Emma finally understood that much of the conflict came from poor communication. Earlier that year, the group had bonded closely after meeting in art class. Reconnecting honestly helped them reconcile.",
+    "story_3": "Emma first reconciled with her friends near the end of the school year, months after a painful argument. She had originally met them through a club and bonded quickly, but feelings of exclusion slowly built up. A direct confrontation eventually repaired the friendship."
+  },
+  {
+    "theme": "Surviving financial hardship",
+    "core_events": ["lose", "borrow", "work", "struggle", "stabilize"],
+    "story_1": "After losing his job unexpectedly, Marcus borrowed money from relatives while searching for steady work. The financial pressure caused months of stress and uncertainty. Eventually, consistent employment helped him stabilize his situation.",
+    "story_2": "Marcus struggled to keep up with rent after losing most of his savings. Borrowing money embarrassed him, but it allowed him enough time to work temporary jobs until things improved. Gradually, his finances became more stable.",
+    "story_3": "The period after Marcus lost his job forced him to rely on friends and family for support. He worked several small jobs while trying to stabilize his finances, though the constant uncertainty remained difficult. Over time, his situation slowly improved."
+  },
+  {
+    "theme": "Preparing for a major exam",
+    "core_events": ["enroll", "procrastinate", "panic", "study", "complete"],
+    "story_1": "After enrolling in a difficult certification course, Priya procrastinated for months before realizing how much material she had ignored. Panic pushed her into an intense study routine during the final weeks. She eventually completed the exam feeling exhausted but relieved.",
+    "story_2": "Priya only began studying seriously after a moment of panic during a practice exam. Earlier in the semester, she had enrolled confidently but wasted too much time procrastinating. Finishing the real exam felt like a personal victory.",
+    "story_3": "The pressure of completing the exam grew stronger as Priya continued to procrastinate. Once panic set in, she reorganized her schedule and studied late every night. Her preparation finally paid off when she completed the test successfully."
+  },
+  {
+    "theme": "Healing after an accident",
+    "core_events": ["crash", "recover", "depend", "rehabilitate", "regain"],
+    "story_1": "After a serious bike crash, Olivia depended heavily on her family during the first weeks of recovery. Rehabilitation exercises became part of her daily routine, even when progress felt slow. Eventually, she regained enough strength to return to work.",
+    "story_2": "Olivia struggled emotionally after the crash because she hated depending on others for simple tasks. Through months of rehabilitation and gradual recovery, she slowly regained confidence and independence. The experience changed how she viewed resilience.",
+    "story_3": "The accident forced Olivia to step away from her normal life and focus entirely on recovery. Although rehabilitation was painful, she remained determined to regain mobility. Over time, she no longer needed to depend so heavily on family members."
+  },
+  {
+    "theme": "Building confidence as an artist",
+    "core_events": ["create", "doubt", "share", "improve", "perform"],
+    "story_1": "Jordan spent years creating music privately because he doubted his abilities. After finally sharing his work online, he received encouraging feedback that motivated him to improve. Eventually, he performed confidently at a local event.",
+    "story_2": "The first live performance terrified Jordan, even though he had spent months improving his songwriting. Earlier, self-doubt had prevented him from sharing his music with anyone. Support from other artists slowly helped him build confidence.",
+    "story_3": "Jordan began improving rapidly only after he decided to share his artwork publicly. Although he constantly doubted himself at first, creating consistently gave him a stronger sense of identity. Performing in front of an audience later felt rewarding instead of frightening."
+  },
+  {
+    "theme": "Experiencing burnout at work",
+    "core_events": ["overwork", "ignore", "exhaust", "withdraw", "recover"],
+    "story_1": "Melissa spent months overworking herself while ignoring signs of stress and exhaustion. Eventually, she withdrew from coworkers and stopped enjoying her job entirely. Taking time off finally allowed her to begin recovering mentally and physically.",
+    "story_2": "By the time Melissa realized how exhausted she was, she had already withdrawn from most social activities. Earlier, she ignored repeated warnings from friends and continued overworking every week. Recovery required her to completely rethink her routine.",
+    "story_3": "Melissa believed constant productivity would help her succeed, so she ignored the emotional effects of overwork. Over time, exhaustion made her withdraw from both work and relationships. Only after a long break did she begin to recover her energy."
+  },
+  {
+    "theme": "Adopting a pet",
+    "core_events": ["adopt", "adjust", "damage", "train", "attach"],
+    "story_1": "After adopting a young dog from a shelter, Kevin struggled to adjust to the constant responsibility. The puppy damaged furniture and shoes during the first few weeks, forcing Kevin to spend time training it carefully. Eventually, the two became strongly attached.",
+    "story_2": "Kevin became deeply attached to the dog long before it was fully trained. Earlier, the adjustment period had been stressful because the puppy damaged several things around the apartment. With patience and routine, life slowly became easier.",
+    "story_3": "The decision to adopt a rescue dog changed Kevin's daily routine completely. Although the dog caused damage while adjusting to its new home, consistent training improved its behavior over time. Caring for the animal eventually became emotionally rewarding."
+  },
+  {
+    "theme": "Moving into a first apartment",
+    "core_events": ["search", "move", "furnish", "struggle", "settle"],
+    "story_1": "After months of searching for an affordable apartment, Rachel finally moved into a small studio downtown. Furnishing the space on a limited budget proved difficult, and she struggled with unexpected expenses. Eventually, the apartment began to feel comfortable and familiar.",
+    "story_2": "Rachel only felt settled after slowly furnishing her apartment with secondhand furniture and decorations. Earlier, the move had been stressful because she struggled financially during the search process. Living independently eventually gave her confidence.",
+    "story_3": "The apartment search took far longer than Rachel expected, but she was excited once she finally moved in. Although she struggled to furnish the place at first, friends helped her make the space feel welcoming. Over time, it truly felt like home."
+  },
+  {
+    "theme": "Reconnecting with an estranged sibling",
+    "core_events": ["contact", "remember", "argue", "forgive", "reconnect"],
+    "story_1": "After years without speaking, Leo finally contacted his sister during the holidays. Their first conversation quickly turned into an argument as old memories resurfaced. Over time, both learned to forgive each other and slowly reconnect.",
+    "story_2": "Leo spent weeks remembering childhood experiences before deciding to reconnect with his sister. Although their early conversations included arguments and tension, forgiveness gradually became possible. Rebuilding trust took patience from both sides.",
+    "story_3": "The siblings only began reconnecting after a family emergency pushed Leo to make contact again. At first, unresolved arguments made every conversation uncomfortable. Reflecting on happier memories eventually helped them move toward forgiveness."
+  },
+  {
+    "theme": "Starting therapy",
+    "core_events": ["struggle", "open", "reflect", "confront", "heal"],
+    "story_1": "After struggling with anxiety for several years, Maya finally decided to begin therapy. Opening up to someone felt uncomfortable at first, but the sessions encouraged her to reflect on past experiences. Gradually, she learned to confront painful emotions and began healing.",
+    "story_2": "Maya only started healing once she confronted issues she had avoided for years. Earlier therapy sessions were difficult because opening up required intense self-reflection. Even though the process began with emotional struggle, it slowly improved her life.",
+    "story_3": "The decision to start therapy came after months of emotional struggle and exhaustion. Through reflection and honest conversations, Maya became more willing to open up about her experiences. Over time, confronting those memories helped her heal."
+  },
+  {
+    "theme": "Joining a competitive sports team",
+    "core_events": ["train", "compete", "fail", "improve", "win"],
+    "story_1": "Tyler trained intensely after joining the university basketball team but struggled during his first competitions. Several early failures damaged his confidence, though they also motivated him to improve. By the end of the season, he helped the team win an important game.",
+    "story_2": "Winning the championship felt especially meaningful because Tyler remembered how badly he failed during his first tournament. Months of training and constant competition had gradually improved both his skill and confidence. The difficult beginning made the success more rewarding.",
+    "story_3": "Tyler expected immediate success after joining the team, but early competitions exposed many weaknesses. Instead of quitting after failing repeatedly, he trained harder and focused on improving small details. Eventually, his progress contributed to several important wins."
+  },
+  {
+    "theme": "Experiencing parenthood for the first time",
+    "core_events": ["prepare", "panic", "sacrifice", "bond", "mature"],
+    "story_1": "Before their child was born, Elena and Marcus spent months preparing the apartment and reading parenting books. Once the baby arrived, moments of panic became common during sleepless nights. Through sacrifice and daily care, they gradually bonded with their child and matured emotionally.",
+    "story_2": "Elena felt herself mature rapidly during the first year of parenthood. Earlier, both parents had panicked constantly despite all the preparation they had done before the birth. The sacrifices required by caring for the baby ultimately strengthened their bond as a family.",
+    "story_3": "The experience of becoming parents forced Elena and Marcus to sacrifice much of their free time and independence. Although they prepared carefully, unexpected moments often caused panic and stress. Over time, bonding with their child changed their priorities and perspective on adulthood."
+  },
+  {
+    "theme": "Living through a natural disaster",
+    "core_events": ["evacuate", "lose", "survive", "rebuild", "recover"],
+    "story_1": "When the wildfire approached their town, the family evacuated quickly with only a few belongings. They later learned they had lost their home and many personal possessions. Surviving the disaster became the first step toward rebuilding their lives and emotionally recovering.",
+    "story_2": "Months after surviving the hurricane, Daniel was still trying to recover from everything his family had lost. The evacuation had happened suddenly, leaving little time to think clearly. Rebuilding the neighborhood slowly restored a sense of hope.",
+    "story_3": "The community focused on rebuilding after the flood destroyed homes and businesses across the area. Many residents had evacuated safely, though the emotional impact of the losses remained severe. Supporting each other helped people survive emotionally as well as physically."
+  },
+  {
+    "theme": "Returning to school later in life",
+    "core_events": ["enroll", "balance", "doubt", "persist", "graduate"],
+    "story_1": "After years away from education, Monica enrolled in a nursing program while working full time. Balancing family responsibilities and coursework often made her doubt whether she could continue. By persisting through difficult semesters, she eventually graduated with honors.",
+    "story_2": "Monica nearly quit during her first year because balancing work, school, and parenting felt overwhelming. Although self-doubt remained constant, she persisted and slowly gained confidence in her abilities. Graduation later became one of the proudest moments of her life.",
+    "story_3": "Graduating seemed impossible to Monica when she first enrolled in college again in her forties. The challenge of balancing responsibilities created constant stress and moments of doubt. Over time, persistence and support from classmates helped her succeed."
+  }
+]
+

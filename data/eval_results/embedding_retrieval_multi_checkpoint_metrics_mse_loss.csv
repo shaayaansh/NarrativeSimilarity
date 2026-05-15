@@ -3,3 +3,4 @@ epoch_02_mse_loss,2,200,194,0.97
 epoch_04_mse_loss,4,200,180,0.9
 epoch_06_mse_loss,6,200,194,0.97
 epoch_08_mse_loss,8,200,194,0.97
+epoch_10_mse_loss,10,200,194,0.97
