@@ -1,0 +1,1202 @@
+[
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": false,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": true,
+    "correct": false,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\":\"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": false,
+    "gold_text_a_closer": false,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_b\"}"
+  },
+  {
+    "pred_text_a_closer": true,
+    "gold_text_a_closer": true,
+    "correct": true,
+    "raw_response": "{\"choice\": \"text_a\"}"
+  }
+]
