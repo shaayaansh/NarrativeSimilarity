@@ -62,7 +62,7 @@ class TrainConfig:
     target_modules: List[str]
     eval_every_steps: int
     checkpoint_every_epochs: int
-    resume_from_latest: bool
+    resume_training: bool
 
 
 def project_root() -> Path:
@@ -107,7 +107,7 @@ def load_config(config_path: Path) -> TrainConfig:
         target_modules=list(raw["lora"]["target_modules"]),
         eval_every_steps=int(raw["logging"]["eval_every_steps"]),
         checkpoint_every_epochs=int(raw["checkpointing"]["checkpoint_every_epochs"]),
-        resume_from_latest=bool(raw["checkpointing"].get("resume_from_latest", True)),
+        resume_training=bool(raw["checkpointing"].get("resume_training", False)),
     )
 
 
@@ -453,7 +453,7 @@ def main() -> None:
 
     resume_epoch = 0
     global_step = 0
-    if cfg.resume_from_latest:
+    if cfg.resume_training:
         resume_epoch, latest = latest_checkpoint(checkpoint_dir, cfg.loss_type)
         if latest is not None:
             print(f"Resuming from checkpoint: {latest} (completed epoch={resume_epoch})")

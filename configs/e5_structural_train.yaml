@@ -47,5 +47,5 @@ logging:
   eval_every_steps: 100
 
 checkpointing:
-  checkpoint_every_epochs: 2
-  resume_from_latest: true
+  checkpoint_every_epochs: 1
+  resume_training: false
