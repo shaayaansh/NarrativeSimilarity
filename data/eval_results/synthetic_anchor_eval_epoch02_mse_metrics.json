@@ -1,0 +1,6 @@
+{
+  "checkpoint": "/tank/scratch/shayan/Projects/NarrativeSimilarity/artifacts/e5_mistral_structural_finetune/checkpoints_mse_loss/epoch_02_mse_loss",
+  "num_non_tie_rows": 20,
+  "num_correct": 14,
+  "accuracy": 0.7
+}

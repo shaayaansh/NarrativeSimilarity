@@ -1,0 +1,7 @@
+{
+  "model": "gpt-5.4",
+  "num_non_tie_rows": 20,
+  "num_correct": 15,
+  "num_errors": 0,
+  "accuracy": 0.75
+}
