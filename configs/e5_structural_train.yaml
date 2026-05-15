@@ -1,0 +1,51 @@
+data:
+  scores_path: data/Alignment/asq_random_10000_pair_structural_scores.json
+  alignments_path: data/Alignment/asq_random_10000_story_pair_alignments.json
+  output_dir: artifacts/e5_mistral_structural_finetune
+
+model:
+  model_name: intfloat/e5-mistral-7b-instruct
+  max_length: 1024
+  use_bfloat16: true
+  hf_cache_dir: /scratch/shayan/hf_cache
+
+training:
+  # one of: infonce, contrastive_mse
+  loss_type: contrastive_mse
+  seed: 42
+  train_frac: 0.9
+  batch_size: 8
+  num_epochs: 10
+  lr: 1e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  grad_accum_steps: 8
+  max_grad_norm: 1.0
+  temperature: 0.05
+
+sampling:
+  # used for infonce triplet building
+  hard_negative_bin: 2
+  positive_bin: 3
+  easy_negative_bins: [0, 1]
+  max_triplets_per_anchor: 8
+
+lora:
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+logging:
+  eval_every_steps: 100
+
+checkpointing:
+  checkpoint_every_epochs: 2
+  resume_from_latest: true
