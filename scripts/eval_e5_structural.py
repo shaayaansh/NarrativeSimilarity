@@ -59,6 +59,10 @@ class EvalConfig:
     llm_model: str
     openai_key_path: Path
     llm_sleep_seconds: float
+    run_embedding_baselines: bool
+    baseline_roberta_model: str
+    baseline_bge_model: str
+    baseline_untrained_e5_model: str
 
 
 VALID_TASKS = {"eval_pair_task", "retrieval_task", "synthetic_task"}
@@ -70,7 +74,8 @@ def load_config(config_path: Path) -> EvalConfig:
 
     tasks = raw["tasks"]["run"]
     if isinstance(tasks, str):
-        tasks = [tasks]
+        # support both: "all" and comma-separated strings like "eval_pair_task, retrieval_task"
+        tasks = [x.strip() for x in tasks.split(",") if x.strip()]
     tasks = list(tasks)
     if "all" in [t.lower() for t in tasks]:
         tasks = sorted(list(VALID_TASKS))
@@ -94,6 +99,12 @@ def load_config(config_path: Path) -> EvalConfig:
         llm_model=str(raw["baselines"].get("llm_model", "gpt-5")),
         openai_key_path=resolve_path(root, raw["baselines"].get("openai_key_path", "openai_key.txt")),
         llm_sleep_seconds=float(raw["baselines"].get("llm_sleep_seconds", 0.05)),
+        run_embedding_baselines=bool(raw["baselines"].get("run_embedding_baselines", False)),
+        baseline_roberta_model=str(raw["baselines"].get("baseline_roberta_model", "roberta-base")),
+        baseline_bge_model=str(raw["baselines"].get("baseline_bge_model", "BAAI/bge-base-en-v1.5")),
+        baseline_untrained_e5_model=str(
+            raw["baselines"].get("baseline_untrained_e5_model", "intfloat/e5-mistral-7b-instruct")
+        ),
     )
 
     bad = [t for t in cfg.tasks if t not in VALID_TASKS]
@@ -139,9 +150,17 @@ def mean_pool(last_hidden_state: torch.Tensor, attention_mask: torch.Tensor) -> 
 
 
 class Embedder:
-    def __init__(self, checkpoint_path: Path, max_length: int, hf_cache_dir: Path, use_bfloat16: bool):
+    def __init__(
+        self,
+        checkpoint_path: Path | str,
+        max_length: int,
+        hf_cache_dir: Path,
+        use_bfloat16: bool,
+        use_e5_query_prefix: bool = True,
+    ):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         dtype = torch.bfloat16 if (self.device == "cuda" and use_bfloat16) else torch.float32
+        self.use_e5_query_prefix = use_e5_query_prefix
 
         self.tokenizer = AutoTokenizer.from_pretrained(
             str(checkpoint_path), trust_remote_code=True, cache_dir=str(hf_cache_dir)
@@ -155,6 +174,12 @@ class Embedder:
         self.model.to(self.device)
         self.model.eval()
         self.max_length = max_length
+
+    def prepare_text(self, text: str) -> str:
+        text = str(text)
+        if self.use_e5_query_prefix:
+            return f"query: retrieve stories with a similar narrative to the given story. {text}"
+        return text
 
     @torch.no_grad()
     def embed(self, texts: List[str], batch_size: int = 8) -> torch.Tensor:
@@ -176,10 +201,6 @@ class Embedder:
         return torch.cat(out, dim=0)
 
 
-def to_e5_query(text: str) -> str:
-    return f"query: retrieve stories with a similar narrative to the given story. {text}"
-
-
 def run_eval_pair_task(df: pd.DataFrame, emb: Embedder) -> Dict:
     req = {"story_text_a", "story_text_b", "label"}
     miss = req - set(df.columns)
@@ -188,8 +209,8 @@ def run_eval_pair_task(df: pd.DataFrame, emb: Embedder) -> Dict:
 
     rows = []
     for r in tqdm(df.itertuples(index=False), total=len(df), desc="eval_pair_task", unit="pair"):
-        a = to_e5_query(str(r.story_text_a))
-        b = to_e5_query(str(r.story_text_b))
+        a = emb.prepare_text(str(r.story_text_a))
+        b = emb.prepare_text(str(r.story_text_b))
         ea, eb = emb.embed([a, b], batch_size=2)
         sim = float(torch.dot(ea, eb).item())
         label = int(r.label)
@@ -218,8 +239,8 @@ def run_retrieval_task(df: pd.DataFrame, emb: Embedder) -> Dict:
     correct = 0
     n = len(df)
     for r in tqdm(df.itertuples(index=False), total=n, desc="retrieval_task", unit="query"):
-        q = to_e5_query(str(r.query_text))
-        opts = [to_e5_query(str(getattr(r, f"option_{i}_text"))) for i in range(5)]
+        q = emb.prepare_text(str(r.query_text))
+        opts = [emb.prepare_text(str(getattr(r, f"option_{i}_text"))) for i in range(5)]
         eq = emb.embed([q], batch_size=1).squeeze(0)
         eo = emb.embed(opts, batch_size=5)
         sims = (eo @ eq).numpy()
@@ -252,7 +273,7 @@ def run_synthetic_task(df: pd.DataFrame, emb: Embedder) -> Dict:
             continue
 
         gt = "story_2" if s12 > s13 else "story_3"
-        texts = [to_e5_query(str(r.story_1)), to_e5_query(str(r.story_2)), to_e5_query(str(r.story_3))]
+        texts = [emb.prepare_text(str(r.story_1)), emb.prepare_text(str(r.story_2)), emb.prepare_text(str(r.story_3))]
         e = emb.embed(texts, batch_size=3)
         e1, e2, e3 = e[0], e[1], e[2]
         sim12 = float(torch.dot(e1, e2).item())
@@ -467,6 +488,7 @@ def main() -> None:
             "synthetic_version": cfg.synthetic_version,
             "run_llm_baselines": cfg.run_llm_baselines,
             "llm_model": cfg.llm_model if cfg.run_llm_baselines else None,
+            "run_embedding_baselines": cfg.run_embedding_baselines,
         },
         "embedding": {},
     }
@@ -491,6 +513,36 @@ def main() -> None:
         results["embedding"][ckpt.name] = ckpt_res
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
+
+    if cfg.run_embedding_baselines:
+        print("\nRunning embedding baselines...")
+        baseline_specs = [
+            ("roberta_base", cfg.baseline_roberta_model, False),
+            ("bge_base", cfg.baseline_bge_model, False),
+            ("e5_untrained", cfg.baseline_untrained_e5_model, True),
+        ]
+        baseline_results: Dict = {}
+        for baseline_name, model_id, use_e5_prefix in baseline_specs:
+            print(f"\nEvaluating embedding baseline: {baseline_name} ({model_id})")
+            emb = Embedder(
+                checkpoint_path=model_id,
+                max_length=cfg.model_max_length,
+                hf_cache_dir=cfg.hf_cache_dir,
+                use_bfloat16=cfg.use_bfloat16,
+                use_e5_query_prefix=use_e5_prefix,
+            )
+            bres = {}
+            if "eval_pair_task" in cfg.tasks:
+                bres["eval_pair_task"] = run_eval_pair_task(pair_df, emb)
+            if "retrieval_task" in cfg.tasks:
+                bres["retrieval_task"] = run_retrieval_task(retrieval_df, emb)
+            if "synthetic_task" in cfg.tasks:
+                bres["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
+            baseline_results[baseline_name] = bres
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
+        results["embedding_baselines"] = baseline_results
 
     if cfg.run_llm_baselines:
         print("\nRunning LLM baselines...")
