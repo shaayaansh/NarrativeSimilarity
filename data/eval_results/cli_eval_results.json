@@ -1,0 +1,83 @@
+{
+  "config": {
+    "checkpoint_selector": "all",
+    "tasks": [
+      "retrieval_task"
+    ],
+    "synthetic_version": "v2",
+    "run_llm_baselines": false,
+    "llm_model": null
+  },
+  "embedding": {
+    "epoch_01_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 194,
+        "accuracy": 0.97
+      }
+    },
+    "epoch_02_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 193,
+        "accuracy": 0.965
+      }
+    },
+    "epoch_03_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 186,
+        "accuracy": 0.93
+      }
+    },
+    "epoch_04_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 176,
+        "accuracy": 0.88
+      }
+    },
+    "epoch_05_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 154,
+        "accuracy": 0.77
+      }
+    },
+    "epoch_06_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 133,
+        "accuracy": 0.665
+      }
+    },
+    "epoch_07_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 132,
+        "accuracy": 0.66
+      }
+    },
+    "epoch_08_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 128,
+        "accuracy": 0.64
+      }
+    },
+    "epoch_09_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 118,
+        "accuracy": 0.59
+      }
+    },
+    "epoch_10_mse_loss": {
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 114,
+        "accuracy": 0.57
+      }
+    }
+  }
+}
