@@ -1,0 +1,515 @@
+#!/usr/bin/env python3
+"""CLI evaluation for structure-aware E5 checkpoints.
+
+Usage:
+  python scripts/eval_e5_structural.py --config configs/e5_structural_eval.yaml
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, List, Optional
+
+import numpy as np
+import pandas as pd
+import torch
+import torch.nn.functional as F
+import yaml
+from openai import OpenAI
+from tqdm.auto import tqdm
+from transformers import AutoModel, AutoTokenizer
+
+
+def project_root() -> Path:
+    return Path(__file__).resolve().parents[1]
+
+
+def resolve_path(root: Path, p: str) -> Path:
+    path = Path(p)
+    return path if path.is_absolute() else (root / path)
+
+
+@dataclass
+class EvalConfig:
+    checkpoints_root: Path
+    checkpoint_selector: str  # int-like or "all"
+    checkpoint_pattern: str
+
+    tasks: List[str]
+
+    eval_pair_path: Path
+    retrieval_path: Path
+    synthetic_version: str
+    synthetic_v1_path: Path
+    synthetic_v2_path: Path
+
+    model_max_length: int
+    hf_cache_dir: Path
+    use_bfloat16: bool
+
+    output_dir: Path
+    output_filename: str
+
+    run_llm_baselines: bool
+    llm_model: str
+    openai_key_path: Path
+    llm_sleep_seconds: float
+
+
+VALID_TASKS = {"eval_pair_task", "retrieval_task", "synthetic_task"}
+
+
+def load_config(config_path: Path) -> EvalConfig:
+    root = project_root()
+    raw = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+
+    tasks = raw["tasks"]["run"]
+    if isinstance(tasks, str):
+        tasks = [tasks]
+    tasks = list(tasks)
+    if "all" in [t.lower() for t in tasks]:
+        tasks = sorted(list(VALID_TASKS))
+
+    cfg = EvalConfig(
+        checkpoints_root=resolve_path(root, raw["checkpoints"]["root"]),
+        checkpoint_selector=str(raw["checkpoints"]["which"]),
+        checkpoint_pattern=str(raw["checkpoints"].get("pattern", "epoch_*")),
+        tasks=tasks,
+        eval_pair_path=resolve_path(root, raw["data"]["eval_pair_path"]),
+        retrieval_path=resolve_path(root, raw["data"]["retrieval_path"]),
+        synthetic_version=str(raw["data"].get("synthetic_version", "v2")).lower(),
+        synthetic_v1_path=resolve_path(root, raw["data"]["synthetic_v1_path"]),
+        synthetic_v2_path=resolve_path(root, raw["data"]["synthetic_v2_path"]),
+        model_max_length=int(raw["model"]["max_length"]),
+        hf_cache_dir=Path(raw["model"]["hf_cache_dir"]),
+        use_bfloat16=bool(raw["model"]["use_bfloat16"]),
+        output_dir=resolve_path(root, raw["output"]["dir"]),
+        output_filename=str(raw["output"]["filename"]),
+        run_llm_baselines=bool(raw["baselines"].get("run_llm", False)),
+        llm_model=str(raw["baselines"].get("llm_model", "gpt-5")),
+        openai_key_path=resolve_path(root, raw["baselines"].get("openai_key_path", "openai_key.txt")),
+        llm_sleep_seconds=float(raw["baselines"].get("llm_sleep_seconds", 0.05)),
+    )
+
+    bad = [t for t in cfg.tasks if t not in VALID_TASKS]
+    if bad:
+        raise ValueError(f"Unknown tasks in config: {bad}. Valid: {sorted(VALID_TASKS)}")
+    if cfg.synthetic_version not in {"v1", "v2"}:
+        raise ValueError("data.synthetic_version must be v1 or v2")
+
+    return cfg
+
+
+def list_checkpoints(cfg: EvalConfig) -> List[Path]:
+    if not cfg.checkpoints_root.exists():
+        raise FileNotFoundError(f"checkpoints root not found: {cfg.checkpoints_root}")
+
+    all_dirs = [d for d in cfg.checkpoints_root.glob(cfg.checkpoint_pattern) if d.is_dir()]
+    if not all_dirs:
+        raise ValueError(f"No checkpoints found in {cfg.checkpoints_root} matching {cfg.checkpoint_pattern}")
+
+    def epoch_num(path: Path) -> int:
+        m = re.search(r"epoch_(\d+)", path.name)
+        if not m:
+            return 10**9
+        return int(m.group(1))
+
+    all_dirs = sorted(all_dirs, key=epoch_num)
+
+    if cfg.checkpoint_selector.lower() == "all":
+        return all_dirs
+
+    epoch = int(cfg.checkpoint_selector)
+    for d in all_dirs:
+        if epoch_num(d) == epoch:
+            return [d]
+    raise ValueError(f"Requested epoch {epoch} not found under {cfg.checkpoints_root}")
+
+
+def mean_pool(last_hidden_state: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
+    mask = attention_mask.unsqueeze(-1).to(last_hidden_state.dtype)
+    summed = (last_hidden_state * mask).sum(dim=1)
+    denom = mask.sum(dim=1).clamp(min=1e-9)
+    return summed / denom
+
+
+class Embedder:
+    def __init__(self, checkpoint_path: Path, max_length: int, hf_cache_dir: Path, use_bfloat16: bool):
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        dtype = torch.bfloat16 if (self.device == "cuda" and use_bfloat16) else torch.float32
+
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            str(checkpoint_path), trust_remote_code=True, cache_dir=str(hf_cache_dir)
+        )
+        self.model = AutoModel.from_pretrained(
+            str(checkpoint_path),
+            trust_remote_code=True,
+            cache_dir=str(hf_cache_dir),
+            dtype=dtype,
+        )
+        self.model.to(self.device)
+        self.model.eval()
+        self.max_length = max_length
+
+    @torch.no_grad()
+    def embed(self, texts: List[str], batch_size: int = 8) -> torch.Tensor:
+        out = []
+        for i in range(0, len(texts), batch_size):
+            batch = texts[i : i + batch_size]
+            enc = self.tokenizer(
+                batch,
+                padding=True,
+                truncation=True,
+                max_length=self.max_length,
+                return_tensors="pt",
+            )
+            enc = {k: v.to(self.device) for k, v in enc.items()}
+            h = self.model(**enc).last_hidden_state
+            pooled = mean_pool(h, enc["attention_mask"])
+            pooled = F.normalize(pooled, p=2, dim=1)
+            out.append(pooled.float().cpu())
+        return torch.cat(out, dim=0)
+
+
+def to_e5_query(text: str) -> str:
+    return f"query: retrieve stories with a similar narrative to the given story. {text}"
+
+
+def run_eval_pair_task(df: pd.DataFrame, emb: Embedder) -> Dict:
+    req = {"story_text_a", "story_text_b", "label"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"eval_pair_task missing columns: {sorted(miss)}")
+
+    rows = []
+    for r in tqdm(df.itertuples(index=False), total=len(df), desc="eval_pair_task", unit="pair"):
+        a = to_e5_query(str(r.story_text_a))
+        b = to_e5_query(str(r.story_text_b))
+        ea, eb = emb.embed([a, b], batch_size=2)
+        sim = float(torch.dot(ea, eb).item())
+        label = int(r.label)
+        rows.append({"label": label, "cosine": sim})
+
+    rdf = pd.DataFrame(rows)
+    pos = rdf[rdf["label"] == 1]["cosine"]
+    neg = rdf[rdf["label"] == 0]["cosine"]
+    result = {
+        "num_pairs": int(len(rdf)),
+        "mean_positive": float(pos.mean()) if len(pos) else None,
+        "mean_negative": float(neg.mean()) if len(neg) else None,
+        "std_positive": float(pos.std(ddof=1)) if len(pos) > 1 else None,
+        "std_negative": float(neg.std(ddof=1)) if len(neg) > 1 else None,
+        "mean_gap_pos_minus_neg": float(pos.mean() - neg.mean()) if len(pos) and len(neg) else None,
+    }
+    return result
+
+
+def run_retrieval_task(df: pd.DataFrame, emb: Embedder) -> Dict:
+    req = {"query_text", "correct_option_index", "option_0_text", "option_1_text", "option_2_text", "option_3_text", "option_4_text"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"retrieval_task missing columns: {sorted(miss)}")
+
+    correct = 0
+    n = len(df)
+    for r in tqdm(df.itertuples(index=False), total=n, desc="retrieval_task", unit="query"):
+        q = to_e5_query(str(r.query_text))
+        opts = [to_e5_query(str(getattr(r, f"option_{i}_text"))) for i in range(5)]
+        eq = emb.embed([q], batch_size=1).squeeze(0)
+        eo = emb.embed(opts, batch_size=5)
+        sims = (eo @ eq).numpy()
+        pred = int(np.argmax(sims))
+        gt = int(r.correct_option_index)
+        correct += int(pred == gt)
+
+    return {
+        "num_queries": int(n),
+        "num_correct": int(correct),
+        "accuracy": float(correct / n) if n else 0.0,
+    }
+
+
+def run_synthetic_task(df: pd.DataFrame, emb: Embedder) -> Dict:
+    req = {"story_1", "story_2", "story_3", "struct_score_12", "struct_score_13"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"synthetic_task missing columns: {sorted(miss)}")
+
+    n = 0
+    correct = 0
+    ties = 0
+
+    for r in tqdm(df.itertuples(index=False), total=len(df), desc="synthetic_task", unit="theme"):
+        s12 = float(r.struct_score_12)
+        s13 = float(r.struct_score_13)
+        if s12 == s13:
+            ties += 1
+            continue
+
+        gt = "story_2" if s12 > s13 else "story_3"
+        texts = [to_e5_query(str(r.story_1)), to_e5_query(str(r.story_2)), to_e5_query(str(r.story_3))]
+        e = emb.embed(texts, batch_size=3)
+        e1, e2, e3 = e[0], e[1], e[2]
+        sim12 = float(torch.dot(e1, e2).item())
+        sim13 = float(torch.dot(e1, e3).item())
+        pred = "story_2" if sim12 > sim13 else "story_3"
+
+        n += 1
+        correct += int(pred == gt)
+
+    return {
+        "num_non_tie_rows": int(n),
+        "num_ties_skipped": int(ties),
+        "num_correct": int(correct),
+        "accuracy": float(correct / n) if n else 0.0,
+    }
+
+
+def get_openai_client(cfg: EvalConfig) -> OpenAI:
+    key_path = cfg.openai_key_path
+    if not key_path.exists():
+        raise FileNotFoundError(f"OpenAI key file not found: {key_path}")
+    api_key = key_path.read_text(encoding="utf-8").strip()
+    if not api_key:
+        raise ValueError(f"OpenAI key file is empty: {key_path}")
+    return OpenAI(api_key=api_key)
+
+
+def parse_choice(text: str, valid: List[str]) -> Optional[str]:
+    t = (text or "").strip()
+    try:
+        obj = json.loads(t)
+        ch = str(obj.get("choice", "")).strip().lower()
+        if ch in valid:
+            return ch
+    except Exception:
+        pass
+
+    t_low = t.lower()
+    for v in valid:
+        if v in t_low:
+            return v
+    return None
+
+
+def run_llm_eval_pair(df: pd.DataFrame, cfg: EvalConfig, client: OpenAI) -> Dict:
+    req = {"story_text_a", "story_text_b", "label"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"eval_pair_task missing columns: {sorted(miss)}")
+
+    system_prompt = (
+        "You are a narrative structure judge. Given two stories, decide if they are structurally similar. "
+        "Focus on event progression and what happens, not wording. "
+        "Return strict JSON only: {\"choice\": \"positive\"} or {\"choice\": \"negative\"}."
+    )
+
+    correct = 0
+    errors = 0
+    n = len(df)
+    for r in tqdm(df.itertuples(index=False), total=n, desc="llm_eval_pair", unit="pair"):
+        user = (
+            f"Story A:\n{str(r.story_text_a)}\n\n"
+            f"Story B:\n{str(r.story_text_b)}\n\n"
+            "Are these structurally similar?"
+        )
+        try:
+            resp = client.responses.create(
+                model=cfg.llm_model,
+                input=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user},
+                ],
+            )
+            pred = parse_choice(getattr(resp, "output_text", ""), ["positive", "negative"])
+            gt = "positive" if int(r.label) == 1 else "negative"
+            correct += int(pred == gt)
+        except Exception:
+            errors += 1
+        time.sleep(cfg.llm_sleep_seconds)
+
+    return {"num_pairs": int(n), "num_correct": int(correct), "num_errors": int(errors), "accuracy": float(correct / n) if n else 0.0}
+
+
+def run_llm_retrieval(df: pd.DataFrame, cfg: EvalConfig, client: OpenAI) -> Dict:
+    req = {"query_text", "correct_option_index", "option_0_text", "option_1_text", "option_2_text", "option_3_text", "option_4_text"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"retrieval_task missing columns: {sorted(miss)}")
+
+    system_prompt = (
+        "You are a narrative structure judge. For a query story and five candidate stories, choose the single option most structurally similar. "
+        "Return strict JSON only: {\"choice\": <int>} where int is 0..4."
+    )
+
+    n = len(df)
+    correct = 0
+    errors = 0
+    for r in tqdm(df.itertuples(index=False), total=n, desc="llm_retrieval", unit="query"):
+        user = (
+            f"Query story:\n{str(r.query_text)}\n\n"
+            f"Option 0:\n{str(r.option_0_text)}\n\n"
+            f"Option 1:\n{str(r.option_1_text)}\n\n"
+            f"Option 2:\n{str(r.option_2_text)}\n\n"
+            f"Option 3:\n{str(r.option_3_text)}\n\n"
+            f"Option 4:\n{str(r.option_4_text)}\n\n"
+            "Which option is structurally most similar to the query?"
+        )
+        try:
+            resp = client.responses.create(
+                model=cfg.llm_model,
+                input=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user},
+                ],
+            )
+            txt = getattr(resp, "output_text", "")
+            pred = None
+            try:
+                obj = json.loads((txt or "").strip())
+                pred = int(obj.get("choice"))
+            except Exception:
+                m = re.search(r"\b([0-4])\b", txt or "")
+                pred = int(m.group(1)) if m else None
+
+            correct += int(pred == int(r.correct_option_index))
+        except Exception:
+            errors += 1
+        time.sleep(cfg.llm_sleep_seconds)
+
+    return {"num_queries": int(n), "num_correct": int(correct), "num_errors": int(errors), "accuracy": float(correct / n) if n else 0.0}
+
+
+def run_llm_synthetic(df: pd.DataFrame, cfg: EvalConfig, client: OpenAI) -> Dict:
+    req = {"story_1", "story_2", "story_3", "struct_score_12", "struct_score_13"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"synthetic_task missing columns: {sorted(miss)}")
+
+    system_prompt = (
+        "You are a narrative structure judge. Given one anchor story and two candidates, choose which candidate is structurally closer. "
+        "Return strict JSON only: {\"choice\": \"story_2\"} or {\"choice\": \"story_3\"}."
+    )
+
+    n = 0
+    correct = 0
+    ties = 0
+    errors = 0
+    for r in tqdm(df.itertuples(index=False), total=len(df), desc="llm_synthetic", unit="theme"):
+        s12 = float(r.struct_score_12)
+        s13 = float(r.struct_score_13)
+        if s12 == s13:
+            ties += 1
+            continue
+        gt = "story_2" if s12 > s13 else "story_3"
+
+        user = (
+            f"Anchor (story_1):\n{str(r.story_1)}\n\n"
+            f"Candidate (story_2):\n{str(r.story_2)}\n\n"
+            f"Candidate (story_3):\n{str(r.story_3)}\n\n"
+            "Which candidate is structurally closer to the anchor?"
+        )
+
+        try:
+            resp = client.responses.create(
+                model=cfg.llm_model,
+                input=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user},
+                ],
+            )
+            pred = parse_choice(getattr(resp, "output_text", ""), ["story_2", "story_3"])
+            n += 1
+            correct += int(pred == gt)
+        except Exception:
+            errors += 1
+        time.sleep(cfg.llm_sleep_seconds)
+
+    return {
+        "num_non_tie_rows": int(n),
+        "num_ties_skipped": int(ties),
+        "num_correct": int(correct),
+        "num_errors": int(errors),
+        "accuracy": float(correct / n) if n else 0.0,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="CLI evaluation for structural embedding checkpoints")
+    parser.add_argument("--config", type=Path, required=True, help="Path to YAML config")
+    args = parser.parse_args()
+
+    cfg = load_config(args.config)
+    cfg.output_dir.mkdir(parents=True, exist_ok=True)
+
+    checkpoints = list_checkpoints(cfg)
+    print("checkpoints to evaluate:")
+    for c in checkpoints:
+        print(" -", c)
+
+    pair_df = pd.read_csv(cfg.eval_pair_path) if "eval_pair_task" in cfg.tasks else None
+    retrieval_df = pd.read_csv(cfg.retrieval_path) if "retrieval_task" in cfg.tasks else None
+    if "synthetic_task" in cfg.tasks:
+        syn_path = cfg.synthetic_v1_path if cfg.synthetic_version == "v1" else cfg.synthetic_v2_path
+        synthetic_df = pd.read_csv(syn_path)
+    else:
+        synthetic_df = None
+
+    results: Dict = {
+        "config": {
+            "checkpoint_selector": cfg.checkpoint_selector,
+            "tasks": cfg.tasks,
+            "synthetic_version": cfg.synthetic_version,
+            "run_llm_baselines": cfg.run_llm_baselines,
+            "llm_model": cfg.llm_model if cfg.run_llm_baselines else None,
+        },
+        "embedding": {},
+    }
+
+    for ckpt in checkpoints:
+        print(f"\nEvaluating embedding checkpoint: {ckpt.name}")
+        emb = Embedder(
+            checkpoint_path=ckpt,
+            max_length=cfg.model_max_length,
+            hf_cache_dir=cfg.hf_cache_dir,
+            use_bfloat16=cfg.use_bfloat16,
+        )
+
+        ckpt_res = {}
+        if "eval_pair_task" in cfg.tasks:
+            ckpt_res["eval_pair_task"] = run_eval_pair_task(pair_df, emb)
+        if "retrieval_task" in cfg.tasks:
+            ckpt_res["retrieval_task"] = run_retrieval_task(retrieval_df, emb)
+        if "synthetic_task" in cfg.tasks:
+            ckpt_res["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
+
+        results["embedding"][ckpt.name] = ckpt_res
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+    if cfg.run_llm_baselines:
+        print("\nRunning LLM baselines...")
+        client = get_openai_client(cfg)
+        llm_res = {}
+        if "eval_pair_task" in cfg.tasks:
+            llm_res["eval_pair_task"] = run_llm_eval_pair(pair_df, cfg, client)
+        if "retrieval_task" in cfg.tasks:
+            llm_res["retrieval_task"] = run_llm_retrieval(retrieval_df, cfg, client)
+        if "synthetic_task" in cfg.tasks:
+            llm_res["synthetic_task"] = run_llm_synthetic(synthetic_df, cfg, client)
+        results["llm_baseline"] = llm_res
+
+    out_path = cfg.output_dir / cfg.output_filename
+    out_path.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    print("\nSaved eval results:", out_path)
+    print(json.dumps(results, indent=2)[:4000])
+
+
+if __name__ == "__main__":
+    main()
