@@ -2,7 +2,7 @@ checkpoints:
   # directory containing epoch checkpoint folders
   root: artifacts/e5_mistral_structural_finetune/checkpoints_mse_loss
   # one of: all, or epoch number (e.g., 2, 5, 10)
-  which: all
+  which: 1
   # glob inside root, keep default for mse-loss checkpoints
   pattern: epoch_*_mse_loss
 
