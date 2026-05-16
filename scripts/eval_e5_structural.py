@@ -173,7 +173,18 @@ class Embedder:
         )
         self.model.to(self.device)
         self.model.eval()
-        self.max_length = max_length
+        # Use a safe per-model max length to avoid runtime shape errors
+        # (e.g., roberta-base has 514 positional slots and cannot run at 1024).
+        tokenizer_cap = getattr(self.tokenizer, "model_max_length", None)
+        config_cap = getattr(getattr(self.model, "config", None), "max_position_embeddings", None)
+
+        caps = [max_length]
+        if isinstance(tokenizer_cap, int) and 0 < tokenizer_cap < 10**6:
+            caps.append(tokenizer_cap)
+        if isinstance(config_cap, int) and 0 < config_cap < 10**6:
+            caps.append(config_cap)
+        self.max_length = int(min(caps))
+        print(f"[Embedder] model={checkpoint_path} | max_length={self.max_length}")
 
     def prepare_text(self, text: str) -> str:
         text = str(text)
