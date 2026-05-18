@@ -44,6 +44,7 @@ class EvalConfig:
 
     eval_pair_path: Path
     retrieval_path: Path
+    ranking_path: Path
     synthetic_version: str
     synthetic_v1_path: Path
     synthetic_v2_path: Path
@@ -65,7 +66,7 @@ class EvalConfig:
     baseline_untrained_e5_model: str
 
 
-VALID_TASKS = {"eval_pair_task", "retrieval_task", "synthetic_task"}
+VALID_TASKS = {"eval_pair_task", "retrieval_task", "ranking_task", "synthetic_task"}
 
 
 def load_config(config_path: Path) -> EvalConfig:
@@ -87,6 +88,7 @@ def load_config(config_path: Path) -> EvalConfig:
         tasks=tasks,
         eval_pair_path=resolve_path(root, raw["data"]["eval_pair_path"]),
         retrieval_path=resolve_path(root, raw["data"]["retrieval_path"]),
+        ranking_path=resolve_path(root, raw["data"].get("ranking_path", "data/eval_data/ranking_eval_df.csv")),
         synthetic_version=str(raw["data"].get("synthetic_version", "v2")).lower(),
         synthetic_v1_path=resolve_path(root, raw["data"]["synthetic_v1_path"]),
         synthetic_v2_path=resolve_path(root, raw["data"]["synthetic_v2_path"]),
@@ -263,6 +265,41 @@ def run_retrieval_task(df: pd.DataFrame, emb: Embedder) -> Dict:
         "num_queries": int(n),
         "num_correct": int(correct),
         "accuracy": float(correct / n) if n else 0.0,
+    }
+
+
+def run_ranking_task(df: pd.DataFrame, emb: Embedder) -> Dict:
+    req = {"query_text"} | {f"option_{i}_text" for i in range(5)} | {f"option_{i}_rank" for i in range(5)}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"ranking_task missing columns: {sorted(miss)}")
+
+    ndcgs: List[float] = []
+    for r in tqdm(df.itertuples(index=False), total=len(df), desc="ranking_task", unit="query"):
+        q = emb.prepare_text(str(r.query_text))
+        opts = [emb.prepare_text(str(getattr(r, f"option_{i}_text"))) for i in range(5)]
+        # Convert ranks (1=best..5=worst) to graded relevance (5..1)
+        rel = np.array([6 - int(getattr(r, f"option_{i}_rank")) for i in range(5)], dtype=np.float64)
+
+        eq = emb.embed([q], batch_size=1).squeeze(0)
+        eo = emb.embed(opts, batch_size=5)
+        sims = (eo @ eq).numpy()
+        pred_order = np.argsort(-sims)  # descending similarity
+
+        gains = rel[pred_order]
+        discounts = 1.0 / np.log2(np.arange(2, 2 + len(gains), dtype=np.float64))
+        dcg = float(np.sum(gains * discounts))
+
+        ideal_order = np.argsort(-rel)
+        ideal_gains = rel[ideal_order]
+        idcg = float(np.sum(ideal_gains * discounts))
+        ndcg = float(dcg / idcg) if idcg > 0 else 0.0
+        ndcgs.append(ndcg)
+
+    return {
+        "num_queries": int(len(ndcgs)),
+        "mean_ndcg": float(np.mean(ndcgs)) if ndcgs else 0.0,
+        "std_ndcg": float(np.std(ndcgs, ddof=1)) if len(ndcgs) > 1 else None,
     }
 
 
@@ -486,6 +523,7 @@ def main() -> None:
 
     pair_df = pd.read_csv(cfg.eval_pair_path) if "eval_pair_task" in cfg.tasks else None
     retrieval_df = pd.read_csv(cfg.retrieval_path) if "retrieval_task" in cfg.tasks else None
+    ranking_df = pd.read_csv(cfg.ranking_path) if "ranking_task" in cfg.tasks else None
     if "synthetic_task" in cfg.tasks:
         syn_path = cfg.synthetic_v1_path if cfg.synthetic_version == "v1" else cfg.synthetic_v2_path
         synthetic_df = pd.read_csv(syn_path)
@@ -518,6 +556,8 @@ def main() -> None:
             ckpt_res["eval_pair_task"] = run_eval_pair_task(pair_df, emb)
         if "retrieval_task" in cfg.tasks:
             ckpt_res["retrieval_task"] = run_retrieval_task(retrieval_df, emb)
+        if "ranking_task" in cfg.tasks:
+            ckpt_res["ranking_task"] = run_ranking_task(ranking_df, emb)
         if "synthetic_task" in cfg.tasks:
             ckpt_res["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
 
@@ -547,6 +587,8 @@ def main() -> None:
                 bres["eval_pair_task"] = run_eval_pair_task(pair_df, emb)
             if "retrieval_task" in cfg.tasks:
                 bres["retrieval_task"] = run_retrieval_task(retrieval_df, emb)
+            if "ranking_task" in cfg.tasks:
+                bres["ranking_task"] = run_ranking_task(ranking_df, emb)
             if "synthetic_task" in cfg.tasks:
                 bres["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
             baseline_results[baseline_name] = bres
@@ -563,6 +605,8 @@ def main() -> None:
             llm_res["eval_pair_task"] = run_llm_eval_pair(pair_df, cfg, client)
         if "retrieval_task" in cfg.tasks:
             llm_res["retrieval_task"] = run_llm_retrieval(retrieval_df, cfg, client)
+        if "ranking_task" in cfg.tasks:
+            print("ranking_task for LLM baseline is not implemented in this script yet.")
         if "synthetic_task" in cfg.tasks:
             llm_res["synthetic_task"] = run_llm_synthetic(synthetic_df, cfg, client)
         results["llm_baseline"] = llm_res
