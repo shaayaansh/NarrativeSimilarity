@@ -8,6 +8,8 @@ artifacts/
 venv/
 overleaf.md
 
+data/ASQ/embeddings_base_e5/
+
 data/MovieRemakeDataset_NAACL2018/
 data/tell_me_again_v1/
 
