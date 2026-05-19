@@ -45,6 +45,7 @@ class EvalConfig:
     eval_pair_path: Path
     retrieval_path: Path
     ranking_path: Path
+    semeval_2026_path: Path
     synthetic_version: str
     synthetic_v1_path: Path
     synthetic_v2_path: Path
@@ -66,7 +67,7 @@ class EvalConfig:
     baseline_untrained_e5_model: str
 
 
-VALID_TASKS = {"eval_pair_task", "retrieval_task", "ranking_task", "synthetic_task"}
+VALID_TASKS = {"eval_pair_task", "retrieval_task", "ranking_task", "synthetic_task", "semeval_2026_task"}
 
 
 def load_config(config_path: Path) -> EvalConfig:
@@ -89,6 +90,9 @@ def load_config(config_path: Path) -> EvalConfig:
         eval_pair_path=resolve_path(root, raw["data"]["eval_pair_path"]),
         retrieval_path=resolve_path(root, raw["data"]["retrieval_path"]),
         ranking_path=resolve_path(root, raw["data"].get("ranking_path", "data/eval_data/ranking_eval_df.csv")),
+        semeval_2026_path=resolve_path(
+            root, raw["data"].get("semeval_2026_path", "data/eval_data/SemEval2026-Task_4-dev-v1/dev_track_a.jsonl")
+        ),
         synthetic_version=str(raw["data"].get("synthetic_version", "v2")).lower(),
         synthetic_v1_path=resolve_path(root, raw["data"]["synthetic_v1_path"]),
         synthetic_v2_path=resolve_path(root, raw["data"]["synthetic_v2_path"]),
@@ -339,6 +343,47 @@ def run_synthetic_task(df: pd.DataFrame, emb: Embedder) -> Dict:
     }
 
 
+def _parse_bool_label(v) -> bool:
+    if isinstance(v, bool):
+        return v
+    if isinstance(v, (int, np.integer)):
+        return bool(v)
+    if isinstance(v, str):
+        vv = v.strip().lower()
+        if vv in {"true", "1", "yes", "y", "a", "text_a", "text_a_is_closer"}:
+            return True
+        if vv in {"false", "0", "no", "n", "b", "text_b"}:
+            return False
+    raise ValueError(f"Could not parse semeval label value: {v!r}")
+
+
+def run_semeval_2026_task(df: pd.DataFrame, emb: Embedder) -> Dict:
+    req = {"anchor_text", "text_a", "text_b", "text_a_is_closer"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"semeval_2026_task missing columns: {sorted(miss)}")
+
+    n = len(df)
+    correct = 0
+    for r in tqdm(df.itertuples(index=False), total=n, desc="semeval_2026_task", unit="triplet"):
+        anchor = emb.prepare_text(str(r.anchor_text))
+        ta = emb.prepare_text(str(r.text_a))
+        tb = emb.prepare_text(str(r.text_b))
+        e = emb.embed([anchor, ta, tb], batch_size=3)
+        ea, e_a, e_b = e[0], e[1], e[2]
+        sim_a = float(torch.dot(ea, e_a).item())
+        sim_b = float(torch.dot(ea, e_b).item())
+        pred_text_a_closer = sim_a > sim_b
+        gt_text_a_closer = _parse_bool_label(r.text_a_is_closer)
+        correct += int(pred_text_a_closer == gt_text_a_closer)
+
+    return {
+        "num_triplets": int(n),
+        "num_correct": int(correct),
+        "accuracy": float(correct / n) if n else 0.0,
+    }
+
+
 def get_openai_client(cfg: EvalConfig) -> OpenAI:
     key_path = cfg.openai_key_path
     if not key_path.exists():
@@ -508,6 +553,46 @@ def run_llm_synthetic(df: pd.DataFrame, cfg: EvalConfig, client: OpenAI) -> Dict
     }
 
 
+def run_llm_semeval_2026(df: pd.DataFrame, cfg: EvalConfig, client: OpenAI) -> Dict:
+    req = {"anchor_text", "text_a", "text_b", "text_a_is_closer"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"semeval_2026_task missing columns: {sorted(miss)}")
+
+    system_prompt = (
+        "You are a narrative structure judge. Given one anchor story and two candidate stories, "
+        "choose which candidate is structurally closer to the anchor. "
+        "Return strict JSON only: {\"choice\": \"text_a\"} or {\"choice\": \"text_b\"}."
+    )
+
+    n = len(df)
+    correct = 0
+    errors = 0
+    for r in tqdm(df.itertuples(index=False), total=n, desc="llm_semeval_2026", unit="triplet"):
+        user = (
+            f"Anchor story:\n{str(r.anchor_text)}\n\n"
+            f"Candidate text_a:\n{str(r.text_a)}\n\n"
+            f"Candidate text_b:\n{str(r.text_b)}\n\n"
+            "Which candidate is structurally closer to the anchor?"
+        )
+        try:
+            resp = client.responses.create(
+                model=cfg.llm_model,
+                input=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user},
+                ],
+            )
+            pred = parse_choice(getattr(resp, "output_text", ""), ["text_a", "text_b"])
+            gt = "text_a" if _parse_bool_label(r.text_a_is_closer) else "text_b"
+            correct += int(pred == gt)
+        except Exception:
+            errors += 1
+        time.sleep(cfg.llm_sleep_seconds)
+
+    return {"num_triplets": int(n), "num_correct": int(correct), "num_errors": int(errors), "accuracy": float(correct / n) if n else 0.0}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="CLI evaluation for structural embedding checkpoints")
     parser.add_argument("--config", type=Path, required=True, help="Path to YAML config")
@@ -524,6 +609,7 @@ def main() -> None:
     pair_df = pd.read_csv(cfg.eval_pair_path) if "eval_pair_task" in cfg.tasks else None
     retrieval_df = pd.read_csv(cfg.retrieval_path) if "retrieval_task" in cfg.tasks else None
     ranking_df = pd.read_csv(cfg.ranking_path) if "ranking_task" in cfg.tasks else None
+    semeval_2026_df = pd.read_json(cfg.semeval_2026_path, lines=True) if "semeval_2026_task" in cfg.tasks else None
     if "synthetic_task" in cfg.tasks:
         syn_path = cfg.synthetic_v1_path if cfg.synthetic_version == "v1" else cfg.synthetic_v2_path
         synthetic_df = pd.read_csv(syn_path)
@@ -558,6 +644,8 @@ def main() -> None:
             ckpt_res["retrieval_task"] = run_retrieval_task(retrieval_df, emb)
         if "ranking_task" in cfg.tasks:
             ckpt_res["ranking_task"] = run_ranking_task(ranking_df, emb)
+        if "semeval_2026_task" in cfg.tasks:
+            ckpt_res["semeval_2026_task"] = run_semeval_2026_task(semeval_2026_df, emb)
         if "synthetic_task" in cfg.tasks:
             ckpt_res["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
 
@@ -589,6 +677,8 @@ def main() -> None:
                 bres["retrieval_task"] = run_retrieval_task(retrieval_df, emb)
             if "ranking_task" in cfg.tasks:
                 bres["ranking_task"] = run_ranking_task(ranking_df, emb)
+            if "semeval_2026_task" in cfg.tasks:
+                bres["semeval_2026_task"] = run_semeval_2026_task(semeval_2026_df, emb)
             if "synthetic_task" in cfg.tasks:
                 bres["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
             baseline_results[baseline_name] = bres
@@ -607,6 +697,8 @@ def main() -> None:
             llm_res["retrieval_task"] = run_llm_retrieval(retrieval_df, cfg, client)
         if "ranking_task" in cfg.tasks:
             print("ranking_task for LLM baseline is not implemented in this script yet.")
+        if "semeval_2026_task" in cfg.tasks:
+            llm_res["semeval_2026_task"] = run_llm_semeval_2026(semeval_2026_df, cfg, client)
         if "synthetic_task" in cfg.tasks:
             llm_res["synthetic_task"] = run_llm_synthetic(synthetic_df, cfg, client)
         results["llm_baseline"] = llm_res
