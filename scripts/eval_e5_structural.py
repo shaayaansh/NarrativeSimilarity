@@ -46,6 +46,7 @@ class EvalConfig:
     retrieval_path: Path
     ranking_path: Path
     semeval_2026_path: Path
+    semeval_2022_path: Path
     synthetic_version: str
     synthetic_v1_path: Path
     synthetic_v2_path: Path
@@ -67,7 +68,14 @@ class EvalConfig:
     baseline_untrained_e5_model: str
 
 
-VALID_TASKS = {"eval_pair_task", "retrieval_task", "ranking_task", "synthetic_task", "semeval_2026_task"}
+VALID_TASKS = {
+    "eval_pair_task",
+    "retrieval_task",
+    "ranking_task",
+    "synthetic_task",
+    "semeval_2026_task",
+    "semeval_2022_correlation_task",
+}
 
 
 def load_config(config_path: Path) -> EvalConfig:
@@ -92,6 +100,9 @@ def load_config(config_path: Path) -> EvalConfig:
         ranking_path=resolve_path(root, raw["data"].get("ranking_path", "data/eval_data/ranking_eval_df.csv")),
         semeval_2026_path=resolve_path(
             root, raw["data"].get("semeval_2026_path", "data/eval_data/SemEval2026-Task_4-dev-v1/dev_track_a.jsonl")
+        ),
+        semeval_2022_path=resolve_path(
+            root, raw["data"].get("semeval_2022_path", "data/eval_data/SemEval2022-Task8/semeval_2022_eval_data.csv")
         ),
         synthetic_version=str(raw["data"].get("synthetic_version", "v2")).lower(),
         synthetic_v1_path=resolve_path(root, raw["data"]["synthetic_v1_path"]),
@@ -384,6 +395,34 @@ def run_semeval_2026_task(df: pd.DataFrame, emb: Embedder) -> Dict:
     }
 
 
+def run_semeval_2022_correlation_task(df: pd.DataFrame, emb: Embedder) -> Dict:
+    req = {"pair_id", "article_1", "article_2", "NAR"}
+    miss = req - set(df.columns)
+    if miss:
+        raise ValueError(f"semeval_2022_correlation_task missing columns: {sorted(miss)}")
+
+    rows = []
+    for r in tqdm(df.itertuples(index=False), total=len(df), desc="semeval_2022_correlation_task", unit="pair"):
+        a = emb.prepare_text(str(r.article_1))
+        b = emb.prepare_text(str(r.article_2))
+        ea, eb = emb.embed([a, b], batch_size=2)
+        sim = float(torch.dot(ea, eb).item())
+        nar = float(r.NAR)
+        rows.append({"pair_id": str(r.pair_id), "cosine": sim, "NAR": nar})
+
+    rdf = pd.DataFrame(rows)
+    # Spearman is primary here because NAR is ordinal (1..4); Pearson is secondary.
+    spearman = float(rdf["cosine"].corr(rdf["NAR"], method="spearman")) if len(rdf) > 1 else None
+    pearson = float(rdf["cosine"].corr(rdf["NAR"], method="pearson")) if len(rdf) > 1 else None
+    return {
+        "num_pairs": int(len(rdf)),
+        "spearman_corr_cosine_vs_NAR": spearman,
+        "pearson_corr_cosine_vs_NAR": pearson,
+        "nar_mean": float(rdf["NAR"].mean()) if len(rdf) else None,
+        "nar_median": float(rdf["NAR"].median()) if len(rdf) else None,
+    }
+
+
 def get_openai_client(cfg: EvalConfig) -> OpenAI:
     key_path = cfg.openai_key_path
     if not key_path.exists():
@@ -610,6 +649,9 @@ def main() -> None:
     retrieval_df = pd.read_csv(cfg.retrieval_path) if "retrieval_task" in cfg.tasks else None
     ranking_df = pd.read_csv(cfg.ranking_path) if "ranking_task" in cfg.tasks else None
     semeval_2026_df = pd.read_json(cfg.semeval_2026_path, lines=True) if "semeval_2026_task" in cfg.tasks else None
+    semeval_2022_df = (
+        pd.read_csv(cfg.semeval_2022_path) if "semeval_2022_correlation_task" in cfg.tasks else None
+    )
     if "synthetic_task" in cfg.tasks:
         syn_path = cfg.synthetic_v1_path if cfg.synthetic_version == "v1" else cfg.synthetic_v2_path
         synthetic_df = pd.read_csv(syn_path)
@@ -646,6 +688,8 @@ def main() -> None:
             ckpt_res["ranking_task"] = run_ranking_task(ranking_df, emb)
         if "semeval_2026_task" in cfg.tasks:
             ckpt_res["semeval_2026_task"] = run_semeval_2026_task(semeval_2026_df, emb)
+        if "semeval_2022_correlation_task" in cfg.tasks:
+            ckpt_res["semeval_2022_correlation_task"] = run_semeval_2022_correlation_task(semeval_2022_df, emb)
         if "synthetic_task" in cfg.tasks:
             ckpt_res["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
 
@@ -679,6 +723,8 @@ def main() -> None:
                 bres["ranking_task"] = run_ranking_task(ranking_df, emb)
             if "semeval_2026_task" in cfg.tasks:
                 bres["semeval_2026_task"] = run_semeval_2026_task(semeval_2026_df, emb)
+            if "semeval_2022_correlation_task" in cfg.tasks:
+                bres["semeval_2022_correlation_task"] = run_semeval_2022_correlation_task(semeval_2022_df, emb)
             if "synthetic_task" in cfg.tasks:
                 bres["synthetic_task"] = run_synthetic_task(synthetic_df, emb)
             baseline_results[baseline_name] = bres

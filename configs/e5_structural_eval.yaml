@@ -8,12 +8,14 @@ checkpoints:
 
 tasks:
   # default: all
-  # valid values: eval_pair_task, retrieval_task, synthetic_task, all
+  # valid values: eval_pair_task, retrieval_task, ranking_task, semeval_2026_task,
+  #               semeval_2022_correlation_task, synthetic_task, all
   run: all
 
 data:
   eval_pair_path: data/eval_data/eval_story_pairs_200.csv
   retrieval_path: data/eval_data/retrieval_eval_df.csv
+  semeval_2022_path: data/eval_data/SemEval2022-Task8/semeval_2022_eval_data.csv
 
   # synthetic version for synthetic_task
   synthetic_version: v2
