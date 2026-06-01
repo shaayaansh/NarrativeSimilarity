@@ -10,7 +10,7 @@ tasks:
   # default: all
   # valid values: eval_pair_task, retrieval_task, ranking_task, semeval_2026_task,
   #               semeval_2022_correlation_task, synthetic_task, all
-  run: semeval_2022_correlation_task
+  run: all
 
 data:
   eval_pair_path: data/eval_data/eval_story_pairs_200.csv
