@@ -1,15 +1,13 @@
 data:
   scores_path: data/Alignment/asq_random_10000_pair_structural_scores.json
   alignments_path: data/Alignment/asq_random_10000_story_pair_alignments.json
-  output_dir: artifacts/e5_mistral_structural_finetune
+  output_dir: artifacts/bge_base_structural_finetune
 
 model:
-  # e5: uses "passage: " prefix and Mistral-style LoRA targets by default.
-  # bge: uses no prefix and BERT-style LoRA targets by default.
-  model_family: e5
-  model_name: intfloat/e5-mistral-7b-instruct
-  story_prefix: "passage: "
-  max_length: 1024
+  model_family: bge
+  model_name: BAAI/bge-base-en-v1.5
+  story_prefix: ""
+  max_length: 512
   use_bfloat16: true
   hf_cache_dir: /scratch/shayan/hf_cache
 
@@ -38,7 +36,6 @@ lora:
   lora_r: 16
   lora_alpha: 32
   lora_dropout: 0.05
-  # auto maps model_family=e5 -> q/k/v/o/gate/up/down proj
   # auto maps model_family=bge -> query/key/value
   target_modules: auto
 

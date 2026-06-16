@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Train E5-Mistral structural embedding model from CLI.
+"""Train a structural embedding model from CLI.
 
 Usage:
   python scripts/train_e5_structural.py --config configs/e5_structural_train.yaml
@@ -38,6 +38,8 @@ class TrainConfig:
     alignments_path: Path
     output_dir: Path
     model_name: str
+    model_family: str
+    story_prefix: str
     max_length: int
     use_bfloat16: bool
     hf_cache_dir: Path
@@ -77,12 +79,22 @@ def resolve_path(root: Path, p: str) -> Path:
 def load_config(config_path: Path) -> TrainConfig:
     root = project_root()
     raw = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    model_family = str(raw["model"].get("model_family", "e5")).lower()
+    story_prefix = str(raw["model"].get("story_prefix", "passage: " if model_family == "e5" else ""))
+
+    raw_target_modules = raw["lora"].get("target_modules", "auto")
+    if raw_target_modules == "auto":
+        target_modules = default_lora_target_modules(model_family)
+    else:
+        target_modules = list(raw_target_modules)
 
     return TrainConfig(
         scores_path=resolve_path(root, raw["data"]["scores_path"]),
         alignments_path=resolve_path(root, raw["data"]["alignments_path"]),
         output_dir=resolve_path(root, raw["data"]["output_dir"]),
         model_name=raw["model"]["model_name"],
+        model_family=model_family,
+        story_prefix=story_prefix,
         max_length=int(raw["model"]["max_length"]),
         use_bfloat16=bool(raw["model"]["use_bfloat16"]),
         hf_cache_dir=Path(raw["model"]["hf_cache_dir"]),
@@ -104,7 +116,7 @@ def load_config(config_path: Path) -> TrainConfig:
         lora_r=int(raw["lora"]["lora_r"]),
         lora_alpha=int(raw["lora"]["lora_alpha"]),
         lora_dropout=float(raw["lora"]["lora_dropout"]),
-        target_modules=list(raw["lora"]["target_modules"]),
+        target_modules=target_modules,
         eval_every_steps=int(raw["logging"]["eval_every_steps"]),
         checkpoint_every_epochs=int(raw["checkpointing"]["checkpoint_every_epochs"]),
         resume_training=bool(raw["checkpointing"].get("resume_training", False)),
@@ -118,16 +130,25 @@ def set_seed(seed: int) -> None:
     torch.cuda.manual_seed_all(seed)
 
 
-def format_story_for_e5(text: str) -> str:
-    return f"passage: {str(text).strip()}"
+def default_lora_target_modules(model_family: str) -> List[str]:
+    if model_family == "e5":
+        return ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+    if model_family == "bge":
+        return ["query", "key", "value"]
+    raise ValueError("model.model_family must be one of: e5, bge")
+
+
+def format_story_for_model(text: str, cfg: TrainConfig) -> str:
+    text = str(text).strip()
+    return f"{cfg.story_prefix}{text}" if cfg.story_prefix else text
 
 
 class PairRegressionDataset(Dataset):
-    def __init__(self, df: pd.DataFrame):
+    def __init__(self, df: pd.DataFrame, cfg: TrainConfig):
         self.rows = [
             {
-                "text_a": format_story_for_e5(r["story_a_text"]),
-                "text_b": format_story_for_e5(r["story_b_text"]),
+                "text_a": format_story_for_model(r["story_a_text"], cfg),
+                "text_b": format_story_for_model(r["story_b_text"], cfg),
                 "target": float(r["score_norm"]),
             }
             for _, r in df.iterrows()
@@ -203,10 +224,10 @@ def build_triplets(df: pd.DataFrame, cfg: TrainConfig) -> List[Dict]:
             e = rng.choice(easy)
             triplets.append(
                 {
-                    "anchor": format_story_for_e5(p["anchor_text"]),
-                    "positive": format_story_for_e5(p["other_text"]),
-                    "hard_negative": format_story_for_e5(h["other_text"]),
-                    "easy_negative": format_story_for_e5(e["other_text"]),
+                    "anchor": format_story_for_model(p["anchor_text"], cfg),
+                    "positive": format_story_for_model(p["other_text"], cfg),
+                    "hard_negative": format_story_for_model(h["other_text"], cfg),
+                    "easy_negative": format_story_for_model(e["other_text"], cfg),
                 }
             )
 
@@ -319,6 +340,8 @@ def main() -> None:
     cfg = load_config(args.config)
     if cfg.loss_type not in {"infonce", "contrastive_mse"}:
         raise ValueError("training.loss_type must be one of: infonce, contrastive_mse")
+    if cfg.model_family not in {"e5", "bge"}:
+        raise ValueError("model.model_family must be one of: e5, bge")
 
     cfg.output_dir.mkdir(parents=True, exist_ok=True)
     set_seed(cfg.seed)
@@ -326,6 +349,10 @@ def main() -> None:
     print("CUDA available:", torch.cuda.is_available())
     if torch.cuda.is_available():
         print("GPU:", torch.cuda.get_device_name(0))
+    print(f"Model family: {cfg.model_family}")
+    print(f"Model name: {cfg.model_name}")
+    print(f"Story prefix: {cfg.story_prefix!r}")
+    print(f"LoRA target modules: {cfg.target_modules}")
 
     # Keep HF cache off home folder by default.
     os.environ["HF_HOME"] = str(cfg.hf_cache_dir)
@@ -340,8 +367,8 @@ def main() -> None:
     print(f"val pairs  : {len(val_df)}")
 
     if cfg.loss_type == "contrastive_mse":
-        train_dataset = PairRegressionDataset(train_df)
-        val_dataset = PairRegressionDataset(val_df)
+        train_dataset = PairRegressionDataset(train_df, cfg)
+        val_dataset = PairRegressionDataset(val_df, cfg)
         collate_fn = collate_pair
         print("Using contrastive_mse with pair dataset.")
     else:
@@ -361,8 +388,13 @@ def main() -> None:
     dtype = torch.bfloat16 if (torch.cuda.is_available() and cfg.use_bfloat16) else torch.float32
 
     tokenizer = AutoTokenizer.from_pretrained(cfg.model_name, cache_dir=str(cfg.hf_cache_dir))
+    added_pad_token = False
     if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
+        if tokenizer.eos_token is not None:
+            tokenizer.pad_token = tokenizer.eos_token
+        else:
+            tokenizer.add_special_tokens({"pad_token": "[PAD]"})
+            added_pad_token = True
 
     model = AutoModel.from_pretrained(
         cfg.model_name,
@@ -370,6 +402,8 @@ def main() -> None:
         device_map="auto" if torch.cuda.is_available() else None,
         cache_dir=str(cfg.hf_cache_dir),
     )
+    if added_pad_token:
+        model.resize_token_embeddings(len(tokenizer))
 
     lora_cfg = LoraConfig(
         task_type=TaskType.FEATURE_EXTRACTION,
