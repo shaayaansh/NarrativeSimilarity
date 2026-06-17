@@ -13,12 +13,12 @@ model:
 
 training:
   # one of: infonce, contrastive_mse
-  loss_type: contrastive_mse
+  loss_type: infonce
   seed: 42
   train_frac: 0.9
   batch_size: 8
-  num_epochs: 10
-  lr: 1e-4
+  num_epochs: 20
+  lr: 1e-5
   weight_decay: 0.01
   warmup_ratio: 0.03
   grad_accum_steps: 8
@@ -26,11 +26,12 @@ training:
   temperature: 0.05
 
 sampling:
-  # used for infonce triplet building
+  used for infonce triplet building
   hard_negative_bin: 2
   positive_bin: 3
   easy_negative_bins: [0, 1]
   max_triplets_per_anchor: 8
+
 
 lora:
   enabled: false
@@ -41,7 +42,7 @@ lora:
   target_modules: auto
 
 logging:
-  eval_every_steps: 100
+  eval_every_steps: 500
 
 checkpointing:
   checkpoint_every_epochs: 2
