@@ -54,9 +54,9 @@ class TrainConfig:
     grad_accum_steps: int
     max_grad_norm: float
     temperature: float
-    hard_negative_bin: int
-    positive_bin: int
-    easy_negative_bins: List[int]
+    positive_bins: List[int]
+    negative_bins: List[int]
+    negatives_per_anchor: int
     max_triplets_per_anchor: int
     use_lora: bool
     lora_r: int
@@ -91,6 +91,13 @@ def load_config(config_path: Path) -> TrainConfig:
     else:
         target_modules = list(raw_target_modules)
 
+    negatives_per_anchor = int(raw["sampling"].get("negatives_per_anchor", 2))
+    if negatives_per_anchor != 2:
+        raise ValueError(
+            "This InfoNCE training path expects negatives_per_anchor=2 "
+            "for anchor + positive + two negatives."
+        )
+
     return TrainConfig(
         scores_path=resolve_path(root, raw["data"]["scores_path"]),
         alignments_path=resolve_path(root, raw["data"]["alignments_path"]),
@@ -112,9 +119,15 @@ def load_config(config_path: Path) -> TrainConfig:
         grad_accum_steps=int(raw["training"]["grad_accum_steps"]),
         max_grad_norm=float(raw["training"]["max_grad_norm"]),
         temperature=float(raw["training"]["temperature"]),
-        hard_negative_bin=int(raw["sampling"]["hard_negative_bin"]),
-        positive_bin=int(raw["sampling"]["positive_bin"]),
-        easy_negative_bins=list(raw["sampling"]["easy_negative_bins"]),
+        positive_bins=list(raw["sampling"].get("positive_bins", [raw["sampling"].get("positive_bin", 3)])),
+        negative_bins=list(
+            raw["sampling"].get(
+                "negative_bins",
+                [raw["sampling"].get("hard_negative_bin", 2)]
+                + list(raw["sampling"].get("easy_negative_bins", [0, 1])),
+            )
+        ),
+        negatives_per_anchor=negatives_per_anchor,
         max_triplets_per_anchor=int(raw["sampling"]["max_triplets_per_anchor"]),
         use_lora=use_lora,
         lora_r=int(lora_raw.get("lora_r", 16)),
@@ -213,25 +226,23 @@ def build_triplets(df: pd.DataFrame, cfg: TrainConfig) -> List[Dict]:
     triplets: List[Dict] = []
 
     for _, rows in by_anchor.items():
-        pos = [x for x in rows if x["bin"] == cfg.positive_bin]
-        hard = [x for x in rows if x["bin"] == cfg.hard_negative_bin]
-        easy = [x for x in rows if x["bin"] in cfg.easy_negative_bins]
+        pos = [x for x in rows if x["bin"] in cfg.positive_bins]
+        neg = [x for x in rows if x["bin"] in cfg.negative_bins]
 
-        if not pos or not hard or not easy:
+        if not pos or len(neg) < cfg.negatives_per_anchor:
             continue
 
         rng.shuffle(pos)
         max_k = min(len(pos), cfg.max_triplets_per_anchor)
 
         for p in pos[:max_k]:
-            h = rng.choice(hard)
-            e = rng.choice(easy)
+            negatives = rng.sample(neg, cfg.negatives_per_anchor)
             triplets.append(
                 {
                     "anchor": format_story_for_model(p["anchor_text"], cfg),
                     "positive": format_story_for_model(p["other_text"], cfg),
-                    "hard_negative": format_story_for_model(h["other_text"], cfg),
-                    "easy_negative": format_story_for_model(e["other_text"], cfg),
+                    "negative_1": format_story_for_model(negatives[0]["other_text"], cfg),
+                    "negative_2": format_story_for_model(negatives[1]["other_text"], cfg),
                 }
             )
 
@@ -250,8 +261,8 @@ def collate_triplet(batch):
     return {
         "anchor": [x["anchor"] for x in batch],
         "positive": [x["positive"] for x in batch],
-        "hard_negative": [x["hard_negative"] for x in batch],
-        "easy_negative": [x["easy_negative"] for x in batch],
+        "negative_1": [x["negative_1"] for x in batch],
+        "negative_2": [x["negative_2"] for x in batch],
     }
 
 
@@ -486,14 +497,14 @@ def main() -> None:
     def loss_infonce(batch: Dict[str, List[str]]) -> torch.Tensor:
         anc = embed(batch["anchor"])
         pos = embed(batch["positive"])
-        hneg = embed(batch["hard_negative"])
-        eneg = embed(batch["easy_negative"])
+        neg1 = embed(batch["negative_1"])
+        neg2 = embed(batch["negative_2"])
 
         pos_sim = F.cosine_similarity(anc, pos, dim=-1)
-        hneg_sim = F.cosine_similarity(anc, hneg, dim=-1)
-        eneg_sim = F.cosine_similarity(anc, eneg, dim=-1)
+        neg1_sim = F.cosine_similarity(anc, neg1, dim=-1)
+        neg2_sim = F.cosine_similarity(anc, neg2, dim=-1)
 
-        logits = torch.stack([pos_sim, hneg_sim, eneg_sim], dim=1) / cfg.temperature
+        logits = torch.stack([pos_sim, neg1_sim, neg2_sim], dim=1) / cfg.temperature
         labels = torch.zeros(logits.size(0), dtype=torch.long, device=logits.device)
         return F.cross_entropy(logits, labels)
 

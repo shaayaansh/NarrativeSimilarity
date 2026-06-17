@@ -30,10 +30,10 @@ training:
   temperature: 0.05
 
 sampling:
-  # used for infonce triplet building
-  hard_negative_bin: 2
-  positive_bin: 3
-  easy_negative_bins: [0, 1]
+  # used for infonce triplet building: anchor + one positive + two negatives
+  positive_bins: [3]
+  negative_bins: [0, 1, 2]
+  negatives_per_anchor: 2
   max_triplets_per_anchor: 8
 
 lora:
