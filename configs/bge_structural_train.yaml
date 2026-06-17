@@ -1,6 +1,6 @@
 data:
-  scores_path: data/Alignment/asq_random_10000_pair_structural_scores.json
-  alignments_path: data/Alignment/asq_random_10000_story_pair_alignments.json
+  scores_path: data/Alignment/asq_embedding_train_v2_sample10k_pair_structural_scores.json
+  alignments_path: data/Alignment/asq_embedding_train_v2_sample10k_story_pair_alignments.json
   output_dir: artifacts/bge_base_structural_finetune
 
 model:
@@ -43,5 +43,5 @@ logging:
   eval_every_steps: 100
 
 checkpointing:
-  checkpoint_every_epochs: 1
+  checkpoint_every_epochs: 2
   resume_training: false
