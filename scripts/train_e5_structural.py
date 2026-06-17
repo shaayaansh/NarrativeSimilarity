@@ -378,23 +378,30 @@ def main() -> None:
 
     pair_df = load_pair_df(cfg)
     pair_df = pair_df.sample(frac=1.0, random_state=cfg.seed).reset_index(drop=True)
-    cut = int(len(pair_df) * cfg.train_frac)
-    train_df, val_df = pair_df.iloc[:cut].copy(), pair_df.iloc[cut:].copy()
-    print(f"train pairs: {len(train_df)}")
-    print(f"val pairs  : {len(val_df)}")
 
     if cfg.loss_type == "contrastive_mse":
+        cut = int(len(pair_df) * cfg.train_frac)
+        train_df, val_df = pair_df.iloc[:cut].copy(), pair_df.iloc[cut:].copy()
+        print(f"train pairs: {len(train_df)}")
+        print(f"val pairs  : {len(val_df)}")
+
         train_dataset = PairRegressionDataset(train_df, cfg)
         val_dataset = PairRegressionDataset(val_df, cfg)
         collate_fn = collate_pair
         print("Using contrastive_mse with pair dataset.")
     else:
-        train_triplets = build_triplets(train_df, cfg)
-        val_triplets = build_triplets(val_df, cfg)
+        all_triplets = build_triplets(pair_df, cfg)
+        rng = random.Random(cfg.seed)
+        rng.shuffle(all_triplets)
+        cut = int(len(all_triplets) * cfg.train_frac)
+        train_triplets = all_triplets[:cut]
+        val_triplets = all_triplets[cut:]
+
         train_dataset = TripletDataset(train_triplets)
         val_dataset = TripletDataset(val_triplets)
         collate_fn = collate_triplet
         print("Using infonce with triplet dataset.")
+        print(f"all triplets: {len(all_triplets)}")
         print(f"train triplets: {len(train_dataset)} | val triplets: {len(val_dataset)}")
 
     train_loader = DataLoader(train_dataset, batch_size=cfg.batch_size, shuffle=True, collate_fn=collate_fn)
