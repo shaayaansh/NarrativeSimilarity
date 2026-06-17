@@ -37,6 +37,7 @@ sampling:
   max_triplets_per_anchor: 8
 
 lora:
+  enabled: true
   lora_r: 16
   lora_alpha: 32
   lora_dropout: 0.05

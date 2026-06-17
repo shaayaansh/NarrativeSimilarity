@@ -33,10 +33,11 @@ sampling:
   max_triplets_per_anchor: 8
 
 lora:
+  enabled: false
   lora_r: 16
   lora_alpha: 32
   lora_dropout: 0.05
-  # auto maps model_family=bge -> query/key/value
+  # Ignored when enabled=false. If enabled=true, auto maps model_family=bge -> query/key/value.
   target_modules: auto
 
 logging:

@@ -58,6 +58,7 @@ class TrainConfig:
     positive_bin: int
     easy_negative_bins: List[int]
     max_triplets_per_anchor: int
+    use_lora: bool
     lora_r: int
     lora_alpha: int
     lora_dropout: float
@@ -82,7 +83,9 @@ def load_config(config_path: Path) -> TrainConfig:
     model_family = str(raw["model"].get("model_family", "e5")).lower()
     story_prefix = str(raw["model"].get("story_prefix", "passage: " if model_family == "e5" else ""))
 
-    raw_target_modules = raw["lora"].get("target_modules", "auto")
+    lora_raw = raw.get("lora", {})
+    use_lora = bool(lora_raw.get("enabled", True))
+    raw_target_modules = lora_raw.get("target_modules", "auto")
     if raw_target_modules == "auto":
         target_modules = default_lora_target_modules(model_family)
     else:
@@ -113,9 +116,10 @@ def load_config(config_path: Path) -> TrainConfig:
         positive_bin=int(raw["sampling"]["positive_bin"]),
         easy_negative_bins=list(raw["sampling"]["easy_negative_bins"]),
         max_triplets_per_anchor=int(raw["sampling"]["max_triplets_per_anchor"]),
-        lora_r=int(raw["lora"]["lora_r"]),
-        lora_alpha=int(raw["lora"]["lora_alpha"]),
-        lora_dropout=float(raw["lora"]["lora_dropout"]),
+        use_lora=use_lora,
+        lora_r=int(lora_raw.get("lora_r", 16)),
+        lora_alpha=int(lora_raw.get("lora_alpha", 32)),
+        lora_dropout=float(lora_raw.get("lora_dropout", 0.05)),
         target_modules=target_modules,
         eval_every_steps=int(raw["logging"]["eval_every_steps"]),
         checkpoint_every_epochs=int(raw["checkpointing"]["checkpoint_every_epochs"]),
@@ -352,7 +356,9 @@ def main() -> None:
     print(f"Model family: {cfg.model_family}")
     print(f"Model name: {cfg.model_name}")
     print(f"Story prefix: {cfg.story_prefix!r}")
-    print(f"LoRA target modules: {cfg.target_modules}")
+    print(f"LoRA enabled: {cfg.use_lora}")
+    if cfg.use_lora:
+        print(f"LoRA target modules: {cfg.target_modules}")
 
     # Keep HF cache off home folder by default.
     os.environ["HF_HOME"] = str(cfg.hf_cache_dir)
@@ -396,25 +402,55 @@ def main() -> None:
             tokenizer.add_special_tokens({"pad_token": "[PAD]"})
             added_pad_token = True
 
+    model_load_path: str | Path = cfg.model_name
+    checkpoint_dir = cfg.output_dir / ("checkpoints_mse_loss" if cfg.loss_type == "contrastive_mse" else "checkpoints")
+    checkpoint_dir.mkdir(parents=True, exist_ok=True)
+
+    resume_epoch = 0
+    global_step = 0
+    latest = None
+    if cfg.resume_training:
+        resume_epoch, latest = latest_checkpoint(checkpoint_dir, cfg.loss_type)
+        if latest is not None:
+            print(f"Resuming from checkpoint: {latest} (completed epoch={resume_epoch})")
+            if not cfg.use_lora:
+                model_load_path = latest
+                tokenizer = AutoTokenizer.from_pretrained(str(latest))
+                if tokenizer.pad_token is None:
+                    tokenizer.pad_token = tokenizer.eos_token
+
     model = AutoModel.from_pretrained(
-        cfg.model_name,
+        str(model_load_path),
         dtype=dtype,
         device_map="auto" if torch.cuda.is_available() else None,
         cache_dir=str(cfg.hf_cache_dir),
     )
-    if added_pad_token:
+    if added_pad_token and model_load_path == cfg.model_name:
         model.resize_token_embeddings(len(tokenizer))
 
-    lora_cfg = LoraConfig(
-        task_type=TaskType.FEATURE_EXTRACTION,
-        r=cfg.lora_r,
-        lora_alpha=cfg.lora_alpha,
-        lora_dropout=cfg.lora_dropout,
-        target_modules=cfg.target_modules,
-        bias="none",
-    )
-    model = get_peft_model(model, lora_cfg)
-    model.print_trainable_parameters()
+    if cfg.use_lora:
+        lora_cfg = LoraConfig(
+            task_type=TaskType.FEATURE_EXTRACTION,
+            r=cfg.lora_r,
+            lora_alpha=cfg.lora_alpha,
+            lora_dropout=cfg.lora_dropout,
+            target_modules=cfg.target_modules,
+            bias="none",
+        )
+        model = get_peft_model(model, lora_cfg)
+        if latest is not None and cfg.resume_training:
+            model = PeftModel.from_pretrained(model, str(latest), is_trainable=True)
+            try:
+                tokenizer = AutoTokenizer.from_pretrained(str(latest))
+                if tokenizer.pad_token is None:
+                    tokenizer.pad_token = tokenizer.eos_token
+            except Exception as e:
+                print(f"Warning: tokenizer not loaded from checkpoint: {e}")
+        model.print_trainable_parameters()
+    else:
+        trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        total = sum(p.numel() for p in model.parameters())
+        print(f"Full fine-tuning enabled: trainable params {trainable:,} / {total:,}")
 
     def encode_texts(texts: List[str]) -> Dict[str, torch.Tensor]:
         return tokenizer(
@@ -482,22 +518,8 @@ def main() -> None:
         num_training_steps=num_train_steps,
     )
 
-    checkpoint_dir = cfg.output_dir / ("checkpoints_mse_loss" if cfg.loss_type == "contrastive_mse" else "checkpoints")
-    checkpoint_dir.mkdir(parents=True, exist_ok=True)
-
-    resume_epoch = 0
-    global_step = 0
     if cfg.resume_training:
-        resume_epoch, latest = latest_checkpoint(checkpoint_dir, cfg.loss_type)
         if latest is not None:
-            print(f"Resuming from checkpoint: {latest} (completed epoch={resume_epoch})")
-            model = PeftModel.from_pretrained(model, str(latest), is_trainable=True)
-            try:
-                tokenizer = AutoTokenizer.from_pretrained(str(latest))
-                if tokenizer.pad_token is None:
-                    tokenizer.pad_token = tokenizer.eos_token
-            except Exception as e:
-                print(f"Warning: tokenizer not loaded from checkpoint: {e}")
             global_step = resume_epoch * steps_per_epoch
             for _ in range(global_step):
                 scheduler.step()
@@ -561,7 +583,8 @@ def main() -> None:
     (save_dir / "train_config.json").write_text(
         json.dumps(to_serializable_config(cfg), indent=2), encoding="utf-8"
     )
-    print(f"Saved final adapter+tokenizer to: {save_dir}")
+    artifact_type = "adapter+tokenizer" if cfg.use_lora else "model+tokenizer"
+    print(f"Saved final {artifact_type} to: {save_dir}")
 
 
 if __name__ == "__main__":
