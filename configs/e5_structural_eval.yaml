@@ -1,8 +1,8 @@
 checkpoints:
   # directory containing epoch checkpoint folders
-  root: artifacts/e5_mistral_structural_finetune/checkpoints_mse_loss
+  root: artifacts/e5_mistral_structural_finetune_v2/checkpoints_mse_loss
   # one of: all, or epoch number (e.g., 2, 5, 10)
-  which: 1
+  which: all
   # glob inside root, keep default for mse-loss checkpoints
   pattern: epoch_*_mse_loss
 
@@ -29,7 +29,7 @@ model:
 
 output:
   dir: data/eval_results
-  filename: cli_eval_results.json
+  filename: cli_eval_results_v2.json
 
 baselines:
   # embedding baselines

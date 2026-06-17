@@ -12,4 +12,9 @@ data/ASQ/embeddings_base_e5/
 
 data/MovieRemakeDataset_NAACL2018/
 data/tell_me_again_v1/
+data/ASQ/train_v2_candidates/asq_embedding_bottom20_negative_candidates.csv
+data/ASQ/train_v2_candidates/asq_embedding_top20_positive_candidates.csv
 
+data/Alignment/asq_embedding_train_v2_sample10k_pair_structural_scores.csv
+data/Alignment/asq_embedding_train_v2_sample10k_pair_structural_scores.json
+data/Alignment/asq_embedding_train_v2_sample10k_story_pair_alignments.json

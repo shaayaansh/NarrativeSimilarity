@@ -1,0 +1,15 @@
+{
+  "embeddings_path": "/tank/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/embeddings_base_e5/asq_narrative_embeddings_base_e5.npy",
+  "metadata_path": "/tank/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/embeddings_base_e5/asq_narrative_embedding_metadata.csv",
+  "n_narratives": 21365,
+  "n_pairs_total": 228220930,
+  "top_quantile": 0.8,
+  "bottom_quantile": 0.2,
+  "top_threshold": 0.8154152631759644,
+  "bottom_threshold": 0.7327283620834351,
+  "n_positive_candidates": 45644255,
+  "n_negative_candidates": 45644202,
+  "device_used": "cuda",
+  "positive_csv": "/tank/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates/asq_embedding_top20_positive_candidates.csv",
+  "negative_csv": "/tank/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates/asq_embedding_bottom20_negative_candidates.csv"
+}

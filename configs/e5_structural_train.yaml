@@ -1,7 +1,9 @@
 data:
-  scores_path: data/Alignment/asq_random_10000_pair_structural_scores.json
-  alignments_path: data/Alignment/asq_random_10000_story_pair_alignments.json
-  output_dir: artifacts/e5_mistral_structural_finetune
+  # scores_path: data/Alignment/asq_random_10000_pair_structural_scores.json
+  # alignments_path: data/Alignment/asq_random_10000_story_pair_alignments.json
+  scores_path: data/Alignment/asq_embedding_train_v2_sample10k_pair_structural_scores.json
+  alignments_path: data/Alignment/asq_embedding_train_v2_sample10k_story_pair_alignments.json
+  output_dir: artifacts/e5_mistral_structural_finetune_v2
 
 model:
   # e5: uses "passage: " prefix and Mistral-style LoRA targets by default.
