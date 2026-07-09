@@ -66,6 +66,7 @@ class EvalConfig:
     baseline_roberta_model: str
     baseline_bge_model: str
     baseline_untrained_e5_model: str
+    baseline_storyemb_model: str
 
 
 VALID_TASKS = {
@@ -122,6 +123,7 @@ def load_config(config_path: Path) -> EvalConfig:
         baseline_untrained_e5_model=str(
             raw["baselines"].get("baseline_untrained_e5_model", "intfloat/e5-mistral-7b-instruct")
         ),
+        baseline_storyemb_model=str(raw["baselines"].get("baseline_storyemb_model", "uhhlt/story-emb")),
     )
 
     bad = [t for t in cfg.tasks if t not in VALID_TASKS]
@@ -703,6 +705,7 @@ def main() -> None:
             ("roberta_base", cfg.baseline_roberta_model, False),
             ("bge_base", cfg.baseline_bge_model, False),
             ("e5_untrained", cfg.baseline_untrained_e5_model, True),
+            ("story_emb", cfg.baseline_storyemb_model, False),
         ]
         baseline_results: Dict = {}
         for baseline_name, model_id, use_e5_prefix in baseline_specs:
