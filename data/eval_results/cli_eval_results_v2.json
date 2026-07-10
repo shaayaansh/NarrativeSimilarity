@@ -1,6 +1,6 @@
 {
   "config": {
-    "checkpoint_selector": "all",
+    "checkpoint_selector": "1",
     "tasks": [
       "eval_pair_task",
       "ranking_task",
@@ -18,69 +18,31 @@
     "epoch_01_mse_loss": {
       "eval_pair_task": {
         "num_pairs": 200,
-        "mean_positive": 0.6615853404998779,
-        "mean_negative": 0.2790744271874428,
-        "std_positive": 0.1623897745067455,
-        "std_negative": 0.0804716217797183,
-        "mean_gap_pos_minus_neg": 0.38251091331243514
+        "mean_positive": 0.7562438836693763,
+        "mean_negative": 0.3293890798650682,
+        "std_positive": 0.1217955763569701,
+        "std_negative": 0.1139170087517596,
+        "mean_gap_pos_minus_neg": 0.4268548038043081
       },
       "retrieval_task": {
         "num_queries": 200,
-        "num_correct": 191,
-        "accuracy": 0.955
+        "num_correct": 194,
+        "accuracy": 0.97
       },
       "ranking_task": {
         "num_queries": 199,
-        "mean_ndcg": 0.9711393855359096,
-        "std_ndcg": 0.025918385749280598
+        "mean_ndcg": 0.9781118457727246,
+        "std_ndcg": 0.020975567449188902
       },
       "semeval_2026_task": {
         "num_triplets": 200,
-        "num_correct": 121,
-        "accuracy": 0.605
+        "num_correct": 126,
+        "accuracy": 0.63
       },
       "semeval_2022_correlation_task": {
         "num_pairs": 90,
-        "spearman_corr_cosine_vs_NAR": -0.7154891742456113,
-        "pearson_corr_cosine_vs_NAR": -0.7085079803145612,
-        "nar_mean": 2.2444444444444445,
-        "nar_median": 2.0
-      },
-      "synthetic_task": {
-        "num_non_tie_rows": 20,
-        "num_ties_skipped": 0,
-        "num_correct": 8,
-        "accuracy": 0.4
-      }
-    },
-    "epoch_02_mse_loss": {
-      "eval_pair_task": {
-        "num_pairs": 200,
-        "mean_positive": 0.664632218182087,
-        "mean_negative": 0.309659478943795,
-        "std_positive": 0.17078759246479452,
-        "std_negative": 0.10908193260924545,
-        "mean_gap_pos_minus_neg": 0.354972739238292
-      },
-      "retrieval_task": {
-        "num_queries": 200,
-        "num_correct": 186,
-        "accuracy": 0.93
-      },
-      "ranking_task": {
-        "num_queries": 199,
-        "mean_ndcg": 0.969982625396846,
-        "std_ndcg": 0.031122300876063592
-      },
-      "semeval_2026_task": {
-        "num_triplets": 200,
-        "num_correct": 123,
-        "accuracy": 0.615
-      },
-      "semeval_2022_correlation_task": {
-        "num_pairs": 90,
-        "spearman_corr_cosine_vs_NAR": -0.7087718761271343,
-        "pearson_corr_cosine_vs_NAR": -0.6882476935019476,
+        "spearman_corr_cosine_vs_NAR": -0.7234201372688069,
+        "pearson_corr_cosine_vs_NAR": -0.7123231411344584,
         "nar_mean": 2.2444444444444445,
         "nar_median": 2.0
       },
@@ -89,44 +51,6 @@
         "num_ties_skipped": 0,
         "num_correct": 9,
         "accuracy": 0.45
-      }
-    },
-    "epoch_03_mse_loss": {
-      "eval_pair_task": {
-        "num_pairs": 200,
-        "mean_positive": 0.6262967067211866,
-        "mean_negative": 0.2948985610436648,
-        "std_positive": 0.2102594641969199,
-        "std_negative": 0.16752923107272094,
-        "mean_gap_pos_minus_neg": 0.33139814567752185
-      },
-      "retrieval_task": {
-        "num_queries": 200,
-        "num_correct": 174,
-        "accuracy": 0.87
-      },
-      "ranking_task": {
-        "num_queries": 199,
-        "mean_ndcg": 0.9616751849196231,
-        "std_ndcg": 0.04028278359794056
-      },
-      "semeval_2026_task": {
-        "num_triplets": 200,
-        "num_correct": 111,
-        "accuracy": 0.555
-      },
-      "semeval_2022_correlation_task": {
-        "num_pairs": 90,
-        "spearman_corr_cosine_vs_NAR": -0.6943427489265914,
-        "pearson_corr_cosine_vs_NAR": -0.6411054688553095,
-        "nar_mean": 2.2444444444444445,
-        "nar_median": 2.0
-      },
-      "synthetic_task": {
-        "num_non_tie_rows": 20,
-        "num_ties_skipped": 0,
-        "num_correct": 10,
-        "accuracy": 0.5
       }
     }
   },
@@ -243,6 +167,44 @@
         "num_ties_skipped": 0,
         "num_correct": 9,
         "accuracy": 0.45
+      }
+    },
+    "story_emb": {
+      "eval_pair_task": {
+        "num_pairs": 200,
+        "mean_positive": 0.8829064673185348,
+        "mean_negative": 0.7113243848085403,
+        "std_positive": 0.05204376261780794,
+        "std_negative": 0.05369157493456813,
+        "mean_gap_pos_minus_neg": 0.17158208250999452
+      },
+      "retrieval_task": {
+        "num_queries": 200,
+        "num_correct": 191,
+        "accuracy": 0.955
+      },
+      "ranking_task": {
+        "num_queries": 199,
+        "mean_ndcg": 0.9755245860966376,
+        "std_ndcg": 0.02664149906683613
+      },
+      "semeval_2026_task": {
+        "num_triplets": 200,
+        "num_correct": 114,
+        "accuracy": 0.57
+      },
+      "semeval_2022_correlation_task": {
+        "num_pairs": 90,
+        "spearman_corr_cosine_vs_NAR": -0.6851559798561523,
+        "pearson_corr_cosine_vs_NAR": -0.633843917722278,
+        "nar_mean": 2.2444444444444445,
+        "nar_median": 2.0
+      },
+      "synthetic_task": {
+        "num_non_tie_rows": 20,
+        "num_ties_skipped": 0,
+        "num_correct": 8,
+        "accuracy": 0.4
       }
     }
   }
