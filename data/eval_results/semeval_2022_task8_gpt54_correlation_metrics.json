@@ -1,0 +1,12 @@
+{
+  "model": "gpt-5.4",
+  "num_pairs": 90,
+  "num_valid": 90,
+  "num_errors": 0,
+  "pearson_corr_llm_vs_NAR": -0.7598837926869699,
+  "pearson_p": 3.837905224727624e-18,
+  "spearman_corr_llm_vs_NAR": -0.7549966771909151,
+  "spearman_p": 8.292308477024355e-18,
+  "human_nar_mean": 2.2444444444444445,
+  "llm_nar_mean": 2.6222222222222222
+}

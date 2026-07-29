@@ -1,0 +1,902 @@
+[
+  {
+    "row_index": 0,
+    "pair_id": "1483803584_1484221623",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 reports a specific planned lunar mission with costs and timeline, while Article 2 is a broad reflective list of unrelated national milestones and scandals without a matching event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 reports a specific planned lunar mission with costs and timeline, while Article 2 is a broad reflective list of unrelated national milestones and scandals without a matching event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 1,
+    "pair_id": "1483806302_1483770632",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both center on John Lewis's stage IV pancreatic cancer diagnosis, but Article 1 reports the diagnosis and treatment plans while Article 2 uses the diagnosis mainly as a springboard for a retrospective commentary on his civil rights legacy rather than unfolding the same event narrative.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both center on John Lewis's stage IV pancreatic cancer diagnosis, but Article 1 reports the diagnosis and treatment plans while Article 2 uses the diagnosis mainly as a springboard for a retrospective commentary on his civil rights legacy rather than unfolding the same event narrative.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 2,
+    "pair_id": "1484007654_1483932672",
+    "model": "gpt-5.4",
+    "human_NAR": 3.5,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first article is about Modi making New Year diplomatic calls to neighboring leaders, while the second is about General Bipin Rawat assuming the CDS role and meeting Indian leaders, with no shared event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"The first article is about Modi making New Year diplomatic calls to neighboring leaders, while the second is about General Bipin Rawat assuming the CDS role and meeting Indian leaders, with no shared event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 3,
+    "pair_id": "1484010775_1483828218",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on the same Cyprus Ayia Napa case in which a British teenager reported a gang rape, later signed a disputed retraction, was convicted of lying, and triggered criticism of the Cypriot justice system and UK concern.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on the same Cyprus Ayia Napa case in which a British teenager reported a gang rape, later signed a disputed retraction, was convicted of lying, and triggered criticism of the Cypriot justice system and UK concern.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 4,
+    "pair_id": "1484010864_1483950504",
+    "model": "gpt-5.4",
+    "human_NAR": 1.5,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first article is about macroeconomic growth, inequality, and fiscal policy concerns, while the second is about insurers disputing the prime minister’s claim that claims processing is delaying Dorian recovery, so the event progression and actors are different.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"The first article is about macroeconomic growth, inequality, and fiscal policy concerns, while the second is about insurers disputing the prime minister’s claim that claims processing is delaying Dorian recovery, so the event progression and actors are different.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 5,
+    "pair_id": "1484011225_1484050855",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first article is about regulatory uncertainty in India’s ecommerce sector, while the second is a lifestyle piece offering personal sustainability tips, with entirely different actors, events, and narrative progression.",
+    "raw_response": "{\"nar_score\":1,\"brief_reason\":\"The first article is about regulatory uncertainty in India’s ecommerce sector, while the second is a lifestyle piece offering personal sustainability tips, with entirely different actors, events, and narrative progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 6,
+    "pair_id": "1484012256_1484419682",
+    "model": "gpt-5.4",
+    "human_NAR": 2.5,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a retrospective list of Birmingham nightlife venue closures and reopenings, while Article 2 is an opinionated overview of 2010s cinema trends and favorite films, so they do not share a comparable event narrative.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a retrospective list of Birmingham nightlife venue closures and reopenings, while Article 2 is an opinionated overview of 2010s cinema trends and favorite films, so they do not share a comparable event narrative.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 7,
+    "pair_id": "1484012638_1483801741",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both are excerpts from the same New Year presidential address, but one focuses on housing aid and earthquake recovery while the other focuses on economic reforms and growth rather than a shared event progression.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both are excerpts from the same New Year presidential address, but one focuses on housing aid and earthquake recovery while the other focuses on economic reforms and growth rather than a shared event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 8,
+    "pair_id": "1484013325_1484306206",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first is merely a fragment naming political leaders, while the second describes rules and materials for an art challenge, so they share no event progression or narrative schema.",
+    "raw_response": "{\"nar_score\":1,\"brief_reason\":\"The first is merely a fragment naming political leaders, while the second describes rules and materials for an art challenge, so they share no event progression or narrative schema.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 9,
+    "pair_id": "1484013404_1484147362",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles follow the same explanatory narrative about heavy drinking leading to a hangover, discuss uncertain mechanisms and lack of a true cure, and then move into prevention/relief advice, though one is more biology/research-focused and the other more practical self-care focused.",
+    "raw_response": "{\"nar_score\": 3, \"brief_reason\": \"Both articles follow the same explanatory narrative about heavy drinking leading to a hangover, discuss uncertain mechanisms and lack of a true cure, and then move into prevention/relief advice, though one is more biology/research-focused and the other more practical self-care focused.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 10,
+    "pair_id": "1484033221_1483948522",
+    "model": "gpt-5.4",
+    "human_NAR": 3.6666666666666665,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a fashion-product launch and collaboration story, while Article 2 is an explanatory food article about whether pasta is vegan, with entirely different actors, events, and progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a fashion-product launch and collaboration story, while Article 2 is an explanatory food article about whether pasta is vegan, with entirely different actors, events, and progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 11,
+    "pair_id": "1484037432_1483909901",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is about religious and political reactions to Najib Razak’s oath denying involvement in a murder, while Article 2 is about a student protest over Jawi education policy, with different actors, issues, and event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is about religious and political reactions to Najib Razak’s oath denying involvement in a murder, while Article 2 is about a student protest over Jawi education policy, with different actors, issues, and event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 12,
+    "pair_id": "1484039144_1484039153",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "One article is about a TV character’s teased return and mission in The Walking Dead, while the other is about Marvel announcing transgender and gay representation plus preview footage for The Eternals, with no shared event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"One article is about a TV character’s teased return and mission in The Walking Dead, while the other is about Marvel announcing transgender and gay representation plus preview footage for The Eternals, with no shared event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 13,
+    "pair_id": "1484039488_1484261803",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first article is a detailed sports game-loss narrative with turnovers and scoring progression, while the second is a non-news list of Woody Guthrie's resolutions with no comparable event sequence.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"The first article is a detailed sports game-loss narrative with turnovers and scoring progression, while the second is a non-news list of Woody Guthrie's resolutions with no comparable event sequence.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 14,
+    "pair_id": "1484188158_1483926746",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "One article is about a TV presenter posting a family New Year message amid feud rumors, while the other is a celebrity pregnancy announcement, so the underlying events and progression are different despite both involving New Year Instagram posts.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"One article is about a TV presenter posting a family New Year message amid feud rumors, while the other is a celebrity pregnancy announcement, so the underlying events and progression are different despite both involving New Year Instagram posts.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 15,
+    "pair_id": "1484188414_1484207583",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first is a personal, mythic healing/remission story told at a bonfire, while the second is a reverse-creation unmaking of the world, so their actors, events, and progression are fundamentally different.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"The first is a personal, mythic healing/remission story told at a bonfire, while the second is a reverse-creation unmaking of the world, so their actors, events, and progression are fundamentally different.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 16,
+    "pair_id": "1484188945_1484188562",
+    "model": "gpt-5.4",
+    "human_NAR": 2.6666666666666665,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both are forward-looking tech/gaming preview pieces about anticipated industry developments, but one focuses on gaming investments and market trends in 2022 while the other broadly forecasts consumer gadgets and consoles for 2020 with different actors and event progression.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both are forward-looking tech/gaming preview pieces about anticipated industry developments, but one focuses on gaming investments and market trends in 2022 while the other broadly forecasts consumer gadgets and consoles for 2020 with different actors and event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 17,
+    "pair_id": "1484188965_1483876247",
+    "model": "gpt-5.4",
+    "human_NAR": 2.333333333333333,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a multi-person prediction piece about future PC gaming trends and company fortunes, while Article 2 is a personal retrospective ranking favorite games of the past decade, so they do not share a similar event or narrative progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a multi-person prediction piece about future PC gaming trends and company fortunes, while Article 2 is a personal retrospective ranking favorite games of the past decade, so they do not share a similar event or narrative progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 18,
+    "pair_id": "1484188974_1484299664",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a step-by-step guide to managing Apple iCloud storage on devices, while Article 2 is general advice about organizational change leadership, with entirely different actors, actions, and event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a step-by-step guide to managing Apple iCloud storage on devices, while Article 2 is general advice about organizational change leadership, with entirely different actors, actions, and event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 19,
+    "pair_id": "1484189203_1484121193",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "One article is about police seeking suspects for repeated hardware store thefts, while the other is about a public health beach advisory being issued and later lifted, with entirely different actors and event progression.",
+    "raw_response": "{\"nar_score\":1,\"brief_reason\":\"One article is about police seeking suspects for repeated hardware store thefts, while the other is about a public health beach advisory being issued and later lifted, with entirely different actors and event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 20,
+    "pair_id": "1484189278_1484233982",
+    "model": "gpt-5.4",
+    "human_NAR": 3.5,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a speculative political opinion piece about 2020 election strategy and ranked-choice voting, while Article 2 is a commentary on a specific Hanukkah stabbing attack and its alleged ideological causes, so their event structures and actors do not align.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a speculative political opinion piece about 2020 election strategy and ranked-choice voting, while Article 2 is a commentary on a specific Hanukkah stabbing attack and its alleged ideological causes, so their event structures and actors do not align.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 21,
+    "pair_id": "1484191228_1483996933",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles cover the same Clippers-Kings game, emphasizing the short-handed Clippers beating Sacramento with support from role players like Derrick Walton Jr. alongside George and Leonard as the game unfolded.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles cover the same Clippers-Kings game, emphasizing the short-handed Clippers beating Sacramento with support from role players like Derrick Walton Jr. alongside George and Leonard as the game unfolded.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 22,
+    "pair_id": "1484699049_1484327278",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both are stock-analysis explainers evaluating a company's attractiveness using earnings-related metrics, but one argues for H.B. Fuller based on EPS growth and insider ownership while the other explains Hotel Grand Central via P/E and declining earnings, so the event progression is only loosely similar.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both are stock-analysis explainers evaluating a company's attractiveness using earnings-related metrics, but one argues for H.B. Fuller based on EPS growth and insider ownership while the other explains Hotel Grand Central via P/E and declining earnings, so the event progression is only loosely similar.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 23,
+    "pair_id": "1485029245_1486278689",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 reports a specific wastewater treatment plant malfunction and temporary effluent bypass, while Article 2 is an opinion/cultural piece excerpt with no matching event sequence or actors.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 reports a specific wastewater treatment plant malfunction and temporary effluent bypass, while Article 2 is an opinion/cultural piece excerpt with no matching event sequence or actors.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 24,
+    "pair_id": "1485366264_1483775099",
+    "model": "gpt-5.4",
+    "human_NAR": 3.333333333333333,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a general weight-loss advice piece with goal-setting and habit tips, while Article 2 is a medical Q&A answering unrelated health questions about poison pits and a skin condition, so they do not share a common event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a general weight-loss advice piece with goal-setting and habit tips, while Article 2 is a medical Q&A answering unrelated health questions about poison pits and a skin condition, so they do not share a common event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 25,
+    "pair_id": "1485815599_1487944124",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles center on Ateez unveiling 'Answer' as part of the same EP release cycle, with one covering the pre-release performance teaser and the other the full music video and EP launch.",
+    "raw_response": "{\"nar_score\":3,\"brief_reason\":\"Both articles center on Ateez unveiling 'Answer' as part of the same EP release cycle, with one covering the pre-release performance teaser and the other the full music video and EP launch.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 26,
+    "pair_id": "1487502910_1487580498",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "The two articles are identical, describing the same European Commission forecast for Hungary's GDP growth with the same causes and timeline.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"The two articles are identical, describing the same European Commission forecast for Hungary's GDP growth with the same causes and timeline.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 27,
+    "pair_id": "1489951217_1489983888",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same event sequence: two Katyusha rockets landing in Baghdad’s Green Zone with no casualties shortly after Iran’s retaliatory missile strike over Soleimani’s killing, emphasizing the tense escalation context.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same event sequence: two Katyusha rockets landing in Baghdad’s Green Zone with no casualties shortly after Iran’s retaliatory missile strike over Soleimani’s killing, emphasizing the tense escalation context.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 28,
+    "pair_id": "1490020331_1488499869",
+    "model": "gpt-5.4",
+    "human_NAR": 2.5,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles center on the same nationwide trade-union strike against government policies and similar demands, though one reports participation and local demonstrations in Bhopal while the other focuses on the government's efforts to prevent employee participation.",
+    "raw_response": "{\"nar_score\": 3, \"brief_reason\": \"Both articles center on the same nationwide trade-union strike against government policies and similar demands, though one reports participation and local demonstrations in Bhopal while the other focuses on the government's efforts to prevent employee participation.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 29,
+    "pair_id": "1491260698_1522758176",
+    "model": "gpt-5.4",
+    "human_NAR": 3.5,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 reports a medical study uncovering fatal zoonotic virus infections causing encephalitis, while Article 2 recounts a personal wedding-email mix-up and online dispute, with entirely different actors, events, and progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 reports a medical study uncovering fatal zoonotic virus infections causing encephalitis, while Article 2 recounts a personal wedding-email mix-up and online dispute, with entirely different actors, events, and progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 30,
+    "pair_id": "1492472369_1530831511",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first article is about a market fire causing property loss and a trader collapsing afterward, while the second is about a road collision causing direct fatalities and injuries, so the event types and progression are different despite both involving NSCDC comments.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"The first article is about a market fire causing property loss and a trader collapsing afterward, while the second is about a road collision causing direct fatalities and injuries, so the event types and progression are different despite both involving NSCDC comments.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 31,
+    "pair_id": "1495919706_1497871856",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same Derby murder trial involving Simon Jones, the same three defendants and charges, with Article 1 covering jury swearing-in and Article 2 detailing trial evidence and the alleged stabbing/robbery sequence.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same Derby murder trial involving Simon Jones, the same three defendants and charges, with Article 1 covering jury swearing-in and Article 2 detailing trial evidence and the alleged stabbing/robbery sequence.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 32,
+    "pair_id": "1497055928_1535476650",
+    "model": "gpt-5.4",
+    "human_NAR": 3.5,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a broad skincare-product guide for darker skin tones and concerns like hyperpigmentation, while Article 2 is a condition-specific explainer and product guide for treating chest acne, so their event progression and subject narrative are fundamentally different.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a broad skincare-product guide for darker skin tones and concerns like hyperpigmentation, while Article 2 is a condition-specific explainer and product guide for treating chest acne, so their event progression and subject narrative are fundamentally different.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 33,
+    "pair_id": "1497426521_1552013041",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a light celebrity social-media item about Mark Ruffalo using an Avengers filter, while Article 2 is a ranked box-office overview of MCU films, so they do not share a similar event progression or narrative schema.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a light celebrity social-media item about Mark Ruffalo using an Avengers filter, while Article 2 is a ranked box-office overview of MCU films, so they do not share a similar event progression or narrative schema.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 34,
+    "pair_id": "1497804511_1496548941",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on Sandi Toksvig quitting The Great British Bake Off after three years and include producers' tribute statements while framing her departure as leading into other Channel 4 projects.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on Sandi Toksvig quitting The Great British Bake Off after three years and include producers' tribute statements while framing her departure as leading into other Channel 4 projects.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 35,
+    "pair_id": "1499090284_1498367084",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles recount the same event sequence of Aadil Rahim going missing at Newport Pagnell services during a school trip, triggering a large overnight police/community search, and being found safe about nine hours later with thanks from his family and police.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles recount the same event sequence of Aadil Rahim going missing at Newport Pagnell services during a school trip, triggering a large overnight police/community search, and being found safe about nine hours later with thanks from his family and police.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 36,
+    "pair_id": "1501517029_1511202234",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a profile offering environmental lifestyle and conservation tips, while Article 2 is a guide to common male body issues and hygiene fixes, with entirely different actors, topics, and event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a profile offering environmental lifestyle and conservation tips, while Article 2 is a guide to common male body issues and hygiene fixes, with entirely different actors, topics, and event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 37,
+    "pair_id": "1502463250_1505469635",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 describes senators' behavior and courtroom decorum during a marathon impeachment trial session, while Article 2 reports a new allegation from Bolton about Trump tying Ukraine aid to investigations, making them different narrative events and progressions.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 describes senators' behavior and courtroom decorum during a marathon impeachment trial session, while Article 2 reports a new allegation from Bolton about Trump tying Ukraine aid to investigations, making them different narrative events and progressions.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 38,
+    "pair_id": "1503132105_1503118462",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles report the same event—the first Massachusetts pediatric flu death this season involving a Worcester County teenager with influenza B—and follow the same progression of official confirmation, contextual statistics, and public health vaccination advice.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles report the same event—the first Massachusetts pediatric flu death this season involving a Worcester County teenager with influenza B—and follow the same progression of official confirmation, contextual statistics, and public health vaccination advice.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 39,
+    "pair_id": "1507284716_1505863045",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on the imminent unveiling of Trump's Israeli-Palestinian peace plan, emphasizing Palestinian rejection, Israeli support, the plan's disputed implications, and the surrounding domestic political context for Trump and Netanyahu.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on the imminent unveiling of Trump's Israeli-Palestinian peace plan, emphasizing Palestinian rejection, Israeli support, the plan's disputed implications, and the surrounding domestic political context for Trump and Netanyahu.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 40,
+    "pair_id": "1517378361_1517548255",
+    "model": "gpt-5.4",
+    "human_NAR": 2.5,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first article is a general commentary on repeated Israeli elections and voter attitudes, while the second is about a specific campaign promise speech by Blue and White's leader, so they do not share a similar event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"The first article is a general commentary on repeated Israeli elections and voter attitudes, while the second is about a specific campaign promise speech by Blue and White's leader, so they do not share a similar event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 41,
+    "pair_id": "1517717775_1528608110",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a broad human-interest life profile of a local grocer and community figure overcoming business setbacks, while Article 2 is a career profile of a paramedicine lecturer pursuing his professional ambitions and publishing a book.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a broad human-interest life profile of a local grocer and community figure overcoming business setbacks, while Article 2 is a career profile of a paramedicine lecturer pursuing his professional ambitions and publishing a book.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 42,
+    "pair_id": "1519214426_1514668228",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both articles cover Democratic primary contest updates with Sanders and Buttigieg near the top, but they describe different states, different outcomes, and different immediate event progressions.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both articles cover Democratic primary contest updates with Sanders and Buttigieg near the top, but they describe different states, different outcomes, and different immediate event progressions.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 43,
+    "pair_id": "1519905832_1519229318",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same product-launch narrative: Apple released Swift Playgrounds for Mac via Catalyst, emphasizing no coding experience needed, educational puzzle-based learning, native Mac features, and free availability on the Mac App Store.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same product-launch narrative: Apple released Swift Playgrounds for Mac via Catalyst, emphasizing no coding experience needed, educational puzzle-based learning, native Mac features, and free availability on the Mac App Store.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 44,
+    "pair_id": "1520488162_1520465976",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same case progression: a missing 6-year-old last seen playing in her yard is found dead in her neighborhood, police classify it as a homicide, and a deceased male is also found during the search.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same case progression: a missing 6-year-old last seen playing in her yard is found dead in her neighborhood, police classify it as a homicide, and a deceased male is also found during the search.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 45,
+    "pair_id": "1521155431_1517777802",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both articles concern Bigg Boss 13 contestants and relationships, but the first is a retrospective praise piece about Shehnaaz’s overall journey while the second is a finale-week roundup of current house events and side updates.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both articles concern Bigg Boss 13 contestants and relationships, but the first is a retrospective praise piece about Shehnaaz’s overall journey while the second is a finale-week roundup of current house events and side updates.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 46,
+    "pair_id": "1522673432_1522373983",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same sequence of meetings in Nur-Sultan involving the same officials, centered on the Qatari-Kazakh joint committee and discussions of bilateral trade, investment, industry, and Qatar’s investment environment.",
+    "raw_response": "{\"nar_score\":4,\"brief_reason\":\"Both articles describe the same sequence of meetings in Nur-Sultan involving the same officials, centered on the Qatari-Kazakh joint committee and discussions of bilateral trade, investment, industry, and Qatar’s investment environment.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 47,
+    "pair_id": "1524449375_1522807720",
+    "model": "gpt-5.4",
+    "human_NAR": 1.5,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles report the same Nedbank Cycle Challenge results with Campenaerts and Vorster winning the 100 km races in the same times, describe Campenaerts breaking away early, and recount the identical post-race donation of prize money by the top men to PAY.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles report the same Nedbank Cycle Challenge results with Campenaerts and Vorster winning the 100 km races in the same times, describe Campenaerts breaking away early, and recount the identical post-race donation of prize money by the top men to PAY.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 48,
+    "pair_id": "1525064711_1525839969",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on the same Wet’suwet’en pipeline-blockade standoff, with ministers offering talks, hereditary chiefs refusing until the RCMP detachment withdraws, and broader political pressure building over nationwide rail and road disruptions.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on the same Wet’suwet’en pipeline-blockade standoff, with ministers offering talks, hereditary chiefs refusing until the RCMP detachment withdraws, and broader political pressure building over nationwide rail and road disruptions.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 49,
+    "pair_id": "1525232103_1525634277",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles report the same planned two-day visit by Dutch Foreign Minister Stef Blok to Tehran to meet Rouhani and Zarif for talks on bilateral, regional and international issues, framed by the same recent diplomatic tensions and reciprocal expulsions.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles report the same planned two-day visit by Dutch Foreign Minister Stef Blok to Tehran to meet Rouhani and Zarif for talks on bilateral, regional and international issues, framed by the same recent diplomatic tensions and reciprocal expulsions.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 50,
+    "pair_id": "1531088087_1531251283",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles center on the same Democratic debate moment and campaign context, including attacks over NDAs, billionaire wealth, and Steyer’s private-prison investment history, though Article 1 is Steyer’s pre-debate framing while Article 2 recounts the broader debate’s actual clash structure focused mainly on Sanders.",
+    "raw_response": "{\"nar_score\": 3, \"brief_reason\": \"Both articles center on the same Democratic debate moment and campaign context, including attacks over NDAs, billionaire wealth, and Steyer’s private-prison investment history, though Article 1 is Steyer’s pre-debate framing while Article 2 recounts the broader debate’s actual clash structure focused mainly on Sanders.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 51,
+    "pair_id": "1533852973_1531459122",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles describe AIOU's Spring 2020 admissions drive ending March 3 for overseas Pakistanis, though one focuses on the deadline and fee submission while the other emphasizes the newly offered overseas programs and support details.",
+    "raw_response": "{\"nar_score\": 3, \"brief_reason\": \"Both articles describe AIOU's Spring 2020 admissions drive ending March 3 for overseas Pakistanis, though one focuses on the deadline and fee submission while the other emphasizes the newly offered overseas programs and support details.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 52,
+    "pair_id": "1543712188_1546397754",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both center on Louise Redknapp promoting a tour and reference the same recent Lorraine interview and divorce comments, but Article 1 is about the TV appearance and audience reaction while Article 2 is mainly about Instagram rehearsal selfies with only partial overlap.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both center on Louise Redknapp promoting a tour and reference the same recent Lorraine interview and divorce comments, but Article 1 is about the TV appearance and audience reaction while Article 2 is mainly about Instagram rehearsal selfies with only partial overlap.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 53,
+    "pair_id": "1543901072_1547473916",
+    "model": "gpt-5.4",
+    "human_NAR": 1.5,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on Tesla announcing its millionth electric car via Musk's tweet of a red Model Y and then recount the same milestone context, production figures, and expansion plans in a nearly identical event progression.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on Tesla announcing its millionth electric car via Musk's tweet of a red Model Y and then recount the same milestone context, production figures, and expansion plans in a nearly identical event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 54,
+    "pair_id": "1544695356_1543856243",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles describe the same Madhya Pradesh political crisis in which Scindia quits Congress, 22 MLAs resign, and the Kamal Nath government is pushed toward losing its majority, though Article 1 adds extensive motives and behind-the-scenes claims.",
+    "raw_response": "{\"nar_score\":3,\"brief_reason\":\"Both articles describe the same Madhya Pradesh political crisis in which Scindia quits Congress, 22 MLAs resign, and the Kamal Nath government is pushed toward losing its majority, though Article 1 adds extensive motives and behind-the-scenes claims.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 55,
+    "pair_id": "1546790297_1504564783",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both articles discuss Israeli elections and portray Netanyahu, Gantz, and Israeli parties as advancing anti-Palestinian racism, but one centers on exclusion of Arab voters and discriminatory politics while the other focuses on election-driven annexation and occupation policy rather than the same event progression.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both articles discuss Israeli elections and portray Netanyahu, Gantz, and Israeli parties as advancing anti-Palestinian racism, but one centers on exclusion of Arab voters and discriminatory politics while the other focuses on election-driven annexation and occupation policy rather than the same event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 56,
+    "pair_id": "1548891568_1552716753",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on the same statement by Singapore's prime minister warning that COVID-19's economic impact will outlast and exceed the 2008 financial crisis, with Article 1 only adding contextual details about infections, forecasts, and elections.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on the same statement by Singapore's prime minister warning that COVID-19's economic impact will outlast and exceed the 2008 financial crisis, with Article 1 only adding contextual details about infections, forecasts, and elections.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 57,
+    "pair_id": "1551432131_1543195875",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "The first article is about local opposition blocking industrial land handovers and foundation ceremonies, while the second is a traffic advisory for Holi road safety enforcement, with entirely different actors and event progression.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"The first article is about local opposition blocking industrial land handovers and foundation ceremonies, while the second is a traffic advisory for Holi road safety enforcement, with entirely different actors and event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 58,
+    "pair_id": "1554115025_1553651691",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same pandemic-era narrative of people and businesses avoiding cash because banknotes may transmit coronavirus, with health experts assessing the risk and some entities discouraging or refusing cash use.",
+    "raw_response": "{\"nar_score\":4,\"brief_reason\":\"Both articles describe the same pandemic-era narrative of people and businesses avoiding cash because banknotes may transmit coronavirus, with health experts assessing the risk and some entities discouraging or refusing cash use.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 59,
+    "pair_id": "1556043087_1551505657",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on the same home-release announcement for Birds of Prey, with the same release dates, cast/crew details, special features, and identical plot synopsis describing the film’s event progression.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on the same home-release announcement for Birds of Prey, with the same release dates, cast/crew details, special features, and identical plot synopsis describing the film’s event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 60,
+    "pair_id": "1556718125_1557029316",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles center on the Indian Army’s Covid-19 restrictions in 82 lockdown districts—closing CSD canteens, limiting movement, and reducing office attendance—though the second focuses more on the operational consequences and adaptations caused by those same measures.",
+    "raw_response": "{\"nar_score\": 3, \"brief_reason\": \"Both articles center on the Indian Army’s Covid-19 restrictions in 82 lockdown districts—closing CSD canteens, limiting movement, and reducing office attendance—though the second focuses more on the operational consequences and adaptations caused by those same measures.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 61,
+    "pair_id": "1557010702_1579667345",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles center on Tom Hanks reporting that he and Rita Wilson feel better two weeks after their COVID-19 diagnosis and emphasizing sheltering in place, though Article 1 adds a substantial side narrative about Wilson’s Instagram rap video.",
+    "raw_response": "{\"nar_score\":3,\"brief_reason\":\"Both articles center on Tom Hanks reporting that he and Rita Wilson feel better two weeks after their COVID-19 diagnosis and emphasizing sheltering in place, though Article 1 adds a substantial side narrative about Wilson’s Instagram rap video.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 62,
+    "pair_id": "1559959067_1529952152",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a broad roundup of multiple NCAA tournament games and advances to the Sweet 16, while Article 2 is about Kansas beating Baylor to become No. 1 in the rankings, so the event structures and happenings are different.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a broad roundup of multiple NCAA tournament games and advances to the Sweet 16, while Article 2 is about Kansas beating Baylor to become No. 1 in the rankings, so the event structures and happenings are different.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 63,
+    "pair_id": "1560700947_1530083534",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles center on Vanessa Bryant publicly mourning Kobe and Gianna after the helicopter crash by sharing memories of Gianna’s personality and bond with Kobe, though one is about an Instagram tribute and the other about a memorial speech.",
+    "raw_response": "{\"nar_score\": 3, \"brief_reason\": \"Both articles center on Vanessa Bryant publicly mourning Kobe and Gianna after the helicopter crash by sharing memories of Gianna’s personality and bond with Kobe, though one is about an Instagram tribute and the other about a memorial speech.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 64,
+    "pair_id": "1563006406_1563431063",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles describe submariners on secret underwater missions being intentionally shielded from news about the coronavirus pandemic to preserve focus and morale, though the excerpts differ in detail and scope.",
+    "raw_response": "{\"nar_score\":3,\"brief_reason\":\"Both articles describe submariners on secret underwater missions being intentionally shielded from news about the coronavirus pandemic to preserve focus and morale, though the excerpts differ in detail and scope.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 65,
+    "pair_id": "1564327182_1510627862",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles follow the same narrative structure of NPR Music presenting an alphabetized monthly top-20 songs roundup with brief commentary on each selected track, differing mainly by month and song choices.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles follow the same narrative structure of NPR Music presenting an alphabetized monthly top-20 songs roundup with brief commentary on each selected track, differing mainly by month and song choices.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 66,
+    "pair_id": "1564673890_1564536521",
+    "model": "gpt-5.4",
+    "human_NAR": 1.5,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same event narrative: wild Kashmir goats entering the deserted Welsh seaside town of Llandudno during COVID-19 lockdown and roaming its streets because humans were largely absent.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same event narrative: wild Kashmir goats entering the deserted Welsh seaside town of Llandudno during COVID-19 lockdown and roaming its streets because humans were largely absent.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 67,
+    "pair_id": "1565643099_1563474563",
+    "model": "gpt-5.4",
+    "human_NAR": 1.5,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same Seattle-area COVID-19 update in which officials say social distancing is slowing spread while warning that stay-at-home restrictions may need to continue or intensify.",
+    "raw_response": "{\"nar_score\":4,\"brief_reason\":\"Both articles describe the same Seattle-area COVID-19 update in which officials say social distancing is slowing spread while warning that stay-at-home restrictions may need to continue or intensify.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 68,
+    "pair_id": "1571178629_1568383234",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles follow the same narrative of explaining imminent COVID-era stimulus payments, who qualifies, what most people must do or not do to receive them, and special filing guidance for seniors and low-income non-filers.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles follow the same narrative of explaining imminent COVID-era stimulus payments, who qualifies, what most people must do or not do to receive them, and special filing guidance for seniors and low-income non-filers.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 69,
+    "pair_id": "1571274943_1576594517",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 2,
+    "brief_reason": "Both articles are biographical profiles of Dominic Raab that recount much of the same career timeline, but they are framed around different triggering events and do not describe the same event progression.",
+    "raw_response": "{\"nar_score\": 2, \"brief_reason\": \"Both articles are biographical profiles of Dominic Raab that recount much of the same career timeline, but they are framed around different triggering events and do not describe the same event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 70,
+    "pair_id": "1573563823_1573667415",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same OPEC+ video conference event focused on balancing/stabilizing the oil market with participation from additional non-OPEC+ oil-producing countries, differing mainly in the amount of detail and countries listed.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same OPEC+ video conference event focused on balancing/stabilizing the oil market with participation from additional non-OPEC+ oil-producing countries, differing mainly in the amount of detail and countries listed.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 71,
+    "pair_id": "1574595542_1577729031",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles recount the same event sequence: Albert Chambers is hospitalized after a fall, contracts COVID-19, recovers despite family fears, is honored by hospital staff on discharge, and his wartime resilience is cited by his grandson as key context.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles recount the same event sequence: Albert Chambers is hospitalized after a fall, contracts COVID-19, recovers despite family fears, is honored by hospital staff on discharge, and his wartime resilience is cited by his grandson as key context.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 72,
+    "pair_id": "1576323732_1576233684",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles report Tim Brooke-Taylor’s death from კორონავირუს and follow the same obituary-style progression of agent confirmation, career highlights, and tributes from colleagues, though they differ somewhat in which background details and mourners they emphasize.",
+    "raw_response": "{\"nar_score\":3,\"brief_reason\":\"Both articles report Tim Brooke-Taylor’s death from კორონავირუს and follow the same obituary-style progression of agent confirmation, career highlights, and tributes from colleagues, though they differ somewhat in which background details and mourners they emphasize.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 73,
+    "pair_id": "1578766378_1600525440",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same White House coronavirus briefing exchange in which Brian Karem challenges Trump about WHO/testing and social distancing, Trump blames governors, then threatens to leave after Karem keeps interrupting.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same White House coronavirus briefing exchange in which Brian Karem challenges Trump about WHO/testing and social distancing, Trump blames governors, then threatens to leave after Karem keeps interrupting.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 74,
+    "pair_id": "1579050365_1579165117",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same COVID-era event: Patty Hajdu launching the Wellness Together Canada portal/app to provide Canadians tiered mental-health support via information, self-assessment, and chats/calls with professionals, with similar partner organizations and rationale.",
+    "raw_response": "{\"nar_score\":4,\"brief_reason\":\"Both articles describe the same COVID-era event: Patty Hajdu launching the Wellness Together Canada portal/app to provide Canadians tiered mental-health support via information, self-assessment, and chats/calls with professionals, with similar partner organizations and rationale.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 75,
+    "pair_id": "1579836565_1579808830",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a broad report on the Washington DOC’s operational COVID-19 response and interagency support, while Article 2 is a local case update about one new infected resident and public health precautions.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a broad report on the Washington DOC’s operational COVID-19 response and interagency support, while Article 2 is a local case update about one new infected resident and public health precautions.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 76,
+    "pair_id": "1587362537_1585362092",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same Federal Way shooting incident with the same victim profile, location, timing, police response, fatal outcome at the scene, and ongoing investigation with no identified motive or suspects.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same Federal Way shooting incident with the same victim profile, location, timing, police response, fatal outcome at the scene, and ongoing investigation with no identified motive or suspects.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 77,
+    "pair_id": "1588237632_1588287122",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles recount the same event sequence: identical twin former/current nurses with underlying conditions tested positive for Covid-19, died three days apart at Southampton, and were then mourned through family and hospital tributes.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles recount the same event sequence: identical twin former/current nurses with underlying conditions tested positive for Covid-19, died three days apart at Southampton, and were then mourned through family and hospital tributes.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 78,
+    "pair_id": "1592091128_1591556033",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles report the same cancellation of The Greatest Dancer after two series, citing weak ratings and including the BBC confirmation with supporting background on the show's panel and run.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles report the same cancellation of The Greatest Dancer after two series, citing weak ratings and including the BBC confirmation with supporting background on the show's panel and run.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 79,
+    "pair_id": "1594945180_1595251481",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same planned Guy’s and St Thomas’ trial of convalescent plasma from recovered Covid-19 patients, with collected donations, imminent transfusions, and possible NHS scale-up if effective.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same planned Guy’s and St Thomas’ trial of convalescent plasma from recovered Covid-19 patients, with collected donations, imminent transfusions, and possible NHS scale-up if effective.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 80,
+    "pair_id": "1596418737_1595032489",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles recount the same core event sequence—Carrie Symonds giving birth to Boris Johnson’s son Wilfred at UCLH shortly after Johnson’s Covid hospitalization, followed by the Instagram naming announcement and hospital congratulations—with only different surrounding details emphasized.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles recount the same core event sequence—Carrie Symonds giving birth to Boris Johnson’s son Wilfred at UCLH shortly after Johnson’s Covid hospitalization, followed by the Instagram naming announcement and hospital congratulations—with only different surrounding details emphasized.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 81,
+    "pair_id": "1596448385_1592893858",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "One article gives DIY skincare mask recipes using honey, while the other lists unconventional uses for a coffee maker, so they do not share a similar event progression or narrative schema.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"One article gives DIY skincare mask recipes using honey, while the other lists unconventional uses for a coffee maker, so they do not share a similar event progression or narrative schema.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 82,
+    "pair_id": "1597701850_1597703658",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same sequence: Newsom closed Orange County beaches after crowds gathered, several cities submitted restricted active-recreation reopening plans that were approved, county officials debated a similar plan, and Newport/Huntington legal and political disputes remained unresolved.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same sequence: Newsom closed Orange County beaches after crowds gathered, several cities submitted restricted active-recreation reopening plans that were approved, county officials debated a similar plan, and Newport/Huntington legal and political disputes remained unresolved.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 83,
+    "pair_id": "1605422147_1605693346",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both describe the same WHO/UNAIDS projection that Covid-19 disruptions to HIV treatment in sub-Saharan Africa could reverse gains and sharply increase AIDS-related deaths, with similar causal progression and mitigation framing.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both describe the same WHO/UNAIDS projection that Covid-19 disruptions to HIV treatment in sub-Saharan Africa could reverse gains and sharply increase AIDS-related deaths, with similar causal progression and mitigation framing.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 84,
+    "pair_id": "1610314419_1606971385",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same Google Chrome initiative to detect and remove resource-heavy ads using specific CPU/data thresholds, showing users an error message, and rolling it out around late August while giving ad creators time to adapt.",
+    "raw_response": "{\"nar_score\":4,\"brief_reason\":\"Both articles describe the same Google Chrome initiative to detect and remove resource-heavy ads using specific CPU/data thresholds, showing users an error message, and rolling it out around late August while giving ad creators time to adapt.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 85,
+    "pair_id": "1615549195_1615149887",
+    "model": "gpt-5.4",
+    "human_NAR": 1.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles describe the same Cypress cemetery shooting around 3:30 p.m. in which a man was shot, fled or was found at Lincoln and Moody, taken to a hospital, and the unidentified suspect escaped, though Article 1 adds the funeral-argument context and event progression.",
+    "raw_response": "{\"nar_score\":3,\"brief_reason\":\"Both articles describe the same Cypress cemetery shooting around 3:30 p.m. in which a man was shot, fled or was found at Lincoln and Moody, taken to a hospital, and the unidentified suspect escaped, though Article 1 adds the funeral-argument context and event progression.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 86,
+    "pair_id": "1617114169_1617282755",
+    "model": "gpt-5.4",
+    "human_NAR": 3.0,
+    "llm_nar_score_1_to_4": 3,
+    "brief_reason": "Both articles center on the military’s continued deployment to Ontario and Quebec nursing homes during COVID-19, including troop infections and Trudeau agreeing to extend the mission, though Article 2 adds a major focus on a report of negligent care conditions.",
+    "raw_response": "{\"nar_score\": 3, \"brief_reason\": \"Both articles center on the military’s continued deployment to Ontario and Quebec nursing homes during COVID-19, including troop infections and Trudeau agreeing to extend the mission, though Article 2 adds a major focus on a report of negligent care conditions.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 87,
+    "pair_id": "1623466121_1570564356",
+    "model": "gpt-5.4",
+    "human_NAR": 4.0,
+    "llm_nar_score_1_to_4": 1,
+    "brief_reason": "Article 1 is a routine share-capital and voting-rights disclosure, while Article 2 is a corporate update on COVID-19 response and business continuity, so they do not share a similar event narrative.",
+    "raw_response": "{\"nar_score\": 1, \"brief_reason\": \"Article 1 is a routine share-capital and voting-rights disclosure, while Article 2 is a corporate update on COVID-19 response and business continuity, so they do not share a similar event narrative.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 88,
+    "pair_id": "1625832093_1607981162",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles describe the same coordinated announcement by Cuomo and neighboring governors to reopen beaches on May 22 with COVID-19 restrictions, following the same event structure and rationale.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles describe the same coordinated announcement by Cuomo and neighboring governors to reopen beaches on May 22 with COVID-19 restrictions, following the same event structure and rationale.\"}",
+    "error": ""
+  },
+  {
+    "row_index": 89,
+    "pair_id": "1627308116_1626791129",
+    "model": "gpt-5.4",
+    "human_NAR": 2.0,
+    "llm_nar_score_1_to_4": 4,
+    "brief_reason": "Both articles center on the same report about 12-month-old Archie beginning to say words like 'Mama,' 'Dada,' 'book,' and 'dog' while in LA, along with the same developmental details and play activities.",
+    "raw_response": "{\"nar_score\": 4, \"brief_reason\": \"Both articles center on the same report about 12-month-old Archie beginning to say words like 'Mama,' 'Dada,' 'book,' and 'dog' while in LA, along with the same developmental details and play activities.\"}",
+    "error": ""
+  }
+]
