@@ -1,0 +1,62 @@
+% ACL-style draft for the NarrativeSimilarity project.
+% Compile from this directory with: latexmk -pdf main.tex
+
+\documentclass[11pt]{article}
+
+% For camera-ready, remove the [review] option.
+\usepackage[review]{acl}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{url}
+
+\title{Learning Structure-Aware Story Embeddings for Narrative Similarity}
+
+\author{First Author \\
+  Affiliation \\
+  \texttt{email@example.com} \\
+  \And
+  Second Author \\
+  Affiliation \\
+  \texttt{email@example.com}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the problem of learning story embeddings that capture structural similarity: similarity in what happens, how events unfold, and how narrative roles progress, rather than only topical or lexical overlap. We combine a human-calibrated structural similarity model with pseudo-labeled story pairs to fine-tune embedding models and evaluate them across pairwise, retrieval, ranking, synthetic, and external benchmark tasks.
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/datasets}
+\input{sections/method}
+\input{sections/evaluation}
+\input{sections/experiments}
+\input{sections/results}
+\input{sections/conclusion}
+
+\section*{Limitations}
+This draft should be updated with final dataset sizes, checkpoint selections, annotation details, and the complete set of quantitative results before submission.
+
+\section*{Ethics Statement}
+This work uses narrative data and automatically generated similarity labels. Any public release should document dataset licenses, filtering decisions, model limitations, and possible biases introduced by pseudo-labeling and LLM-based evaluation.
+
+\nocite{placeholder}
+\bibliography{references}
+
+\appendix
+\section{Appendix}
+Additional prompts, hyperparameters, and evaluation tables can be placed here.
+
+\end{document}

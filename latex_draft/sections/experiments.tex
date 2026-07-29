@@ -1,0 +1,35 @@
+\section{Experiments}
+
+We fine-tune embedding models on pseudo-labeled ASQ story pairs. The main model family includes E5/Mistral-style instruction embeddings and BGE-style encoder embeddings. Experiments compare checkpoints across epochs and evaluate whether training improves pairwise separation, retrieval accuracy, ranking quality, synthetic preference accuracy, and correlation with human narrative similarity scores. We also compare GPT-5 structural ratings against the calibrated structural scorer to assess how closely an LLM-as-judge setup matches the teacher signal used for pseudo-labeling.
+
+\subsection{Training Procedure}
+
+Our primary embedding model fine-tunes \texttt{intfloat/e5-mistral-7b-instruct} on ASQ-derived story pairs labeled by the structural teacher model. Each training example consists of two full story texts and a teacher-produced structural similarity score. We normalize teacher scores to $[0,1]$ and train the embedding model so that cosine similarity between the two story embeddings matches the normalized teacher score:
+\begin{equation}
+\mathcal{L}_{\text{MSE}} =
+\left(\cos(f_\theta(x_i), f_\theta(x_j)) - \tilde{s}_{ij}\right)^2,
+\end{equation}
+where $f_\theta$ is the embedding model and $\tilde{s}_{ij}$ is the normalized structural pseudo-label for pair $(i,j)$. This contrastive regression objective preserves the pairwise nature of the teacher signal while producing reusable embeddings for retrieval and ranking.
+
+For the E5-Mistral runs, stories are formatted with the E5 passage prefix, truncated to a maximum length of 1024 tokens, and trained with bfloat16 precision when available. We use AdamW with learning rate $1\times10^{-4}$, weight decay 0.01, linear warmup ratio 0.03, maximum gradient norm 1.0, batch size 8, and gradient accumulation over 8 steps. The training split uses 90\% of pseudo-labeled pairs for training and 10\% for validation with seed 42. We train for 10 epochs and save epoch checkpoints for downstream evaluation.
+
+To make fine-tuning feasible for the large E5-Mistral backbone, we use LoRA adapters with rank 16, $\alpha=32$, and dropout 0.05 over the attention and feed-forward projection modules. We also implement a BGE-base training variant. For BGE, we use \texttt{BAAI/bge-base-en-v1.5} with maximum length 512 and no LoRA adapters; the current BGE configuration supports InfoNCE training with one anchor, one positive, and two negatives sampled from teacher-score bins. Unless otherwise stated, the main reported checkpoint comparison focuses on the E5-Mistral contrastive MSE setting, because it directly regresses to the calibrated structural score.
+
+\subsection{Baselines}
+
+We compare fine-tuned models against embedding baselines that represent general-purpose semantic encoders, retrieval-specialized encoders, and narrative-specific story representations. We also include a direct GPT-5 judge baseline where prompt-based evaluation is available.
+
+\paragraph{RoBERTa-base.}
+RoBERTa-base is a strong Transformer encoder trained with a robustly optimized masked-language-modeling objective~\cite{liu2019roberta}. It is not trained specifically for retrieval or narrative similarity, so it provides a useful general-purpose language-model baseline for testing whether structural evaluation requires more than contextual token representations.
+
+\paragraph{BGE-base.}
+We use \texttt{BAAI/bge-base-en-v1.5} as a retrieval-oriented embedding baseline. BGE models are designed for dense text embedding and retrieval, and the v1.5 release is intended to improve similarity-score behavior while preserving strong retrieval performance~\cite{xiao2023cpack}. This baseline tests whether a high-performing off-the-shelf retriever already captures narrative structure without task-specific fine-tuning.
+
+\paragraph{Untrained E5-Mistral.}
+We include \texttt{intfloat/e5-mistral-7b-instruct} before structural fine-tuning. E5 models are trained with weakly supervised contrastive objectives for general-purpose text embedding~\cite{wang2022text}, and the Mistral-based instruction variant improves text embeddings with large language models~\cite{wang2023improving}. Comparing against this baseline isolates the effect of our structural pseudo-label fine-tuning.
+
+\paragraph{StoryEmb.}
+We evaluate \texttt{uhhlt/story-emb}, a narrative-focused embedding model trained for story retrieval and released with the Story Embeddings work~\cite{hatzel2024story}. This is the closest baseline in spirit to our goal, since it is explicitly designed to represent fictional stories according to narrative properties rather than generic topical similarity.
+
+\paragraph{GPT-5.}
+We use GPT-5 as a prompt-based judge baseline on tasks that can be evaluated by direct comparison or scoring~\cite{openai2025gpt5}. Unlike embedding baselines, GPT-5 reads the input stories at inference time and produces a judgment directly, so it is a strong but comparatively expensive reference point rather than a scalable retrieval model. We therefore report GPT-5 separately for tasks where a direct LLM decision is available.
