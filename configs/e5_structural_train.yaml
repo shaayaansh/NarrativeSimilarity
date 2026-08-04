@@ -1,0 +1,53 @@
+data:
+  # scores_path: data/Alignment/asq_random_10000_pair_structural_scores.json
+  # alignments_path: data/Alignment/asq_random_10000_story_pair_alignments.json
+  scores_path: data/Alignment/asq_embedding_train_v2_sample10k_pair_structural_scores.json
+  alignments_path: data/Alignment/asq_embedding_train_v2_sample10k_story_pair_alignments.json
+  output_dir: artifacts/e5_mistral_structural_finetune_v2
+
+model:
+  # e5: uses "passage: " prefix and Mistral-style LoRA targets by default.
+  # bge: uses no prefix and BERT-style LoRA targets by default.
+  model_family: e5
+  model_name: intfloat/e5-mistral-7b-instruct
+  story_prefix: "passage: "
+  max_length: 1024
+  use_bfloat16: true
+  hf_cache_dir: /scratch/shayan/hf_cache
+
+training:
+  # one of: infonce, contrastive_mse
+  loss_type: contrastive_mse
+  seed: 42
+  train_frac: 0.9
+  batch_size: 8
+  num_epochs: 10
+  lr: 1e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  grad_accum_steps: 8
+  max_grad_norm: 1.0
+  temperature: 0.05
+
+sampling:
+  # used for infonce triplet building: anchor + one positive + two negatives
+  positive_bins: [3]
+  negative_bins: [0, 1, 2]
+  negatives_per_anchor: 2
+  max_triplets_per_anchor: 8
+
+lora:
+  enabled: true
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  # auto maps model_family=e5 -> q/k/v/o/gate/up/down proj
+  # auto maps model_family=bge -> query/key/value
+  target_modules: auto
+
+logging:
+  eval_every_steps: 100
+
+checkpointing:
+  checkpoint_every_epochs: 1
+  resume_training: false

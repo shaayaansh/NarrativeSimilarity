@@ -1,0 +1,66 @@
+\section{Method}
+
+Modeling structural similarity between narratives is challenging because there is no formal or universally accepted definition of how humans perceive two stories as being structurally similar. While prior work on narrative similarity often focuses on topical overlap or full-text semantic similarity, structural similarity depends more specifically on how events unfold, align, and relate across stories. To better capture this notion, we first conduct a human study on pairs of personal narratives sampled from the RTN dataset. Participants rate the structural similarity of story pairs, allowing us to obtain direct human judgments about perceived narrative structure.
+
+Using these annotations, we train a structure-aware scoring model that combines two complementary components: (1) alignment similarity, which measures consistency in event ordering and event coverage across stories, and (2) semantic similarity between aligned events. The resulting model serves as a calibrated approximation of human structural similarity judgments. In the remainder of the paper, we treat this human-aligned scorer as a teacher model capable of assigning structural similarity scores to unseen story pairs.
+
+Next, we scale beyond the relatively small human-annotated dataset by applying the trained structural scorer to a large collection of approximately 10,000 randomly constructed story pairs from the ASQ dataset. This process generates pseudo-labels representing estimated structural similarity scores between stories. These pseudo-labeled pairs are then used to train a neural embedding model that learns to encode stories according to structural similarity rather than surface-level semantic overlap or topic similarity. As a result, stories with similar narrative progression and event structure are mapped closer together in embedding space, even when their content differs substantially.
+
+\subsection{Human Study on Structural Similarity}
+
+We first conduct a human annotation study to obtain grounded similarity judgments. Using personal narratives from the RTN corpus~\cite{saldias2020exploring}, we construct pairs of stories and ask participants to rate their similarity under two conditions: (1) based on the full stories, and (2) based only on extracted event sequences. This within-subjects design allows us to compare holistic narrative similarity against structure-focused similarity judgments.
+
+To represent narrative structure, we extract the main events from each story using GPT-5 (temperature = 0). We define an event as a singular, temporally grounded occurrence in the narrative, excluding habitual actions, background descriptions, and general states. The model is instructed to preserve chronological order and return a structured list of events for each story. We retain up to six events per narrative, which serve as the structural representation used throughout the study.
+
+To ensure construction of informative evaluation pairs, we compute two independent similarity measures across all stories: (1) full-text semantic similarity using embeddings of the complete narratives, and (2) event-based similarity using embeddings of the extracted event sequences. Embeddings are generated with the \texttt{all-mpnet-base-v2} SentenceTransformer model~\cite{reimers2019sentence}. We then divide both similarity distributions into high and low regions using percentile-based thresholds and construct four pairing conditions: High--High, Low--Low, High--Low, and Low--High, corresponding to combinations of high or low full-text similarity and event similarity. This design enables us to isolate cases where structural similarity and surface-level semantic similarity either align or diverge.
+
+Finally, we sample 25 story pairs from each condition, yielding a balanced set of 100 narrative pairs for annotation. The resulting human judgments form the supervision signal used to train and calibrate our structural similarity model, which later serves as the teacher model for large-scale pseudo-label generation and embedding training.
+
+\subsection{Structural Similarity Model}
+
+Our structural scorer combines two components over aligned event sequences:
+\begin{enumerate}
+    \item \textbf{Alignment similarity}: captures ordering consistency and coverage of aligned events.
+    \item \textbf{Semantic similarity}: captures meaning similarity within aligned event pairs.
+\end{enumerate}
+
+Given two event sequences $A$ and $B$, and an alignment set $\mathcal{M}$ (possibly many-to-many), we define:
+\begin{itemize}
+    \item $\text{cost}_{\text{skip}}$: number of unaligned events in both stories.
+    \item $\text{cost}_{\text{reorder}}$: number of inversions induced by aligned event order.
+\end{itemize}
+
+Let $e_A=|A|$, $e_B=|B|$, and $n=|\mathcal{M}_{\text{pairs}}|$ be the number of expanded aligned pairs. The normalized alignment distance is:
+\begin{equation}
+D_{\text{align}} = \frac{\text{cost}_{\text{reorder}} + \text{cost}_{\text{skip}}}{\frac{n(n-1)}{2} + (e_A + e_B)}.
+\end{equation}
+
+Alignment similarity is:
+\begin{equation}
+S_{\text{align}} = 1 - D_{\text{align}}.
+\end{equation}
+
+For semantic distance, we embed aligned event texts and compute pairwise cosine distance in $[0,1]$:
+\begin{equation}
+D_{\text{sem}} = \frac{1}{n}\sum_{(i,j)\in\mathcal{M}_{\text{pairs}}} \frac{1-\cos(\mathbf{u}_i,\mathbf{v}_j)}{2},
+\end{equation}
+with semantic similarity:
+\begin{equation}
+S_{\text{sem}} = 1 - D_{\text{sem}}.
+\end{equation}
+
+The final structural score is a calibrated linear model fit on human survey ratings:
+\begin{equation}
+\hat{y} = c + \alpha S_{\text{align}} + \beta S_{\text{sem}}.
+\end{equation}
+
+The learned parameters used in our implementation are:
+\begin{equation}
+(c,\alpha,\beta) = (1.5830,\ 0.2021,\ 0.9339).
+\end{equation}
+
+\subsection{Pseudo-Labeling and Embedding Training}
+
+We use the structural scorer above as a teacher to generate pseudo-labels on a larger unlabeled pool of story pairs (ASQ-based pair construction). These pseudo-labels supervise embedding training so that the student model learns to approximate structure-aware similarity directly from full stories.
+
+Our embedding backbone is \texttt{intfloat/e5-mistral-7b-instruct}, fine-tuned with LoRA. We train with a contrastive MSE objective that regresses pairwise similarity behavior toward the teacher signal (using the pseudo-labeled structure score framework). Checkpoints are saved periodically (every 2 epochs), enabling trajectory analysis across training.

@@ -1,0 +1,18 @@
+\section{Evaluation}
+
+We evaluate whether embedding cosine similarity captures structural story similarity across several tasks.
+
+\textbf{Pairwise similarity.}
+Each example contains two stories and a binary label indicating whether the pair is positive or negative. We report the mean cosine similarity for positive and negative pairs, and the gap between them.
+
+\textbf{Retrieval.}
+Each query story is paired with five candidate stories, one positive and four negatives. The model ranks candidates by cosine similarity to the query. Accuracy is the fraction of examples for which the positive candidate receives the highest similarity.
+
+\textbf{Ranking.}
+Each query story has five candidates with a full relevance ranking. We evaluate predicted rankings using normalized discounted cumulative gain (nDCG), which rewards placing more relevant candidates near the top.
+
+\textbf{Synthetic anchor evaluation.}
+For synthetic stories, one story is treated as an anchor and the model must identify which of two alternatives is more structurally similar according to the structural similarity score.
+
+\textbf{SemEval evaluation.}
+For SemEval 2026-style triplets, the model selects whether text A or text B is closer to the anchor. For SemEval 2022 Task 8, we compute rank correlation between embedding cosine similarity and the human narrative similarity score.

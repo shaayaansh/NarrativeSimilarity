@@ -1,0 +1,48 @@
+checkpoints:
+  # directory containing epoch checkpoint folders
+  root: artifacts/e5_mistral_structural_finetune/checkpoints_mse_loss
+  # one of: all, or epoch number (e.g., 2, 5, 10)
+  which: 2
+  # glob inside root, keep default for mse-loss checkpoints
+  pattern: epoch_*_mse_loss
+
+tasks:
+  # default: all
+  # valid values: eval_pair_task, retrieval_task, ranking_task, semeval_2026_task,
+  #               semeval_2022_correlation_task, synthetic_task, all
+  run: synthetic_task
+
+data:
+  eval_pair_path: data/eval_data/eval_story_pairs_200.csv
+  retrieval_path: data/eval_data/retrieval_eval_df.csv
+  semeval_2022_path: data/eval_data/SemEval2022-Task8/semeval_2022_eval_data.csv
+
+  # synthetic version for synthetic_task
+  synthetic_version: v2
+  synthetic_v1_path: data/eval_data/synthetic_v1_anchor_eval_data.csv
+  synthetic_v2_path: data/eval_data/synthetic_v3_anchor_eval_data.csv
+  synthetic_v3_path: data/eval_data/synthetic_v3_anchor_eval_data.csv
+
+model:
+  max_length: 1024
+  hf_cache_dir: /scratch/shayan/hf_cache
+  use_bfloat16: true
+
+output:
+  dir: data/eval_results
+  filename: cli_eval_results_v2.json
+
+baselines:
+  # embedding baselines
+  run_embedding_baselines: true
+  baseline_roberta_model: roberta-base
+  baseline_bge_model: BAAI/bge-base-en-v1.5
+  baseline_untrained_e5_model: intfloat/e5-mistral-7b-instruct
+  baseline_storyemb_model: uhhlt/story-emb
+
+  # if true, run LLM baselines for selected tasks too
+  run_llm: false
+  # one of: gpt-5, gpt-5.4
+  llm_model: gpt-5
+  openai_key_path: openai_key.txt
+  llm_sleep_seconds: 0.05

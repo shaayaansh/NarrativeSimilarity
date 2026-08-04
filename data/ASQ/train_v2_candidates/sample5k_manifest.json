@@ -1,0 +1,15 @@
+{
+  "sample_size_per_class": 5000,
+  "random_seed": 42,
+  "chunk_size": 100000,
+  "base_dir": "/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates",
+  "positive_input": "/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates/asq_embedding_top20_positive_candidates.csv",
+  "negative_input": "/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates/asq_embedding_bottom20_negative_candidates.csv",
+  "positive_total_rows_seen": 45644255,
+  "negative_total_rows_seen": 45644202,
+  "positive_sample_rows": 5000,
+  "negative_sample_rows": 5000,
+  "positive_sample_output": "/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates/asq_embedding_top20_positive_candidates_sample5k.csv",
+  "negative_sample_output": "/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates/asq_embedding_bottom20_negative_candidates_sample5k.csv",
+  "combined_sample_output": "/scratch/shayan/Projects/NarrativeSimilarity/data/ASQ/train_v2_candidates/asq_embedding_train_v2_candidates_sample10k.csv"
+}

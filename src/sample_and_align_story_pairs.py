@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
 import json
 import random
 import re
@@ -58,6 +60,15 @@ def parse_args() -> argparse.Namespace:
         help="Output JSON path for alignment results.",
     )
     parser.add_argument(
+        "--pairs-path",
+        type=Path,
+        default=None,
+        help=(
+            "Optional CSV of preconstructed pairs. Uses story_id_a/story_id_b if present, "
+            "otherwise falls back to i/j indices into --events-path."
+        ),
+    )
+    parser.add_argument(
         "--num-pairs",
         type=int,
         default=2000,
@@ -72,14 +83,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model",
         type=str,
-        default="gpt-oss-120b",
-        help="SambaNova model name.",
+        default="gpt-5",
+        help="OpenAI model name.",
     )
     parser.add_argument(
         "--temperature",
         type=float,
-        default=0.0,
-        help="Sampling temperature for chat completion.",
+        default=None,
+        help="Optional sampling temperature. Omit for models that only support their default temperature.",
     )
     parser.add_argument(
         "--checkpoint-every",
@@ -143,19 +154,35 @@ def load_events(events_path: Path) -> List[Dict[str, Any]]:
 
 def load_client(project_root: Path):
     try:
-        from sambanova import SambaNova
+        from openai import OpenAI
     except Exception as exc:
         raise ImportError(
-            "Missing dependency 'sambanova'. Install it in your environment before running without --dry-run."
+            "Missing dependency 'openai'. Install it in your environment before running without --dry-run."
         ) from exc
 
-    key_path = project_root / "sambanova_key.txt"
+    key_path = project_root / "openai_key.txt"
     if not key_path.exists():
-        raise FileNotFoundError(f"SambaNova key file not found: {key_path}")
+        raise FileNotFoundError(f"OpenAI key file not found: {key_path}")
     api_key = key_path.read_text(encoding="utf-8").strip()
     if not api_key:
-        raise ValueError(f"SambaNova key file is empty: {key_path}")
-    return SambaNova(base_url="https://api.sambanova.ai/v1", api_key=api_key)
+        raise ValueError(f"OpenAI key file is empty: {key_path}")
+    return OpenAI(api_key=api_key)
+
+
+def extract_response_text(resp: Any) -> str:
+    text = getattr(resp, "output_text", None)
+    if text:
+        return str(text)
+    try:
+        parts = []
+        for item in getattr(resp, "output", []) or []:
+            for content in getattr(item, "content", []) or []:
+                value = getattr(content, "text", None)
+                if value:
+                    parts.append(str(value))
+        return "\n".join(parts)
+    except Exception:
+        return ""
 
 
 def parse_alignment_json(text: str) -> Dict[str, Any]:
@@ -245,6 +272,116 @@ def sample_unique_pairs(num_items: int, num_pairs: int, seed: int) -> List[Tuple
     return list(pair_set)
 
 
+def normalize_text_key(text: Any) -> str:
+    return " ".join(str(text or "").split())
+
+
+def text_to_events(text: Any) -> List[str]:
+    text_norm = normalize_text_key(text)
+    if not text_norm:
+        return []
+    sentences = [
+        s.strip()
+        for s in re.split(r"(?<=[.!?])\s+", text_norm)
+        if len(s.strip()) > 0
+    ]
+    return sentences if sentences else [text_norm]
+
+
+def make_csv_text_record(row_num: int, side: str, text: Any) -> Dict[str, Any]:
+    narrative = normalize_text_key(text)
+    if not narrative:
+        raise ValueError(f"Missing story_text_{side} on row {row_num}")
+    digest = hashlib.sha1(narrative.encode("utf-8")).hexdigest()[:12]
+    return {
+        "id": f"csv_text_{side}_{digest}",
+        "label": None,
+        "qn1": None,
+        "qn2": None,
+        "narrative": narrative,
+        "events": text_to_events(narrative),
+    }
+
+
+def load_pairs_from_csv(
+    pairs_path: Path, events_records: List[Dict[str, Any]]
+) -> Tuple[List[Dict[str, Any]], Dict[str, Dict[str, Any]]]:
+    id_to_record = {rec["id"]: rec for rec in events_records}
+    text_to_id: Dict[str, str] = {}
+    for rec in events_records:
+        key = normalize_text_key(rec.get("narrative"))
+        if key and key not in text_to_id:
+            text_to_id[key] = rec["id"]
+
+    pairs: List[Dict[str, Any]] = []
+    extra_records: Dict[str, Dict[str, Any]] = {}
+
+    def id_from_text_or_create(row: Dict[str, str], row_num: int, side: str) -> str:
+        key = normalize_text_key(row.get(f"story_text_{side}"))
+        if key in text_to_id:
+            return text_to_id[key]
+        rec = make_csv_text_record(row_num, side, key)
+        extra_records[rec["id"]] = rec
+        text_to_id[key] = rec["id"]
+        return rec["id"]
+
+    with open(pairs_path, "r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        fieldnames = set(reader.fieldnames or [])
+        has_ids = {"story_id_a", "story_id_b"}.issubset(fieldnames)
+        has_indices = {"i", "j"}.issubset(fieldnames)
+        has_text = {"story_text_a", "story_text_b"}.issubset(fieldnames)
+        if not has_ids and not has_indices and not has_text:
+            raise ValueError(
+                f"{pairs_path} must contain story_id_a/story_id_b, i/j, or story_text_a/story_text_b columns."
+            )
+
+        for row_num, row in enumerate(reader, start=2):
+            try:
+                if has_ids and row.get("story_id_a") and row.get("story_id_b"):
+                    a_id = str(row["story_id_a"])
+                    b_id = str(row["story_id_b"])
+                elif has_indices:
+                    i = int(row["i"])
+                    j = int(row["j"])
+                    if 0 <= i < len(events_records) and 0 <= j < len(events_records):
+                        a_id = events_records[i]["id"]
+                        b_id = events_records[j]["id"]
+                    elif has_text:
+                        a_id = id_from_text_or_create(row, row_num, "a")
+                        b_id = id_from_text_or_create(row, row_num, "b")
+                    else:
+                        raise IndexError(
+                            f"i/j out of range for events file with {len(events_records)} records: i={i}, j={j}"
+                        )
+                else:
+                    a_id = id_from_text_or_create(row, row_num, "a")
+                    b_id = id_from_text_or_create(row, row_num, "b")
+            except Exception as exc:
+                raise ValueError(f"Could not parse pair row {row_num} in {pairs_path}: {row}") from exc
+
+            if a_id not in id_to_record and a_id not in extra_records:
+                raise KeyError(f"story_id_a={a_id!r} from row {row_num} not found in events file")
+            if b_id not in id_to_record and b_id not in extra_records:
+                raise KeyError(f"story_id_b={b_id!r} from row {row_num} not found in events file")
+
+            pair_id = row.get("pair_id") or f"{a_id}__{b_id}"
+            pairs.append(
+                {
+                    "pair_id": str(pair_id),
+                    "a_id": a_id,
+                    "b_id": b_id,
+                    "pair_metadata": {
+                        k: v
+                        for k, v in row.items()
+                        if k not in {"story_text_a", "story_text_b"}
+                    },
+                }
+            )
+
+    return pairs, extra_records
+
+
 def read_existing_results(out_path: Path) -> List[Dict[str, Any]]:
     if not out_path.exists():
         return []
@@ -267,16 +404,29 @@ def main() -> None:
 
     events_path = resolve_path(args.events_path, project_root)
     out_path = resolve_path(args.out_path, project_root)
+    pairs_path = resolve_path(args.pairs_path, project_root) if args.pairs_path else None
 
     events_records = load_events(events_path)
     id_to_record = {rec["id"]: rec for rec in events_records}
 
-    sampled_index_pairs = sample_unique_pairs(
-        num_items=len(events_records), num_pairs=args.num_pairs, seed=args.seed
-    )
-    sampled_pairs: List[Tuple[str, str]] = [
-        (events_records[i]["id"], events_records[j]["id"]) for i, j in sampled_index_pairs
-    ]
+    if pairs_path is not None:
+        sampled_pairs, extra_records = load_pairs_from_csv(pairs_path, events_records)
+        id_to_record.update(extra_records)
+        pair_source = str(pairs_path)
+    else:
+        sampled_index_pairs = sample_unique_pairs(
+            num_items=len(events_records), num_pairs=args.num_pairs, seed=args.seed
+        )
+        sampled_pairs = [
+            {
+                "pair_id": f"{events_records[i]['id']}__{events_records[j]['id']}",
+                "a_id": events_records[i]["id"],
+                "b_id": events_records[j]["id"],
+                "pair_metadata": {},
+            }
+            for i, j in sampled_index_pairs
+        ]
+        pair_source = f"random(num_pairs={args.num_pairs}, seed={args.seed})"
 
     existing_results = read_existing_results(out_path)
     done_pair_ids = {
@@ -286,14 +436,15 @@ def main() -> None:
     }
 
     worklist = []
-    for a_id, b_id in sampled_pairs:
-        pair_id = f"{a_id}__{b_id}"
+    for pair in sampled_pairs:
+        pair_id = pair["pair_id"]
         if pair_id in done_pair_ids:
             continue
-        worklist.append((pair_id, a_id, b_id))
+        worklist.append(pair)
 
     print(f"Events loaded: {len(events_records)} from {events_path}")
-    print(f"Target sampled pairs: {len(sampled_pairs)} (seed={args.seed})")
+    print(f"Pair source: {pair_source}")
+    print(f"Target sampled pairs: {len(sampled_pairs)}")
     print(f"Existing results in file: {len(existing_results)}")
     print(f"Remaining pairs to process this run: {len(worklist)}")
     print(f"Output file: {out_path}")
@@ -302,7 +453,12 @@ def main() -> None:
     results = existing_results.copy()
 
     processed = 0
-    for pair_id, a_id, b_id in worklist:
+    for pair in worklist:
+        pair_id = pair["pair_id"]
+        a_id = pair["a_id"]
+        b_id = pair["b_id"]
+        pair_metadata = pair.get("pair_metadata") or {}
+
         rec_a = id_to_record[a_id]
         rec_b = id_to_record[b_id]
 
@@ -314,15 +470,18 @@ def main() -> None:
         else:
             user_prompt = build_user_prompt(rec_a["events"], rec_b["events"])
             try:
-                resp = client.chat.completions.create(
-                    model=args.model,
-                    messages=[
+                request_kwargs = {
+                    "model": args.model,
+                    "input": [
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": user_prompt},
                     ],
-                    temperature=args.temperature,
-                )
-                raw = resp.choices[0].message.content
+                }
+                if args.temperature is not None:
+                    request_kwargs["temperature"] = args.temperature
+
+                resp = client.responses.create(**request_kwargs)
+                raw = extract_response_text(resp)
                 parsed = parse_alignment_json(raw)
                 alignment = normalize_alignment(parsed)
                 ok = True
@@ -358,6 +517,7 @@ def main() -> None:
                 "error": error,
                 "model": args.model,
                 "temperature": args.temperature,
+                "pair_metadata": pair_metadata,
             }
         )
 

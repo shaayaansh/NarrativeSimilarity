@@ -1,0 +1,25 @@
+metric,metric_name,our_model,baseline_model,n_paired_examples,test_name,test_statistic,p_value,difference,difference_ci_low,difference_ci_high,difference_ci_95,significant_alpha_0_05,mcnemar_table,our_spearman,baseline_spearman,model_score_correlation
+pairwise_gap,Pairwise separation gap,E5-Mistral+MSE,bge_base,200,paired bootstrap gap difference,0.2805452989973128,0.0,0.2805452989973128,0.2536124417961487,0.3069855392765669,"[0.2536, 0.3070]",True,,,,
+pairwise_gap,Pairwise separation gap,E5-Mistral+MSE,e5_untrained,200,paired bootstrap gap difference,0.26447793925181023,0.0,0.26447793925181023,0.24065283088738862,0.28839603443063855,"[0.2407, 0.2884]",True,,,,
+pairwise_gap,Pairwise separation gap,E5-Mistral+MSE,roberta_base,200,paired bootstrap gap difference,0.41999190831556915,0.0,0.41999190831556915,0.3897538437119278,0.45051612938374536,"[0.3898, 0.4505]",True,,,,
+pairwise_gap,Pairwise separation gap,E5-Mistral+MSE,story_emb,200,paired bootstrap gap difference,0.2552727212943136,0.0,0.2552727212943136,0.23133359627811972,0.2791384015992648,"[0.2313, 0.2791]",True,,,,
+ranking_ndcg,Ranking nDCG,E5-Mistral+MSE,bge_base,199,Wilcoxon signed-rank test,4606.0,2.5860636792970055e-06,0.0165340961911834,,,,True,,,,
+ranking_ndcg,Ranking nDCG,E5-Mistral+MSE,e5_untrained,199,Wilcoxon signed-rank test,5432.5,0.14087634513008174,0.002839351837552906,,,,False,,,,
+ranking_ndcg,Ranking nDCG,E5-Mistral+MSE,roberta_base,199,Wilcoxon signed-rank test,1295.0,1.221101618180542e-24,0.06492479131420292,,,,True,,,,
+ranking_ndcg,Ranking nDCG,E5-Mistral+MSE,story_emb,199,Wilcoxon signed-rank test,5337.5,0.2556230108151403,0.0025872596760869726,,,,False,,,,
+retrieval_accuracy,Retrieval accuracy,E5-Mistral+MSE,bge_base,200,McNemar exact test,2.0,0.00022125244140625,,,,,True,"[[175, 2], [19, 4]]",,,
+retrieval_accuracy,Retrieval accuracy,E5-Mistral+MSE,e5_untrained,200,McNemar exact test,3.0,1.0,,,,,False,"[[191, 3], [3, 3]]",,,
+retrieval_accuracy,Retrieval accuracy,E5-Mistral+MSE,roberta_base,200,McNemar exact test,1.0,4.8467614016778965e-27,,,,,True,"[[100, 1], [94, 5]]",,,
+retrieval_accuracy,Retrieval accuracy,E5-Mistral+MSE,story_emb,200,McNemar exact test,2.0,0.453125,,,,,False,"[[189, 2], [5, 4]]",,,
+semeval_2022_spearman,SemEval 2022 Spearman,E5-Mistral+MSE,bge_base,90,Steiger dependent Spearman test,0.5127502871568256,0.6094254601077462,0.013240746981339369,,,,False,,-0.7234201372688069,-0.7366608842501463,0.9353171173395891
+semeval_2022_spearman,SemEval 2022 Spearman,E5-Mistral+MSE,e5_untrained,90,Steiger dependent Spearman test,-1.7443766307547337,0.08462512232725018,-0.03178284969231726,,,,False,,-0.7234201372688069,-0.6916372875764897,0.9696094168004279
+semeval_2022_spearman,SemEval 2022 Spearman,E5-Mistral+MSE,roberta_base,90,Steiger dependent Spearman test,-7.09748738870748,3.242751637633597e-10,-0.5621796977398432,,,,True,,-0.7234201372688069,-0.16124043952896375,0.4238630283574104
+semeval_2022_spearman,SemEval 2022 Spearman,E5-Mistral+MSE,story_emb,90,Steiger dependent Spearman test,-1.8190575050626627,0.07234298134207136,-0.038264157412654654,,,,False,,-0.7234201372688069,-0.6851559798561523,0.9595505617977529
+semeval_2026_accuracy,SemEval 2026 accuracy,E5-Mistral+MSE,bge_base,200,McNemar exact test,29.0,0.7981526273057179,,,,,False,"[[94, 29], [32, 45]]",,,
+semeval_2026_accuracy,SemEval 2026 accuracy,E5-Mistral+MSE,e5_untrained,200,McNemar exact test,17.0,0.1351564508456704,,,,,False,"[[98, 17], [28, 57]]",,,
+semeval_2026_accuracy,SemEval 2026 accuracy,E5-Mistral+MSE,roberta_base,200,McNemar exact test,34.0,0.009547810466077417,,,,,True,"[[66, 34], [60, 40]]",,,
+semeval_2026_accuracy,SemEval 2026 accuracy,E5-Mistral+MSE,story_emb,200,McNemar exact test,21.0,0.13367423536410522,,,,,False,"[[93, 21], [33, 53]]",,,
+synthetic_accuracy,Synthetic accuracy,E5-Mistral+MSE,bge_base,20,McNemar exact test,2.0,1.0,,,,,False,"[[7, 2], [2, 9]]",,,
+synthetic_accuracy,Synthetic accuracy,E5-Mistral+MSE,e5_untrained,20,McNemar exact test,2.0,1.0,,,,,False,"[[7, 2], [2, 9]]",,,
+synthetic_accuracy,Synthetic accuracy,E5-Mistral+MSE,roberta_base,20,McNemar exact test,2.0,0.453125,,,,,False,"[[4, 2], [5, 9]]",,,
+synthetic_accuracy,Synthetic accuracy,E5-Mistral+MSE,story_emb,20,McNemar exact test,2.0,1.0,,,,,False,"[[6, 2], [3, 9]]",,,

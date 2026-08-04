@@ -1,0 +1,66 @@
+\section{Results}
+
+\subsection{Embedding Checkpoint and Baseline Comparison}
+
+Table~\ref{tab:embedding-baseline-comparison} compares the v2 structural MSE checkpoint against the embedding baselines available in the saved evaluation run. We report the pairwise cosine separation gap, retrieval accuracy, ranking nDCG, SemEval 2026 triplet accuracy, synthetic anchor-comparison accuracy, and correlation with SemEval 2022 NAR scores. GPT-5 is included where we have a directly comparable prompt-based result.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Model & Pair gap & Ret. acc. & Rank nDCG & Syn. acc. & S26 acc. & S22 $\rho$ & S22 $r$ \\
+\midrule
+BGE-base & 0.146 & 0.885 & 0.962 & 0.450 & 0.615 & -0.737 & -0.745 \\
+E5-Mistral & 0.162 & 0.970 & 0.975 & 0.450 & 0.575 & -0.692 & -0.624 \\
+RoBERTa-base & 0.007 & 0.505 & 0.913 & 0.300 & 0.500 & -0.161 & -0.137 \\
+StoryEmb & 0.172 & 0.955 & 0.976 & 0.400 & 0.570 & -0.685 & -0.634 \\
+\textbf{E5-Mistral+MSE v2 e1} & \textbf{0.427} & \textbf{0.970} & \textbf{0.978} & 0.450 & \textbf{0.630} & -0.723 & -0.712 \\
+GPT-5 / GPT-5.4 & -- & -- & -- & \textbf{0.750} & \textbf{0.720} & -- & -- \\
+\bottomrule
+\end{tabular}
+\caption{Checkpoint and baseline comparison from the evaluation pipeline. Pair gap is the mean cosine similarity of positive pairs minus the mean cosine similarity of negative pairs. Ret. acc. is five-way retrieval accuracy. Syn. acc. is synthetic anchor-comparison accuracy. S26 acc. is SemEval 2026 Task 4 triplet accuracy. S22 $\rho$ and S22 $r$ are Spearman and Pearson correlations between embedding cosine similarity and SemEval 2022 NAR scores. GPT-5 is not an embedding model, so cosine-based and retrieval-indexing metrics are not directly applicable.}
+\label{tab:embedding-baseline-comparison}
+\end{table*}
+
+The v2 structural MSE checkpoint gives the strongest embedding-based pairwise separation, increasing the positive-negative cosine gap from 0.172 for the strongest baseline to 0.427. It also matches the best retrieval accuracy among embedding models, slightly improves ranking nDCG, and obtains the best embedding-based SemEval 2026 triplet accuracy. The SemEval 2022 news-article correlation remains negative across all embedding models, suggesting that this external NAR score may capture a different or differently oriented notion of narrative similarity than the story-structure signal used for training. GPT-5 gives the strongest available direct-judgment performance on SemEval 2026 and the synthetic anchor task, but those scores require full prompt-time comparison rather than reusable embeddings.
+
+\subsection{LLM Structural Scoring on Movie Remakes}
+
+Table~\ref{tab:movie-llm-scores} reports GPT-5 structural similarity scores on the Movie Remakes evaluation subset. The LLM assigns substantially higher scores to positive pairs than to random negative pairs, indicating that the prompt captures a clear structural distinction between related and unrelated movie narratives.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Pair type & $n$ & Mean & Std. & Min & Max \\
+\midrule
+Positive & 50 & 7.80 & 2.12 & 2 & 10 \\
+Random negative & 49 & 2.27 & 0.76 & 1 & 4 \\
+\bottomrule
+\end{tabular}
+\caption{GPT-5 structural similarity scores on Movie Remakes pairs. Scores are on a 1--10 scale, where larger values indicate greater structural similarity. One negative pair was excluded because it did not receive a valid score.}
+\label{tab:movie-llm-scores}
+\end{table}
+
+\subsection{Agreement Between GPT-5 and the Structural Scorer}
+
+We further compare GPT-5 scores against our structural similarity model on 1,000 randomly sampled ASQ story pairs. The LLM scores are discrete ratings from 1 to 10, while the structural model produces continuous calibrated scores. We therefore report both Pearson correlation, which measures linear association, and Spearman correlation, which measures rank-level monotonic agreement.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Comparison & $n$ & Correlation & $p$-value \\
+\midrule
+Pearson $r$ & 1000 & 0.138 & $1.16\times10^{-5}$ \\
+Spearman $\rho$ & 1000 & 0.136 & $1.65\times10^{-5}$ \\
+\bottomrule
+\end{tabular}
+\caption{Correlation between GPT-5 structural similarity ratings and structural model scores on ASQ random story pairs.}
+\label{tab:asq-llm-correlation}
+\end{table}
+
+The Movie Remakes results suggest that GPT-5 can distinguish positive from random negative story pairs when asked to focus on event progression and narrative structure. However, the ASQ correlation analysis shows only weak agreement between GPT-5 and the calibrated structural scorer on randomly sampled personal narratives. This suggests that LLM judgments and the structural scorer may capture overlapping but non-identical notions of narrative similarity, motivating direct evaluation of trained embeddings rather than assuming LLM scores are a perfect proxy for the target signal.

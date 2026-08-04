@@ -1,0 +1,35 @@
+\section{Datasets}
+
+\subsection{Training Data: ASQ Pair Set}
+
+We use ASQ-derived story pairs as the primary unlabeled pool for pseudo-label generation and embedding training. Pair-level structural scores are produced by the structural teacher model after obtaining alignments, yielding scalable supervision without requiring dense human annotations for all pairs.
+
+\subsection{Evaluation Data}
+
+\subsubsection{Movie Remakes}
+
+Movie Remakes provides naturally paired narratives that describe similar underlying plots with variation in style and detail. We construct balanced evaluation sets with positive pairs (retellings/remakes) and random negatives, and evaluate both pairwise similarity separation and retrieval behavior.
+
+\subsubsection{Tell Me Again}
+
+Tell Me Again includes multiple retellings of the same source stories. For evaluation stability, we restrict sampling to English stories and build both pairwise and retrieval-style test sets. This dataset tests whether the model captures shared event progression despite paraphrastic variation.
+
+\subsubsection{Synthetic Stories (v1/v2)}
+
+We also evaluate on controlled synthetic narratives. Each theme includes core events and three generated stories ($\text{story}_1,\text{story}_2,\text{story}_3$). Data generation explicitly enforces chronological coherence and event-level separability. In \texttt{synthetic\_stories\_v2}, generation instructions specify that:
+\begin{itemize}
+    \item all stories cover the same scenario and core events,
+    \item one event per sentence is preferred,
+    \item direct phrase copying is discouraged,
+    \item \texttt{story\_2} is intended to be most similar to \texttt{story\_1}, while \texttt{story\_3} introduces stronger structural differences.
+\end{itemize}
+
+This setup provides a controlled benchmark for anchor-based structural ranking.
+
+\subsubsection{SemEval 2026 Task 4}
+
+We include the development split of SemEval 2026 Task 4 as an external triplet-style evaluation. Each example contains an anchor text and two candidates, \texttt{text\_a} and \texttt{text\_b}, with a binary label indicating whether \texttt{text\_a} is closer to the anchor. This format directly tests whether cosine similarity in the embedding space selects the candidate that is judged closer to the anchor.
+
+\subsubsection{SemEval 2022 Task 8}
+
+We also evaluate on SemEval 2022 Task 8, a multilingual news article similarity benchmark annotated along several dimensions, including narrative similarity~\cite{chen2022semeval}. Because the released data primarily contains URLs and annotation scores, we construct an English--English subset with scraped article text and retain the \textsc{NAR} score as the human narrative-similarity target. This evaluation tests whether embedding cosine similarity correlates with human judgments of narrative schema similarity in news articles.

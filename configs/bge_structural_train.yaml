@@ -1,0 +1,49 @@
+data:
+  scores_path: data/Alignment/asq_embedding_train_v2_sample10k_pair_structural_scores.json
+  alignments_path: data/Alignment/asq_embedding_train_v2_sample10k_story_pair_alignments.json
+  output_dir: artifacts/bge_base_structural_finetune
+
+model:
+  model_family: bge
+  model_name: BAAI/bge-base-en-v1.5
+  story_prefix: ""
+  max_length: 512
+  use_bfloat16: true
+  hf_cache_dir: /scratch/shayan/hf_cache
+
+training:
+  # one of: infonce, contrastive_mse
+  loss_type: infonce
+  seed: 42
+  train_frac: 0.9
+  batch_size: 8
+  num_epochs: 20
+  lr: 1e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  grad_accum_steps: 8
+  max_grad_norm: 1.0
+  temperature: 0.05
+
+sampling:
+  # used for infonce triplet building: anchor + one positive + two negatives
+  positive_bins: [3]
+  negative_bins: [0, 1, 2]
+  negatives_per_anchor: 2
+  max_triplets_per_anchor: 4
+
+
+lora:
+  enabled: false
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  # Ignored when enabled=false. If enabled=true, auto maps model_family=bge -> query/key/value.
+  target_modules: auto
+
+logging:
+  eval_every_steps: 500
+
+checkpointing:
+  checkpoint_every_epochs: 2
+  resume_training: false
