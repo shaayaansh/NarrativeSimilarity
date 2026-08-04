@@ -2,7 +2,7 @@ checkpoints:
   # directory containing epoch checkpoint folders
   root: artifacts/e5_mistral_structural_finetune/checkpoints_mse_loss
   # one of: all, or epoch number (e.g., 2, 5, 10)
-  which: 1
+  which: 2
   # glob inside root, keep default for mse-loss checkpoints
   pattern: epoch_*_mse_loss
 
@@ -10,7 +10,7 @@ tasks:
   # default: all
   # valid values: eval_pair_task, retrieval_task, ranking_task, semeval_2026_task,
   #               semeval_2022_correlation_task, synthetic_task, all
-  run: all
+  run: synthetic_task
 
 data:
   eval_pair_path: data/eval_data/eval_story_pairs_200.csv
@@ -20,7 +20,8 @@ data:
   # synthetic version for synthetic_task
   synthetic_version: v2
   synthetic_v1_path: data/eval_data/synthetic_v1_anchor_eval_data.csv
-  synthetic_v2_path: data/eval_data/synthetic_v2_anchor_eval_data.csv
+  synthetic_v2_path: data/eval_data/synthetic_v3_anchor_eval_data.csv
+  synthetic_v3_path: data/eval_data/synthetic_v3_anchor_eval_data.csv
 
 model:
   max_length: 1024

@@ -1,0 +1,5 @@
+metric,metric_name,our_model,baseline_model,n_paired_examples,test_name,test_statistic,p_value,difference,significant_alpha_0_05,our_spearman,baseline_spearman,model_score_correlation,mcnemar_table,difference_ci_low,difference_ci_high,difference_ci_95
+ranking_ndcg,Ranking nDCG,E5-Mistral+MSE,gpt-5.4,199,Wilcoxon signed-rank test,3051.0,3.216969459114562e-11,-0.011176375849098807,True,,,,,,,
+semeval_2022_spearman,SemEval 2022 Spearman,E5-Mistral+MSE,gpt-5.4,90,Steiger dependent Spearman test,0.8405145888505898,0.4029240072929995,0.03157653992210818,False,-0.7234201372688069,-0.7549966771909151,0.8499879061493877,,,,
+semeval_2026_accuracy,SemEval 2026 accuracy,E5-Mistral+MSE,gpt-5.4,200,McNemar exact test,37.0,0.5764306261883931,-0.030000000000000027,False,,,,"[[89, 43], [37, 31]]",,,
+synthetic_accuracy,Synthetic accuracy,E5-Mistral+MSE,gpt-5.4,20,McNemar exact test,5.0,0.210113525390625,-0.3,False,,,,"[[4, 11], [5, 0]]",,,

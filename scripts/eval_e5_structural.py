@@ -129,8 +129,8 @@ def load_config(config_path: Path) -> EvalConfig:
     bad = [t for t in cfg.tasks if t not in VALID_TASKS]
     if bad:
         raise ValueError(f"Unknown tasks in config: {bad}. Valid: {sorted(VALID_TASKS)}")
-    if cfg.synthetic_version not in {"v1", "v2"}:
-        raise ValueError("data.synthetic_version must be v1 or v2")
+    if cfg.synthetic_version not in {"v1", "v2", "v3"}:
+        raise ValueError("data.synthetic_version must be v1 or v2 or v3")
 
     return cfg
 
